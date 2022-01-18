@@ -62,7 +62,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
 
   black을 install하면 알아서 고쳐준다. 
 
-  ![image-20220118134010509](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118134010509.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149901096-b70581bc-d3bf-4392-84e5-f66b654d07af.png)
 
   
 
@@ -80,7 +80,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
         print(word.strip())			# 좌, 우 공백 삭제
     ```
 
-    ![image-20220118170635019](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118170635019.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901143-ca8a4c1e-d463-48c0-95ca-e16860b3153a.png)
 
   - join
 
@@ -95,7 +95,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # ' '사이 문자를 추가하여 list의 각 원소들을 합침
     ```
 
-    ![image-20220118170911145](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118170911145.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901181-f9117a1d-5ed6-4690-9329-26869fa60689.png)
 
     
 
@@ -106,7 +106,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(result)
     ```
 
-    ![image-20220118170946546](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118170946546.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901287-87d79394-06f4-43a4-a59b-0f1d7a5132e5.png)
 
     
 
@@ -118,7 +118,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 이중 for문을 생각하면 된다. 
     ```
 
-    ![image-20220118171039084](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171039084.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901330-3b7f7af0-9fb9-43f2-afff-0cf561dec192.png)
 
     
 
@@ -134,7 +134,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # if else문일 경우 중간에
     ```
 
-    ![image-20220118171131959](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171131959.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901383-7b1b1a42-4329-474a-a475-8d2ff10e45e3.png)
 
     
 
@@ -149,7 +149,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # pprint는 세로로 출력
     ```
 
-    ![image-20220118171231732](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171231732.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901443-d9b63354-fa44-4d91-9ffb-7205776ec079.png)
 
     
 
@@ -161,7 +161,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print( (lambda x, y : x + y)(1,3) )
     ```
 
-    ![image-20220118171320570](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171320570.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901487-d55325f4-f02a-4017-b2e3-c8c64975a2f3.png)
 
     
 
@@ -170,7 +170,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(up_low("My Happy"))
     ```
 
-    ![image-20220118171404214](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171404214.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901535-05300e35-ae06-4e18-a46a-3af99232af38.png)
 
     
 
@@ -182,7 +182,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(list(map(f, example, example)))
     ```
 
-    ![image-20220118171422853](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171422853.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901571-74d205a9-c273-4e35-87c4-eb376910e10f.png)
 
     
 
@@ -195,7 +195,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 누적
     ```
 
-    ![image-20220118171511950](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171511950.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901624-2d7219ed-6921-4b4b-8f38-761d698fe097.png)
 
     
 
@@ -211,7 +211,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # next 함수를 통해서 불러올 수 있다. 
     ```
 
-    ![image-20220118171612140](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171612140.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901665-8d8b93cc-8021-4076-ac94-b15ff11f5dc6.png)
 
     
 
@@ -237,7 +237,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # list를 통한 출력
     ```
 
-    ![image-20220118171653730](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171653730.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901715-27d221aa-5deb-4655-988a-e83b4cfe0425.png)  
 
     ```python
     gen_ex = (n*n for n in range(500))
@@ -247,7 +247,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print( list(gen_ex) )
     ```
 
-    ![image-20220118171733496](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171733496.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901789-d67dcbdf-2f57-4675-87dc-019c438d0a40.png)
 
     
 
@@ -263,7 +263,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(asterisk_test(1,2,3,4,5))
     ```
 
-    ![image-20220118171848712](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171848712.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901836-db1b87a5-29fb-452f-8717-9113e314508a.png)
 
     ```python
     # 키워드 가변인자
@@ -273,7 +273,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     kwargs_test(first=1, second=2, third=3)
     ```
 
-    ![image-20220118171916942](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171916942.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901885-b3235ee1-cc55-475b-88eb-401bf067f218.png)  
 
     ```python
     def kwargs_test_1(one, two, *args, **kwargs):
@@ -284,7 +284,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 순서대로 인자를 전달하는 것이 중요하다. 
     ```
 
-    ![image-20220118171953952](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118171953952.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901925-274e63d2-0ba9-4b27-b669-c0a283112f76.png)
 
     
 
@@ -304,7 +304,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 함수 내부에 *args를 print하니 튜플이 unpack되어 3,4,5가 출력되는 것이다. 
     ```
 
-    ![image-20220118172144434](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118172144434.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149901993-51c6a569-b92b-4070-9f2d-f1bb5a65a136.png)
 
     ```python
     data = [[1,2],[3,4]]
@@ -326,7 +326,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
         print(value)
     ```
 
-    ![image-20220118172346856](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118172346856.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902034-eb0e02a6-1d90-4a72-9ecb-306027bfa679.png)
 
     
 
@@ -520,7 +520,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
 
     - 결과 
 
-    ![image-20220118132002239](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118132002239.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902209-9a521499-bd87-4934-977f-90a623399c5f.png)
 
   - strip
 
@@ -531,7 +531,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print( text.rstrip('.com'))			# 후행 문자에서 문자제거
     ```
 
-    ![image-20220118123533354](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118123533354.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902246-e484f090-48ea-4804-8f61-995d2a0bdbf2.png)
 
 - **함수**
 
@@ -583,7 +583,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(a)
     ```
 
-    ![image-20220118134444151](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118134444151.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902298-db52343d-b4f6-4b4e-a15e-2524fa8794a7.png)
 
   - 큐 (queue)
 
@@ -595,7 +595,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(a)
     ```
 
-    ![image-20220118134603606](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118134603606.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902348-ae731ae4-d550-41c5-87a1-478c7288f530.png)
 
   - 튜플 (tuple)
 
@@ -614,7 +614,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     b = (1,)		# 튜플로 인식
     ```
 
-    ![image-20220118134734700](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118134734700.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902400-bc915a76-a0b1-4fd1-814c-606371dc725a.png)
 
   - 세트 (set)
 
@@ -652,7 +652,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(s3)
     ```
 
-    ![image-20220118135427507](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118135427507.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902447-6a651388-6807-4d9e-9b72-2743aae45a79.png)
 
   - 사전 (dictionary)
 
@@ -666,7 +666,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(code[1])
     ```
 
-    ![image-20220118135735985](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220118135735985.png)
+    ![image](https://user-images.githubusercontent.com/71866756/149902499-6c3a47e5-dc87-4d2b-bf6e-5b961b50e4e7.png)
 
     ```python
     import csv
