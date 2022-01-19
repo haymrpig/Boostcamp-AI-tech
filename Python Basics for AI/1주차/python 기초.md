@@ -384,11 +384,16 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
   - append, extend
 
     ```python
-    color = ['빨','주']
-    print( color.append('노') ) # 빨,주,노, 원래 변수 color에는 추가 x
+    color = ['빨강','주황']
+    color.append('초록')
+    print(color)
+    # append는 하나로 인식하여 초록을 넣음
+    # ['빨강', '주황', '초록']
     
-    color.extend('노')
-    print( color )	# 빨, 주, 노, 원래 color 변수에 추가
+    color.extend('노랑')
+    print(color)
+    # extend는 문자 하나씩 삽입
+    # ['빨강', '주황', '초록', '노', '랑']
     ```
 
   - remove, del
@@ -486,7 +491,6 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     	print( looper )		# 1,2,3,4,5
     ```
 
-  
   
   
 - **문자열 (string)**
@@ -723,7 +727,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     
     
     from collections import OrderedDict
-    # 원래는 dict이 정렬이 안되지만, 현재 python 3.6부터는 정렬이 되어서 필요가 없다. 
+    # 원래는 dict이 삽입된 순서대로 저장이 되지 않았다. 그래서 OrderedDict을 통해 삽입된 순서를 보장받았는데, python 3.6 이후부터는 일반 dict도 순서를 보장받아서 잘 쓰지 않는 모듈이다.  
     
     
     
@@ -747,5 +751,638 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     print(c.y, c[0])
     ```
 
+
+
+
+- **클래스와 객체**
+
+  `객체` : 속성 (Attribute, 변수)와 행동 (Action, 함수)을 가짐
+
+  `클래스` : 붕어빵틀
+
+  `인스턴스` : 붕어빵, 메모리에 저장되는 실제 구현체
+
+  `상속` : 부모클래스로부터 속성과 method를 물려받은 자식 클래스를 생성하는 것
+
+  `다형성 (polymorphism)` : 같은 이름의 메소드의 내부 로직을 다르게 작성하는 것
+
+   `가시성 (visibility)` : 객체의 정보를 볼 수 있는 레벨을 조절하는 것, 소스의 보호
+
+  `캡슐화/정보은닉 (information hiding)` : class 설계 시, 클래스 간 간섭/정보공유 최소화
+
+  
+
+  - 일등함수 / 일급 객체 (first-class objects)
+
+    변수나 데이터 구조에 할당이 가능한 객체
+
+    parameter로 전달이 가능 + 리턴 값으로 사용가능
+
+    파이썬의 함수는 모두 일급함수이다.
+
+    ex) map(func, sample)에서 func는 함수로 map의 parameter로 전달이 가능하다. 
+
+    ```python
+    def square(x):
+        return x*x
+    
+    f = square
+    
+    print(f(5))		# 25 반환
+    ```
+
     
 
+  - inner function
+
+    함수를 return함으로 비슷한 목적을 가진 함수들을 하나로 만들 수 있다. (parameter만 조정하여)
+
+    ```python
+    def print_msg(msg):
+        def printer():
+            print(msg)
+        return printer
+    
+    another = print_msg("hello")
+    another()
+    # hello 출력
+    ```
+
+    
+
+  - decorator
+
+    ```python
+    def star(func):
+        def inner(*args, **kwargs):
+            print(args[1]*30)
+            func(*args, **kwargs)
+            print(args[1]*30)
+        return inner
+    
+    def percent(func):
+        def inner(*args, **kwargs):
+            print(args[2]*30)
+            func(*args, **kwargs)
+            print(args[2]*30)
+        return inner
+    
+    @star
+    @percent
+    def printer(msg, *args):
+        print(msg)
+              
+    printer("Hello", "*", "%")
+    
+    # *************************
+    # %%%%%%%%%%%%%%%%%%%%%%%%%
+    # Hello
+    # %%%%%%%%%%%%%%%%%%%%%%%%%
+    # *************************
+    # 위 예시처럼 decorator를 통해 앞뒤로 꾸며줄 수가 있다. 
+    ```
+
+
+
+- **모듈, 패키지**
+
+  `pycache` : 폴더를 로딩할 때(import), 더 빠르게 로드하기 위해 미리 컴파일 된 파일
+
+  - Alias
+
+    ```python
+    import numpy as np
+    ```
+
+  - 특정 함수, 클래스 호출
+
+    ```python
+    from PIL import Image
+    ```
+
+  - 모듈에서 모든 함수 또는 클래스 호출하기
+
+    ```python
+    from numpy import *
+    ```
+
+  - built-in module
+
+    `random` : 난수 생성하는 모듈
+
+    `time` : 시간 관련 모듈
+
+
+
+- **예외처리 (Exception Handling)**
+
+  - try, except, else, finally
+
+    ```python
+    a=[1,2,3]
+    for i in range(10):
+        try:
+            print(f'i : {i}, answer : {10//i}')
+            print(a[i])
+        except ZeroDivisionError as err:
+            print(err)
+        
+        except IndexError as err:
+            print(err)
+        
+        # 아래는 권장되지 않는다. 만약 에러가 발생하였을 시 위치를 찾기 어렵기 때문에
+        except Exception as err:
+            print(err)
+        
+        # 에러가 없을 시 출력됨
+        else:
+            print("else")
+        
+        # 항상 출력됨
+        finally:
+            print("final")
+    ```
+
+    
+
+  ![image-20220119185937529](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119185937529.png)
+
+  - raise
+
+    ```python
+    sample = [1,2,'a',3,4,5]
+    
+    for num in sample:
+        if num not in [1,2,3,4,5]:
+            raise ValueError("숫자가 아닙니다.")
+        print(f'숫자는 {num}')
+    # 강제로 error 발생시키기
+    ```
+
+    ![image-20220119190521677](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119190521677.png)
+
+    
+
+  - assert
+
+    ```python
+    sample = [1,2,'a',3,4,5]
+    
+    for num in sample:
+        assert isinstance(num, int)
+    # 조건에 맞지 않으면, 즉 False이면 AssertionError를 띄운다. 
+    ```
+
+    ![image-20220119190628532](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119190628532.png)
+
+  
+
+- **파일**
+
+  `binary file` : 컴퓨터만 이해할 수 있는 형태인 이진 형식으로 저장된 파일 (엑셀, 워드 등등)
+
+  `text file` : 문자열 형식(ASCII, Unicode)으로 저장된 파일 (파이썬 코드 파일, HTML 파일 등등)
+
+  - open, close
+
+    ```python
+    f = open("hi.txt", "r")
+    contents = f.read()
+    print(contents)
+    f.close()
+    ```
+
+  
+
+  - with open as
+
+    ```python
+    with open("hi.txt", "r") as my_file:
+        contents = my_file.read()
+        print(type(contents), contents)
+        # type : str
+    print(contents.split())
+    ```
+
+  
+
+  - readlines()
+
+    ```python
+    # 한 줄씩 읽어와서 list형태로 저장
+    # 메모리가 충분한 경우
+    with open("hi.txt", "r") as my_file:
+        contents = my_file.readlines()
+    print(contents, contents[0])
+    ```
+
+  
+
+  - readline()
+
+    ```python
+    # 한 줄씩 읽어옴
+    # 메모리가 부족한 경우
+    with open("hi.txt", "r") as my_file:
+        i = 0
+        while True:
+            line = my_file.readline()
+            if not line:
+                break
+            print( str(i) + " === " + line.replace("\n",""))
+            i += 1
+    # 반복문을 통해 파일의 끝까지 읽는다. 
+    # 한줄씩 읽을 경우, 마지막 개행문자까지 저장이 되기 때문에
+    # replace문을 이용하여 개행문자 제거
+    ```
+
+  
+
+  - file write (새로 쓰기)
+
+    ```python
+    with open("hi1.txt", "w", encoding="utf8") as file:
+        data = "hello my name is {}\n".format("hong")
+        file.write(data)
+    ```
+
+  
+
+  - file write (이어서 쓰기)
+
+    ```python
+    with open("hi1.txt", mode="a", encoding="utf8") as file:
+        data = "hello my name is {}\n".format("Lee")
+        file.write(data)
+    # 파일의 끝에 이어서 쓴다. 
+    ```
+
+  
+
+  - 디렉토리 생성/확인
+
+    ```python
+    import os
+    
+    os.mkdir("log")
+    # log라는 이름의 디렉토리 생성
+    
+    try:
+        os.mkdir("log")
+    except FileExistsError as e:
+        print(e)
+    # 폴더 존재 시 error 반환
+    
+    if os.path.exists("log"):
+        print("file exists")
+    ```
+
+  
+
+  - 파일 복사하기
+
+    ```python
+    import shutil
+    
+    source = "hi.txt"
+    dest = os.path.join("log", "dest.txt")
+    
+    shutil.copy(source, dest)
+    # 파일 복사
+    ```
+
+  
+
+  - 객체 형식으로 파일 다루기
+
+    ```python
+    import pathlib
+    pathlib.Path.cwd()
+    # 현재 위치한 디렉토리 출력
+    
+    cwd = pathlib.Path.cwd()
+    cwd.parent
+    # 현재 위치한 디렉토리의 상위 폴더 출력
+    
+    list(cwd.parents)
+    # 상위 폴더들을 list 형태로 출력
+    # cwd = "/content/log/hong"이면
+    # [PosixPath('/content/log'), PosixPath('/content'), PosixPath('/')] 출력
+    
+    list(cwd.glob('*'))
+    # 현재 경로 내의 모든 폴더를 list형태로 반환
+    # generator이기 때문에 list로 만듦
+    ```
+
+  
+
+  - Pickle
+
+    파이썬의 객체를 영속화 (persistence)하는 built-in 객체
+
+    데이터, object 등 실행중 정보를 저장 -> 불러와서 사용
+
+    pickle은 파이썬에 최적화된 binary file이다. 
+
+    ```python
+    import pickle
+    f = open("list.pickle", "wb")
+    test = [1,2,3,4,5]
+    pickle.dump(test,f) 
+    # file에 test를 저장
+    f.close()
+    
+    f = open("list.pickle", "rb")
+    test_pickle = pickle.load(f)
+    print(test_pickle)
+    f.close()
+    ```
+
+    위의 예에서의 list 뿐만이 아니라 class도 영속화 가능하다.
+
+    ```python
+    class Multiply():
+        def __init__(self, multiplier):
+            self.multiplier = multiplier
+    
+        def multiply(self, number):
+            return number * self.multiplier
+    multiply = Multiply(3)
+    multiply.multiply(100)
+    f = open("multiply_object.pickle", "wb")
+    pickle.dump(multiply, f)
+    f.close()
+    
+    f = open("multiply_object.pickle", "rb")
+    multi = pickle.load(f)
+    print(multi.multiply(100))
+    f.close()
+    ```
+
+  
+
+- **Logging**
+
+  ```python
+  import logging
+  
+  logger = logging.getLogger("main")
+  logging.basicConfig(level=logging.DEBUG)
+  logger.setLevel(logging.INFO)
+  
+  steam_handler = logging.FileHandler(
+      "my.log", mode="w", encoding="utf8")
+  logger.addHandler(steam_handler)
+  
+  # 개발 시점
+  logging.debug("틀림")
+  logging.info("확인")
+  
+  # 기본 설정은 여기부터 사용자가 정보를 확인할 수 있다. 
+  # 운영 시점
+  logging.warning("조심")
+  logging.error("에러")
+  logging.critical("망")
+  ```
+
+
+
+- **configparser file**
+
+  - config 파일 읽기
+
+    cofig 파일은 []로 이루어진 section과 나머지 key, value값으로 구성되어있다. 
+
+    ```python
+    import configparser
+    
+    config = configparser.ConfigParser()
+    print(config.sections())
+    # 읽은 파일이 없어 아무것도 출력되지 않는다. 
+    
+    config.read('example.cfg')
+    print(config.sections())
+    # example.cfg 파일에 있는 section 이름을 list로 가져온다. 
+    
+    for key in config['SectionOne']:
+        value = config['SectionOne'][key]
+        print("{0} : {1}".format(key,value))
+    
+    print(config['SectionTwo']["FavoriteColor"])
+    
+    ###########################################
+    # 모든 section에 대해 key, value값을 가져오기#
+    ###########################################
+    import configparser
+    
+    config = configparser.ConfigParser()
+    print(config.sections())
+    
+    config.read('example.cfg')
+    print(config.sections())
+    
+    for section in config.sections():
+        for key in config[section]:
+            value = config[section][key]
+            print("{0} : {1}".format(key,value))
+    
+    print(config['SectionTwo']["FavoriteColor"])
+    ```
+
+    
+
+  ![image-20220119204747914](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119204747914.png)
+
+  ![image-20220119204807255](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119204807255.png)
+
+  - config 파일 쓰기
+
+    ```python
+    import configparser
+    
+    config = configparser.ConfigParser()
+    
+    config['section1'] = {} # 섹션 만들기
+    config['section1']['batchsize']= '128'
+    config['section1']['epoch'] = '1000'
+    
+    config['section2'] = {}
+    config['section2']['lr'] = '0.001'
+    
+    with open("example2.cfg", "w") as f:
+        config.write(f)
+    ```
+
+    ![image-20220119205856380](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119205856380.png)
+
+
+
+- **argparser**
+
+  Console 창에서 프로그램 실행시 setting 정보를 저장하며 Command-line option이라고 부른다. 
+
+  ```python
+  import argparse
+  
+  parser = argparse.ArgumentParser(description='Sum two integers.')
+  
+  parser.add_argument(
+      '-a', "--a_value", 
+      dest="a", help="A integers", type=int,
+      required=True)
+  parser.add_argument(
+      '-b', "--b_value", 
+      dest="b", help="B integers", type=int,
+      required=True)
+  # 짧은 이름, 긴이름, 표시명, help 설명, argument type
+  args = parser.parse_args()
+  
+  print(args)
+  print(args.a)
+  print(args.b)
+  print(args.a + args.b)
+  ```
+
+  ![image-20220119210703521](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119210703521.png)
+
+  ![image-20220119210844658](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119210844658.png)
+
+  
+
+- **Data handling**
+
+  - CSV (Comma Separate Value)
+
+    `csv` : 필드를 쉼표로 구분한 텍스트 파일, 엑셀 양식의 데이터를 프로그램에 상관없이 쓰기 위한 데이터 형식 cf) TSV (탭), SSV (빈칸)
+
+    csv의 경우, file open으로 한줄씩 읽어오면서 split을 이용하여 처리할 수 있지만, 한글로 되어 있는 경우, 하나의 값 안에 ,가 있는 경우 따로 전처리를 해줘야해서 까다롭다. 
+
+    그래서 python에서 제공하는 csv객체를 사용한다. 
+
+    ```python
+    # csv example
+    import csv
+    reader = csv.reader(f, 
+    		delimiter=',',	 
+    		quotechar='"',
+    		quoting=csv.QUOTE_ALL
+    		)
+    # delimiter : 글자를 나누는 기준 (default = ,)
+    # lineterminator : 줄 바꿈 기준 (default = \r\n)
+    # quotechar : 문자열을 둘러싸는 신호 (default = ")
+    # quoting : 데이터 나누는 기준이 quotechar에 의해 둘러싸인 레벨 (default = QUOTE_MINIMAL)
+    ```
+
+    
+
+    ```python
+    import csv
+    
+    seoung_nam_data = []
+    header = []
+    rownum = 0
+    
+    with open("korea_floating_population_data.csv","r", encoding="cp949") as p_file:
+        # 한글이 utf8로 되어있지 않은 경우를 위해서 encoding을 cp949로 설정한다. 
+        
+        csv_data = csv.reader(p_file) 
+        #csv 객체를 이용해서 csv_data 읽기
+        
+        for row in csv_data: #읽어온 데이터를 한 줄씩 처리
+            if rownum == 0:
+                header = row #첫 번째 줄은 데이터 필드로 따로 저장
+                location = row[7]
+               #“행정구역”필드 데이터 추출, 한글 처리로 유니코드 데이터를 cp949로 변환
+                if location.find(u"성남시") != -1:
+                    # u는 unicode의 약자
+                    seoung_nam_data.append(row)
+             #”행정구역” 데이터에 성남시가 들어가 있으면 seoung_nam_data List에 추가
+                rownum +=1
+    with open("seoung_nam_floating_population_data.csv","w", encoding="utf8") as s_p_file:
+        writer = csv.writer(s_p_file, delimiter='\t', quotechar="'", quoting=csv.QUOTE_ALL)
+        # csv.writer를 사용해서 csv 파일 만들기 delimiter 필드 구분자
+        # quotechar는 필드 각 데이터는 묶는 문자, quoting는 묶는 범위
+        writer.writerow(header) #제목 필드 파일에 쓰기
+        for row in seoung_nam_data:
+            writer.writerow(row) #seoung_nam_data에 있는 정보 list에 쓰기
+    ```
+
+    
+
+  - Web
+
+    World Wide Web (WWW), 줄여서 웹이라고 부른다.
+
+    `HTML (Hyper Text Markup Language)` : 웹 상의 정보를 구조적으로 표현하기 위한 언어로, 제목, 단락, 링크 등의 요소를 표시하기 위해 Tag를 사용하고 트리 모양의 포함관계를 가진다. (모든 요소들은 <>로 둘러 쌓여 있다. )
+
+    ex) <title> Hello, World </title> =>제목 요소, 값은 Hello, World
+
+    
+
+  - 정규식 (regular expression)
+
+    정규식 연습장 (http://www.regexr.com/)
+
+    ```python
+    import re
+    import urllib.request
+    
+    url = "https://goo.gl/U7mSQl"
+    html = urllib.request.urlopen(url)
+    html_contents = str(html.read())
+    id_results = re.findall(r"([A-Za-z0-9]+\*\*\*)", html_contents)
+    
+    for result in id_results:
+    	print(result)
+    ```
+
+  
+
+  - XML
+
+    TAG와 TAG 사이에 값이 표시되고, 구조적인 정보를 표현할 수 있다. 
+
+    PC와 스마트폰 같은 이기종에 유용한 방식으로 사용되었다. 
+
+    BeautifulSoup과 lxml을 많이 쓴다. 
+
+    ```python
+    from bs4 import BeautifulSoup
+    
+    with open("books.xml", "r", encoding="utf8") as books_file:
+    	books_xml = books_file.read()
+    	
+    # xml 모듈을 사용하여 데이터를 분석한다.
+    soup = BeautifulSoup(books_xml, "lxml")
+    # author가 들어간 모든 element를 추출한다.
+    for book_info in soup.find_all("author"):
+    	print(book_info) 
+    	# TAG DATA TAG 형식으로 나온다.
+    	# <author>Carson</author>
+    	print(book_info.get_text())
+    	# Carson
+    ```
+
+    
+
+  - JSON (JavaScript Object Notation)
+
+    간결하고, 데이터 용량이 적다. 
+
+    dict type과 유사하며, key:value로 되어있어 dict type과 호환이 가능하다. 
+
+    ```python
+    import json
+    
+    with open("json_example.json", "r", encoding="utf8") as f:
+        contents = f.read()
+        json_data = json.loads(contents)
+        # dict type으로 읽어온다. 
+        # write의 경우는 json.dump(contents, f)
+        for employee in json_data["employees"]:
+    	    print(employee)
+            print(employee["lastname"])
+            # 내부적으로 또 dict로 되어있다. 
+    ```
+
+    
