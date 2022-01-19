@@ -905,7 +905,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
 
     
 
-  ![image-20220119185937529](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119185937529.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150141630-edf1d1ae-cf5a-4480-9382-280e249db82c.png)
 
   - raise
 
@@ -919,7 +919,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 강제로 error 발생시키기
     ```
 
-    ![image-20220119190521677](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119190521677.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150141682-41e207ce-9d02-4d08-9910-59fa98dbd9a4.png)
 
     
 
@@ -933,7 +933,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
     # 조건에 맞지 않으면, 즉 False이면 AssertionError를 띄운다. 
     ```
 
-    ![image-20220119190628532](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119190628532.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150141742-f21fd985-a157-49a4-a608-7c4812371ada.png)
 
   
 
@@ -1191,9 +1191,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
 
     
 
-  ![image-20220119204747914](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119204747914.png)
-
-  ![image-20220119204807255](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119204807255.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150141822-11ee997d-791d-4eb5-88d6-5623b8a961e3.png)  
 
   - config 파일 쓰기
 
@@ -1213,7 +1211,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
         config.write(f)
     ```
 
-    ![image-20220119205856380](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119205856380.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150141879-ebddfdbd-d7ac-4d03-91c4-8911e8101722.png)
 
 
 
@@ -1243,9 +1241,7 @@ os에서 파일을 저장하는 트리구조의 저장 체계이다.
   print(args.a + args.b)
   ```
 
-  ![image-20220119210703521](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119210703521.png)
-
-  ![image-20220119210844658](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220119210844658.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150141931-72d2d244-e259-46db-a48c-78e2cb22733a.png)
 
   
 
