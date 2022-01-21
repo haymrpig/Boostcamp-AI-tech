@@ -25,13 +25,7 @@
   ![image](https://user-images.githubusercontent.com/71866756/150506500-0c57ffd2-0e76-4dd0-a7ee-fd6d4133a21e.png)  
   역전파에서도 convolution 연산은 유지된다. 즉, 미분값에 convolution연산을 취해서 gradient를 구할 수 있는 것이다. (f는 커널, g는 input)
 
-<<<<<<< HEAD
-  EX)
-  $$
-  \frac {\partial L}{\partial w_i}=\sum_j\delta_jx_{i+j-1}
-  $$
-=======
+
   EX)  
   ![image](https://user-images.githubusercontent.com/71866756/150506558-bf16b1d4-4f3c-4de0-a763-def97fd53fcb.png)  
   
->>>>>>> f188b13977ce2e7f96fef1dba54667646d023ed7
