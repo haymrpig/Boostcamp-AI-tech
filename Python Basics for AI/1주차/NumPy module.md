@@ -270,7 +270,6 @@
     print( "newaxis로 행 생성 : ",a[np.newaxis, :] )
     ```
 
-<<<<<<< HEAD
     ![image-20220120190142113](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120190142113.png)
 
 - **boolean index, fancy index**
@@ -317,6 +316,5 @@
     ```
 
     
-=======
     ![image](https://user-images.githubusercontent.com/71866756/150508003-ca359d20-ac3f-4a2a-baf8-d295e991f024.png)
->>>>>>> f188b13977ce2e7f96fef1dba54667646d023ed7
+
