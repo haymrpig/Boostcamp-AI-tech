@@ -75,7 +75,7 @@
     # 시작 행을 적어줄 수 있으며, 정방행렬이 아니여도 된다. 
     ```
   
-    ![image-20220120184709426](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120184709426.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150507615-8069701c-04f8-4002-bd90-4d45a3ac3bfc.png)
   
   - diag()
   
@@ -201,7 +201,7 @@
     print( np.sqrt(sample) )
     ```
 
-    ![image-20220120185514245](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120185514245.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150507818-f651d9ea-3673-431f-9319-2470bf6efbe7.png)
 
   - dot()
 
@@ -258,7 +258,7 @@
 
     
 
-  ![image-20220120185829128](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120185829128.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150507935-54e71548-be5b-435d-9502-0c46c6a9fcf6.png)
 
   - newaxis
 
@@ -270,6 +270,7 @@
     print( "newaxis로 행 생성 : ",a[np.newaxis, :] )
     ```
 
+<<<<<<< HEAD
     ![image-20220120190142113](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120190142113.png)
 
 - **boolean index, fancy index**
@@ -316,3 +317,6 @@
     ```
 
     
+=======
+    ![image](https://user-images.githubusercontent.com/71866756/150508003-ca359d20-ac3f-4a2a-baf8-d295e991f024.png)
+>>>>>>> f188b13977ce2e7f96fef1dba54667646d023ed7

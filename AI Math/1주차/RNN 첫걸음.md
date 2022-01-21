@@ -4,52 +4,31 @@
 
 `시퀀스 데이터` : 독립된 정보들이 아닌 서로 종속적인 데이터로 event의 발생 순서가 중요하다. ex) 소리, 문자열, 주가 등
 
-- **조건부 확률을 이용한 시퀀스 데이터 다루기**
-  $$
-  \begin{aligned}
-  P(X_1, ... ,X_t)&=P(X_t|X_1,...,X_{t-1})P(X_1,...,X_{t-1})\\
-  &=P(X_t|X_1,...,X_{t-1})P(X_{t-1}|X_1,...,X_{t-2})P(X_1,...,X_{t-2})\\
-  &\quad\quad...\\
-  &=\Pi_{s=1}^tP(X_s|X_{s-1},...,X_1)
-  \end{aligned}
-  $$
-  여기서 수식으로는 이전 모든 정보를 이용하는 것처럼 보이지만, 실제 RNN에서는 모든 정보를 이용하진 않고, 몇 개의 과거 정보는 truncate하는 방법을 쓰기도 한다. 
-  $$
-  X_t\sim P(X_t|X_{t-1},...,X_1)\\
-  X_{t+1}\sim P(X_{t+1}|X_{t},...,X_1)\\
-  $$
+- **조건부 확률을 이용한 시퀀스 데이터 다루기**  
+  ![image](https://user-images.githubusercontent.com/71866756/150506715-354a0d58-4bc7-48ee-b840-9cb02f1d2276.png)  
+  여기서 수식으로는 이전 모든 정보를 이용하는 것처럼 보이지만, 실제 RNN에서는 모든 정보를 이용하진 않고, 몇 개의 과거 정보는 truncate하는 방법을 쓰기도 한다.   
+  ![image](https://user-images.githubusercontent.com/71866756/150506744-aa9badd1-3947-4ba4-9710-7c72362489bd.png)  
   위 식에서 볼 수 있듯이 시퀀스 **데이터의 길이**는 **가변적**이기 때문에, 가변적인 데이터를 다룰 수 있는 모델이 필요하다. 
 
-  - **자기회귀모델 (AR, Autoregressive Model)**
-    $$
-    AR(\tau)는 \;고정된\; 길이\; \tau만큼의 \;시퀀스만\; 사용한다.\\
-    즉\;위에서\; X_t 부터\; 일정길이만큼의\; 과거\; 정보만을\; 이용하는\; 것이다.
-    $$
+  - **자기회귀모델 (AR, Autoregressive Model)**  
+    ![image](https://user-images.githubusercontent.com/71866756/150506798-59727686-c857-4c46-a2a3-41248a9a4ea5.png)  
     이러한 타우는 hyper parameter이기 때문에, 적절한 값의 선택이 중요하다. 
 
      
 
   - **잠재 AR 모델 (RNN)** 
 
-    바로 이전 정보 외의 나머지 더 과거의 정보들을 하나의 잠재변수로 인코딩하는 모델이다. 
-    $$
-    즉,\; X_{t+1}\sim P(X_{t+1}|X_{t},...,X_1)에서\; X_t 이외의 \;것들을\; H_{t+1}로 \;묶는다.\\
-    H_t=Net_\theta(H_{t-1}, X_{t-1})
-    $$
+    바로 이전 정보 외의 나머지 더 과거의 정보들을 하나의 잠재변수로 인코딩하는 모델이다.   
+    ![image](https://user-images.githubusercontent.com/71866756/150506856-59660461-6450-4b74-ae6a-f5ac4dc11b94.png)  
 
 
 
 - **RNN 구조**
 
-  가장 기본적인 RNN 모형은 MLP와 유사하다.
+  가장 기본적인 RNN 모형은 MLP와 유사하다.  
 
-  
-  $$
-  O_t=H_tW^{(2)}+b^{(2)}\\
-  H_t=\sigma(X_tW_X^{(1)}+H_{t-1}W_H^{(1)}+b^{(1)})\\
-  (\quad W_X^{(1)}:1번\; layer의\; input \;X_t의\; 가중치\\
-  W_H^{(1)}:1번 \;layer의 \;이전\; 순서의\; 잠재변수를\; 다음\; 순서로\; encoding해주는 \;가중치\quad)\\
-  $$
+    
+  ![image](https://user-images.githubusercontent.com/71866756/150506919-5f8aa301-f02a-454f-a7d6-d0407b0d6217.png)  
   중요한 것은 W 가중치는 t에 따라서 변하지 않는다!!
 
   - **BPTT (Backpropagation Through Time)**
