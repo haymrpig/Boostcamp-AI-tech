@@ -37,4 +37,3 @@
   $$
   \frac {\partial L}{\partial w_i}=\sum_j\delta_jx_{i+j-1}
   $$
-  

@@ -143,7 +143,46 @@
     print( sample[:, :1] )	# [[1],[3]
     ```
 
-  
+  - all & any
+
+    ```python
+    import numpy as np
+    
+    sample = np.random.normal(1, 1, (2, 5))
+    print( sample )
+    print( np.all(sample > 0) )
+    print( np.any(sample > 0) )
+    ```
+
+  - where, isnan, isfinite
+
+    ```python
+    import numpy as np
+    
+    sample = np.random.normal(1, 1, (2, 5))
+    print( sample ) 
+    print( np.where(sample>1) )     # index값을 반환한다.
+                                    # 2차원의 경우 두개의 tuple로 x,y를 의미한다.
+    print( np.where(sample>0, 3, 2))    # True면 3을 False면 2를 대입
+    print( np.isnan(sample) )           # 숫자가 아니면 True
+    print( np.isfinite(sample) )        # 수렴하면 True
+    ```
+
+    ![image-20220121101455869](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220121101455869.png)
+
+  - argmax, argmin
+
+    ```python
+    import numpy as np
+    
+    sample = np.random.normal(1, 1, (2, 5))
+    print( sample ) 
+    print( np.argmax(sample) )  # index 반환
+    print( np.argmin(sample) )
+    print( sample.argsort(axis=1) )   # 각 행을 sort해서 index반환
+    ```
+
+    ![image-20220121101755006](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220121101755006.png)
 
 - **연산**
 
@@ -174,7 +213,32 @@
     print( sample.dot(sample2) )
     ```
 
+  - 비교 연산자
+
+    ```python
+    import numpy as np
     
+    sample = np.random.normal(1, 1, (2, 5))
+    print( sample )
+    print( sample > 4 )	# boolean
+    print( sample[sample > 0])	# value
+    ```
+
+    ![image-20220121095628234](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220121095628234.png)
+
+    
+
+  - logical_and
+
+    ```python
+    import numpy as np
+    
+    sample = np.random.normal(1, 1, (2, 5))
+    print( sample )
+    print( np.logical_and(sample>0, sample<3))
+    print( np.logical_or(sample>0, sample<3))
+    print( np.logical_not(sample>0))
+    ```
 
 - **concatenate**
 
@@ -207,3 +271,48 @@
     ```
 
     ![image-20220120190142113](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120190142113.png)
+
+- **boolean index, fancy index**
+
+  `boolean index` : boolean은 조건으로 true이면 반환하게 하는 것
+
+  ex) sample[sample>0]
+
+  `fancy index` : integer로 접근
+
+  ```python
+  a = np.array([1,2,3,4], float)
+  b = np.array([0,0,1,2,3,1], int)
+  print( a[b] )
+  print( a.take(b) )
+  
+  a = np.array([[1,2],[3,4]])
+  c = np.array([0,1,2,3,1,0],int)
+  print( a[b,c])	# (b,c)로 indexing
+  print( a[b] )	# 한 row씩 가져옴
+  ```
+
+- **numpy i/o**
+
+  - loadtxt, savetxt
+
+    ```python
+    sample = np.loadtxt("population.txt", delimiter='\t')
+    print( sample )
+    
+    sample_int = sample.astype(int)
+    print( sample_int )
+    
+    np.savetxt("int_data.csv", sample_int, fmt="%.2e", delimiter=",")
+    ```
+
+  - npy파일
+
+    ```python
+    np.save("npy_test", arr=sample_int)	# pickle형태
+    
+    sample = np.load(file="npy_test")
+    print( sample )
+    ```
+
+    
