@@ -18,23 +18,13 @@
 
   Ow = W-kw+1
 
-- **convolution 수식**
-  $$
-  [f*g](x)=\int_{R^d}f(z)g(x+z)dz=\int_{R^d}f(x+z)g(z)dz=[g*f](x)\\
-  이산의\; 경우는\; \int를\; \sum으로 \;바꾸면\; 된다.
-  $$
+- **convolution 수식**  
+  ![image](https://user-images.githubusercontent.com/71866756/150506353-392763de-6f75-435d-b79a-7e439ec766dc.png)  
 
-- **역전파에서의 convolution 연산**
-  $$
-  \begin{aligned}\frac{\partial}{\partial x}[f*g](x)&=\frac{\partial}{\partial x}\int_{R^d}f(z)g(x+z)dz\\
-  &=\int_{R^d}f(z)\frac{\partial g}{\partial x}(x+z)dz\\
-  &=[f*g'](x)
-  \end{aligned}
-  $$
+- **역전파에서의 convolution 연산**  
+  ![image](https://user-images.githubusercontent.com/71866756/150506500-0c57ffd2-0e76-4dd0-a7ee-fd6d4133a21e.png)  
   역전파에서도 convolution 연산은 유지된다. 즉, 미분값에 convolution연산을 취해서 gradient를 구할 수 있는 것이다. (f는 커널, g는 input)
 
-  EX)
-  $$
-  \frac {\partial L}{\partial w_i}=\sum_j\delta_jx_{i+j-1}
-  $$
+  EX)  
+  ![image](https://user-images.githubusercontent.com/71866756/150506558-bf16b1d4-4f3c-4de0-a763-def97fd53fcb.png)  
   
