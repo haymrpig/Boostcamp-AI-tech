@@ -268,13 +268,8 @@
     a = np.array([1,2])
     print( a[:, np.newaxis] )
     print( "newaxis로 행 생성 : ",a[np.newaxis, :] )
-    ```
-
-<<<<<<< HEAD
-![image-20220120190142113](../../../../../AppData/Roaming/Typora/typora-user-images/image-20220120190142113.png)
-=======
-    ![image](https://user-images.githubusercontent.com/71866756/150624299-b0b8cc60-9529-47a6-8c7e-0d986348cd37.png)
->>>>>>> afe53ca50279c8d60d607aa5e9eca16cc0cf33cc
+    ```  
+    ![image](https://user-images.githubusercontent.com/71866756/150632506-a8576f61-f142-44e5-8576-2414e5430bcc.png)  
 
 - **boolean index, fancy index**
 
@@ -318,10 +313,3 @@
     sample = np.load(file="npy_test.npy")
     print( sample )
     ```
-<<<<<<< HEAD
-=======
-
-    
-    ![image](https://user-images.githubusercontent.com/71866756/150508003-ca359d20-ac3f-4a2a-baf8-d295e991f024.png)
-
->>>>>>> afe53ca50279c8d60d607aa5e9eca16cc0cf33cc
