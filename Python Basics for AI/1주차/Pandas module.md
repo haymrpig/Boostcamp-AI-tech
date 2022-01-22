@@ -7,6 +7,8 @@
   
   data_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data'
   df_data = pd.read_csv(data_url, sep='\s+', header=None)
+  # header는 int로 0이면 0번째 줄을 header로 가져오고 뒤의 값들을 row로 가져온다. 
+  # 입력되는 값의 뒤의 data부터 row로 가져온다. 
   # sep은 구분자로, \s+은 정규표현식으로 띄어쓰기가 여러개라는 뜻이다. 
   ```
 
@@ -23,7 +25,8 @@
 - columns
 
   ```python
-  name = "a b c d e f g h i j k l m n".split()
+  #name = "a b c d e f g h i j k l m n".split()
+  name = list("abcdefghijklmn")
   df_data.columns = name
   # 리스트 형태로 column명을 지정해줄 수 있다. 
   
@@ -180,7 +183,7 @@
     
     df[[0,1,3]]	# index 0,1,3을 뽑음
     
-    df[df<3000] # 범위로 boolean으로 뽑음, index가 3000이하인 것 다 뽑음
+    df[df.index<3000] # 범위로 boolean으로 뽑음, index가 3000이하인 것 다 뽑음
     
     # index를 새로 할당
     df.index = df["account"]
@@ -231,6 +234,11 @@
     
     s1.add(s2, fill_value=0)
     # NaN값을 0으로 채운다. 
+    # 결과의 NaN이 아니라 합치기 이전에 겹치지 않는 index부분에 0을 채워주는 것이다. 
+    # 즉, 결과의 NaN이 0으로 대체되는 것이 아닌 합치기 이전의 index에 NaN부분이 될 row에 0을 채워준다. 
+    # 만약 s1의 0번째 index의 값이 1이고, s2의 0번째 index의 값이 없었다면
+    # s1.add(s2, fill_value=1)에서 s2의 0번째 index가 1이 되어 
+    # 결과의 0번 index는 1+1해서 2가 된다. 
     
     df.add(s2, axis=0)
     # row로 더함, broadcasting
@@ -392,7 +400,7 @@
     df.swaplevel().sort_index(level=0)
     # 0번 level의 index 기준으로 sort한다. 
     
-    df.sort_values()
+    df.sort_values(["age"])
     # default level 기준으로 sort
     
     df.sum(level=0)
@@ -407,7 +415,7 @@
     # grouped된 상태로 추출할 수 있음
     # generator 형태이다. 
     
-    for name, group in grouped:
+    for name, value in grouped:
     	print(name)	# 기준 그룹 이름
     	print(value) # 그룹된 value들
         
@@ -428,7 +436,7 @@
     ```python
     grouped.agg(sum)
     grouped.agg(max)
-    # 이게 같은 row가 아닐 수도 있다. 각 칼럼별로 계산됨
+    # 이게 결과가 같은 row가 아닐 수도 있다. 각 칼럼별로 계산됨
     grouped.agg(np.mean)
     grouped['Points'].agg([np.sum, np.mean, np.std])
     ```
