@@ -20,7 +20,7 @@
   # 값을 입력하면 그 개수만큼 가져온다. 
   ```
 
-  ![image-20220120155142934](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220120155142934.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150632298-f61c6767-d038-4b52-a8c5-c3964f84d68c.png)
 
 - columns
 
@@ -33,7 +33,7 @@
   df_data.head()
   ```
 
-  ![image-20220120155430740](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220120155430740.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150632308-b2d4d472-5c41-4ead-a94a-ea4908c07ffe.png)
 
 - values
 
@@ -42,7 +42,7 @@
   # 값은 numpy type으로 되어있다. 
   ```
 
-  ![image-20220120155526251](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220120155526251.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150632318-c6aad8b5-9bfb-4604-96b0-2aa6f278f3f8.png)
 
 - **Series**
 
