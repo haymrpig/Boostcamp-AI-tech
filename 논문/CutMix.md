@@ -377,7 +377,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   confidence의 제약을 줘서, 얼마 이상일 시 제대로 검출되었다고 판단하는 값
 
-- **AP (average precision) **
+- **AP (average precision)**
 
   보통 계산 전에 PR 곡선을 단조적으로 감소하는 그래프로 변경 후, 각 사각형의 면적을 계산한다.
 
