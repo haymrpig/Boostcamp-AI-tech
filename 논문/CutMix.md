@@ -28,9 +28,8 @@
 
 # 2. CutMix vs Other data augmentation 
 
-![image-20220124221431600](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124221431600.png)
+![image](https://user-images.githubusercontent.com/71866756/150806402-cec3fbcc-1c33-4f8c-94d4-7b5d5bd2d90b.png)
 
-![image-20220124223923619](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124223923619.png)
 
 ### CutMix
 
@@ -84,47 +83,26 @@
 
 ### Pseudo code
 
-![image-20220124222339749](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124222339749.png)
+![image](https://user-images.githubusercontent.com/71866756/150806494-a65d9295-82ca-4e3a-8d3e-4f7ede08f512.png)
 
 ### Expression
 
-![image-20220124222403970](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124222403970.png)
-$$
-x\in R^{W*H*C},\; y:label
-\\M\; :\; binary\; mask\;(crop\; 영역 \;pixel\; value\; :\; 0)\\
-\lambda\sim\beta(\alpha,\alpha)\\
-$$
-**현재 논문에서는 alpha값을 1로 두어 Unif(0,1) 분포로 샘플링한다.**
-$$
-\alpha=1일 \;때\; Unif(0,1)이\; 되는 \;증명)\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad \\
-X\sim Beta(\alpha, \beta)\\
-f_X(x)=\frac {1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}\\
-(0<x<1, \alpha,\beta >0)
-\\확률분포에\; 대한\; 확률분포이니깐\; x의\; 범위는\; 0부터\; 1\\
-B(\alpha, \beta)=\int_0^1x^{\alpha-1}(1-x)^{\beta-1}dx이므로\\
-Beta(1,1)=f_X(x)=\frac {1}{B(1,1)}=\frac {1}{1}=\frac {1}{1-0}=Unif(0,1)
-$$
+![image](https://user-images.githubusercontent.com/71866756/150806586-00bfcfcc-a4d2-4292-b6ab-18114f65bc34.png)  
+**현재 논문에서는 alpha값을 1로 두어 Unif(0,1) 분포로 샘플링한다.**  
+![image](https://user-images.githubusercontent.com/71866756/150806678-1aa0d9a2-bd61-44c2-9a52-0b75d9e8295e.png)  
 **alpha=1로 정한 실험적 배경)**
 
 왼쪽이 input image에 대한 CutMix, 오른쪽이 feature map 수준의 CutMix (0=image level, 1=after first conv-bn, 2=after layer1, 3=after layer2, 4=after layer3) 
 
 after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하지만, input image 적용이 제일 효과적
 
-![image-20220124231622747](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124231622747.png)
+![image](https://user-images.githubusercontent.com/71866756/150806763-2313a11e-dd66-4857-9893-5a01b2f18b04.png)
 
 - **CutMix Steps**
 
   - sample bbox B
 
-    ![image-20220124223301451](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124223301451.png)
-
-    ![image-20220124223340489](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124223340489.png)
-    $$
-    위\; 수식에서\; r_w,\; r_h가 \;각각\; W\sqrt{1-\lambda}, \;H\sqrt{1-\lambda}인 \;이유는\\
-    crop되는 \;영역의\; 비율을\; 1-\lambda로 \;맞추기\; 위함이다.\;(\frac{r_wr_h}{WH}=1-\lambda)
-    \\r_x,r_y : 자를\; 이미지\; 중앙좌표\\
-    r_w,r_h : 자를 \;이미지\; 너비,\; 높이
-    $$
+    ![image](https://user-images.githubusercontent.com/71866756/150806871-c139d3cc-835e-497a-ab87-03eb9b4105dd.png)  
     
 
 #  4. Results
@@ -171,9 +149,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
 - **Result**
 
-  ![image-20220124225826683](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124225826683.png)
-
-  ![image-20220124225830524](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124225830524.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150806976-0c1c4245-210b-410c-bd54-284eaa4d6bad.png)
 
   - ResNet-50 -> ResNet-101 (depth increase) : 1.99% 개선
   - ResNet-50 + CutMix : 2.28% 개선
@@ -204,9 +180,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
     keep-prob(0.9), block_size (4)
 
-    ![image-20220124230654460](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124230654460.png)
-
-    ![image-20220124230805634](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124230805634.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807095-c3fc1141-0112-4cdd-9c0d-cecb02fc4813.png)
 
     (dropout과 다르게 block단위로 drop, feat_size=feature map size, lambda=activation unit drop rate)
 
@@ -226,7 +200,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
     - x + aF(x) + (1-a)F(x) 구조라서 a가 0~1값으로 들어가기 때문에 x만 되는 경우는 없음
     - shake drop은 b_l=1이면 x+F(x), b_1=0이면 x+aF(x)라서 그냥 ResNet에도 적용가능
 
-    ![image-20220124231209076](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124231209076.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807331-1feab470-da27-41e6-ba4a-bf709710cacc.png)
 
     
 
@@ -245,13 +219,13 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
 - **Result**
 
-  ![image-20220124231027176](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124231027176.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150807384-f30d4d5f-8e2d-4794-84f0-e8d5a8d2f122.png)
 
   
 
 ### CutMix 방식에 따른 성능
 
-![image-20220124231848636](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124231848636.png)
+![image](https://user-images.githubusercontent.com/71866756/150807429-ce289be5-ad65-438b-bd0a-bef0fcb83b06.png)
 
 `Center Gaussian CutMix` : rx,ry를 평균이 image 중앙인 gaussian 분포
 
@@ -283,7 +257,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   feature map에서 어떤 부분이 activate 되는지에 따라 localization이 진행됨
 
-  ![image-20220124232335485](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124232335485.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150807485-35c8b1bc-19a4-4a4d-8635-6da9a15f2023.png)
 
 - **CutMix, MixUp, CutOut이 localization에 미치는 영향**
 
@@ -303,7 +277,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
 - **결과**
 
-  ![image-20220124232949379](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124232949379.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150807556-445af416-1496-444e-b401-0e9650f4c104.png)
 
 
 
@@ -325,7 +299,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
 - **결과**
 
-  ![image-20220124233715960](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124233715960.png)
+  ![image](https://user-images.githubusercontent.com/71866756/150807634-516e49b3-9d51-47b7-8c56-3e6def693985.png)
 
 
 
@@ -345,7 +319,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   - 결과
 
-    ![image-20220124234457042](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124234457042.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807714-fb5e7327-f3bb-4e47-86a3-d7399b84057b.png)
 
 - Occlusion
 
@@ -353,7 +327,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   - 결과
 
-    ![image-20220124234540798](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124234540798.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807783-bd7d10fe-b9c0-4437-91d0-b2a3cd674d95.png)
 
 - In-between
 
@@ -361,7 +335,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   - 결과
 
-    ![image-20220124234639353](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124234639353.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807854-9af554cc-c9bf-4c2c-b639-25481b18946b.png)
 
 - Out Of Distribution (OOD)
 
@@ -373,7 +347,7 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 
   - 결과
 
-    ![image-20220124234845576](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124234845576.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150807927-5a4a6c15-3155-4e31-beaf-9050e70edf30.png)
 
 
 
