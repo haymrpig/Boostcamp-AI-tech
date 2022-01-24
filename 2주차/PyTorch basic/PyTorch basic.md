@@ -597,43 +597,43 @@ sample = sample.to(device)
 
   - **ngroc 회원가입하기 (https://ngrok.com/)**
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124024346802.png" alt="image-20220124024346802"  />
+    ![image](https://user-images.githubusercontent.com/71866756/150808357-08255cc3-5847-46e7-9c68-3638b9da9d2f.png)
 
     -> 아래 토큰 복사 후, colab 접속
 
   - **colab에서 토큰 붙여넣기 & 비밀번호 설정 및 colab-ssh 설치**
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124024616078.png" alt="image-20220124024616078"  />
+    ![image](https://user-images.githubusercontent.com/71866756/150808415-18dbf641-4687-4d6f-85e6-9c8420f1ccf3.png)
 
   - **ssh launch하기**
 
-    ![image-20220124024807114](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124024807114.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808471-08a9f65f-5992-4628-816b-311e3500c629.png)
 
   - **local에서 vscode 실행 후, remote ssh 설치**
 
-    ![image-20220124025025488](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025025488.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808523-b66ec4fc-89a8-4ee3-a209-d5f64a1c2225.png)
 
   - **ctrl+shift+p로 Remote-SSH:Add 검색**
 
-    ![image-20220124025423810](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025423810.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808562-19d69bad-38ae-485a-a044-70e26bf4aba3.png)
 
     -> Add New SSH Host 선택
 
-    ![image-20220124025547273](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025547273.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808615-88a3dfda-bf93-4bc4-9221-b6cb8091beb0.png)
 
     -> ssh root@ 이후 colab에서 .io까지 복사 + -p (port번호) 복사
 
-    ![image-20220124025658209](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025658209.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808700-c6190bd5-6d48-478a-be86-47a6e93fae85.png)
 
     -> Open Config 선택
 
   - **ctrl+shift+p remote-ssh connect to Host**
 
-    ![image-20220124025806842](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025806842.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808770-e19ddb56-59ba-411e-a951-6f60ea06c361.png)
 
     -> enter
 
-    ![image-20220124025944327](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220124025944327.png)
+    ![image](https://user-images.githubusercontent.com/71866756/150808823-ae6aab32-5fdc-482c-82ff-7779decfb796.png)
 
     -> enter 후 password 입력하면 접속이 된다. 
 
