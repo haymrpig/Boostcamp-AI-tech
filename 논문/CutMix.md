@@ -41,7 +41,7 @@
 - **장점**
 
   - generalize performance 향상
-  - [input noise와 out of distribution에 robust](###noise와-ood에-강건한-cutmix)
+  - [input noise와 out of distribution에 robust](#noise와-ood에-강건한-cutmix)
   - 정보의 손실 X
   - object 전체의 view + partial view를 통한 분류로 localization 능력 향상
   - 이미지의 texture보다 shape에 focus를 두어 classification & detection에 탁월
