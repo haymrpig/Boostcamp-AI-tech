@@ -2,7 +2,7 @@
 
 - [**CutMix 출현 배경**](#1-cutmix-출현-배경)
 - [**CutMix vs other data augmentation method**](#2-cutmix-vs-other-data-augmentation)
-- [**CutMix algorithm&expression**](#3-cutmix-algorithm-&-expression)
+- [**CutMix algorithm&expression**](#3-cutmix-algorithm--expression)
 - [**Results**](#4-results)
 - [**성능평가지표**](#성능평가지표)
 
