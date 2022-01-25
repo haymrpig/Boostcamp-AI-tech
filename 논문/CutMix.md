@@ -211,7 +211,6 @@ after layer3를 제외하고 나머지에서는 성능 향상이 있었다. 하�
 - **Base setting**
 
   - Minibatch (64)
-  - 
 
   - Training
     - 300epoch
