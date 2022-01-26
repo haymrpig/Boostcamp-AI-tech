@@ -1,5 +1,9 @@
 # Pandas 연습 문제 101
 
+[www.machinelearningplus.com/python/101-numpy-exercises-python/](https://www.machinelearningplus.com/python/101-numpy-exercises-python/)
+
+[www.machinelearningplus.com/python/101-pandas-exercises-python/](https://www.machinelearningplus.com/python/101-pandas-exercises-python/)
+
 #### 1. 다음 표를 생성하라
 
 ![image-20220125232701553](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220125232701553.png)
@@ -92,5 +96,91 @@ df
 ```python
 df = pd.DataFrame({'col1':ser1, 'col2':ser2})
 df
+```
+
+
+
+#### 5. How to assign name to the series' index?
+
+```python
+ser = pd.Series(list('abcedfghijklmnopqrstuvwxyz'))
+```
+
+- **Solution**
+
+```python
+ser.name = "alphabet"
+ser
+```
+
+
+
+#### 6. How to get the items of series A not present in series B?
+
+```python
+ser1 = pd.Series([1, 2, 3, 4, 5])
+ser2 = pd.Series([4, 5, 6, 7, 8])
+```
+
+- **Solution**
+
+```python
+ser1.isin(ser2)
+# boolean으로 출력된다.
+# ser1에서 ser2의 원소와 겹치는 값은 True가 된다.
+
+ser1[~ser1.isin(ser2)]
+# ~을 붙여 겹치지 않는 값을 True로 만들고, ser1에서 뽑아낸다.
+# []안에 index를 넣어서 값을 뽑아내는 줄만 알았지만, 이런식으로 다른 series의 boolean 값을 넣어서 뽑을 수도 있는 것 같다. 
+```
+
+
+
+#### 7. How to get the items not common to both series A and series B?
+
+```python
+ser1 = pd.Series([1, 2, 3, 4, 5])
+ser2 = pd.Series([4, 5, 6, 7, 8])
+```
+
+- **Solution1**
+
+```python
+pd.concat([ser1[~ser1.isin(ser2)], ser2[~ser1.isin(ser2)]
+```
+
+- **Solution2**
+
+```python
+import numpy as np
+
+union = pd.Series(np.union1d(ser1,ser2))
+intersect = pd.Series(np.intersect1d(ser1, ser2))
+union[~union.isin(intersect)]
+# numpy의 union1d와 intersect1d를 이용할 수 있다. 
+```
+
+
+
+#### 8. How to get the minimum, 25th percentile, median, 75th, and max of a numeric series?
+
+```python
+ser = pd.Series(np.random.normal(10, 5, 25))
+```
+
+- **Solution**
+
+```python
+state = np.random.RandomState(100)
+# 난수 생성하는 코드로
+# np.random.seed(seed=0)
+# num = np.random.random(size=100)
+# 과 같지만, np.random.seed를 사용하는 경우 전체 코드의 seed가 고정되지만, 
+# RandomState의 경우, 이 object에 대해서만 seed가 정해진다. 
+
+ser1 = pd.Series(state.normal(10, 5, 25))
+np.percentile(ser1, q=[0,25,50,75,100])
+# 데이터의 분위수(백분위)를 구하는 코드이다. 
+# 25개의 데이터에서 백분위를 구해서 array형태로 반환한다.
 ```
 
