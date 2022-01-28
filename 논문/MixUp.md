@@ -101,11 +101,6 @@
 
 ![image](https://user-images.githubusercontent.com/71866756/151499819-b060c94a-e56a-4f28-9fc8-2e5fb5653bad.png)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4340e716df912b945ce83cc71a5fe640f88256b4
-
 #### LeNet, VGG-11 (Google commands dataset)
 
 ![image](https://user-images.githubusercontent.com/71866756/151499910-ea41a918-07f5-41e0-bf65-a0be7b702ff0.png)
