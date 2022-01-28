@@ -184,3 +184,35 @@ np.percentile(ser1, q=[0,25,50,75,100])
 # 25개의 데이터에서 백분위를 구해서 array형태로 반환한다.
 ```
 
+
+
+#### 9. How to get frequency counts of unique items of a series?
+
+```python
+ser = pd.Series(np.take(list('abcdefgh'), np.random.randint(8, size=30)))
+```
+
+- **Solution**
+
+```python
+ser.value_counts()
+```
+
+
+
+#### 10. How to keep only top 2 most frequent values as it is and replace everything else as ‘Other’?
+
+```python
+np.random.RandomState(100)
+ser = pd.Series(np.random.randint(1, 5, [12]))
+```
+
+```python
+ser[~ser.isin(ser.value_counts(sort=True,ascending=False).index[:2])] = 'other'
+# value_counts를 통해 가장 많은 순대로 내림차순으로 정렬 
+# index가 해당 값, value가 해당 빈도수
+# 해당 값에 속하지 않는 값들에 대해서 True로 바꿔준다. 
+# 그 다음 ser에 indexing하여 Ture인 값들을 'other'로 변경
+ser
+```
+
