@@ -6,7 +6,7 @@
 
 #### 1. 다음 표를 생성하라
 
-![image-20220125232701553](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220125232701553.png)
+![image](https://user-images.githubusercontent.com/71866756/151500261-726fbb79-906a-45f4-8a2a-77b86befd24f.png)
 
 ```python
 import pandas as pd

@@ -1,7 +1,7 @@
 # 목차
 
 - [**출현 배경 & 효과**](#1-출현-배경) 
-- [**algorithm & expression**](#2-algorithm-expression)
+- [**algorithm & expression**](#2-algorithm--expression)
 - [**Results**](#3-results)
 - [**그 외**](#4-그-외)
   - 다양한 방법의 MixUp
@@ -20,22 +20,16 @@
 
   - 수식
 
-    실제 분포를 정확히 알 수 없기 때문에, 경험적인 즉, sampling을 통해서 loss를 최소화하는 방식으로 찾아야 한다. 
+    실제 분포를 정확히 알 수 없기 때문에, 경험적인 즉, sampling을 통해서 loss를 최소화하는 방식으로 찾아야 한다.   
 
-    ![image-20220128141359944](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128141359944.png)
-    $$
-    l : loss\; function,\; P(X,Y) : joint\; distribution
-    $$
+    ![image](https://user-images.githubusercontent.com/71866756/151499207-2d931d22-10b5-41b6-938e-c9cecb616d7c.png)  
+
     여기서 우리는, risk를 최소화할 수 있는 f를 찾아야 한다. 
 
-    ![image-20220128141412968](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128141412968.png)
-    $$
-    x=x_i,\; y=y_i,\; 즉\; input과 \;정답이 \;일치했을 \;경우\; 1인\; P를\; 정의할\; 수 \;있다.\\
-    (P : empirical \;distribution)
-    $$
+    ![image](https://user-images.githubusercontent.com/71866756/151499269-221736da-dd16-4718-82d8-f5721970eb7d.png)  
     그러면 위 두 수식을 합치면 아래 식이 나오게 된다. 
 
-    ![image-20220128141422360](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128141422360.png)
+    ![image](https://user-images.githubusercontent.com/71866756/151499316-878c6c34-d123-48ef-a40d-6337969dddf3.png)
 
     하지만, 만약 parameter의 수가 데이터의 수랑 비슷하거나 더 많게 된다면, loss를 최소화하는 
 
@@ -67,11 +61,11 @@
 
   VRM이란 vicinal risk minimization으로 아래 수식을 보면 
 
-  ![image-20220128142412311](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128142412311.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499427-b663fb31-2aac-4a73-bbc2-1d41e5a78c55.png)
 
   여기에서 v란
 
-  ![image-20220128142433769](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128142433769.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499497-eda715e9-9755-4d0a-a46b-f75dcf85b12a.png)
 
   이고, 이 수식이 의미하는 바는 training data에 gaussian noise를 더하는 것과 같다. 
 
@@ -79,57 +73,60 @@
 
   이후, risk에 관한 수식을 수정하게 되면
 
-  ![image-20220128142609681](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128142609681.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499539-42cf6c06-c8e0-48a8-ac97-12ac20fccdb2.png)
 
   이와 같이 나오며, 아래와 같은 mixup, 즉, generic vicinal distribution 수식이 나오게 된다. 
 
-  ![image-20220128142617804](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128142617804.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499605-4455b4d4-a08a-4aaa-8f0c-f41bd3588be9.png)
 
   위 식을 이용해서 실제 데이터와 라벨을 아래 수식으로 표현하게 된다. 
 
-  ![image-20220128142916013](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128142916013.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499656-1a288320-e497-41e8-abb1-fcad07bc9fe3.png)
 
   람다 값은 베타 분포를 따른다. 
 
 - **Algorithm**
 
-  ![image-20220128143027902](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143027902.png)
+  ![image](https://user-images.githubusercontent.com/71866756/151499738-c5c2d4ec-aa42-4a87-9d11-dff59262495d.png)
 
 # 3. Results
 
 #### ResNet-50, 101에서 ERM방식과의 비교 (ImageNet-2012)
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143242718.png" alt="image-20220128143242718" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151499783-e6d9355c-8f9a-4201-808d-53bbde774b63.png)
 
 
 
 #### PreAct ResNet-18 & WideResNet-28-10&DenseNet-BC-190 (CIFAR-10, 100)
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143401999.png" alt="image-20220128143401999" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151499819-b060c94a-e56a-4f28-9fc8-2e5fb5653bad.png)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4340e716df912b945ce83cc71a5fe640f88256b4
 
 #### LeNet, VGG-11 (Google commands dataset)
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143458863.png" alt="image-20220128143458863" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151499910-ea41a918-07f5-41e0-bf65-a0be7b702ff0.png)
 
 
 
 #### Corrupted label & adversarial 
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143549816.png" alt="image-20220128143549816" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151499952-a1255c6e-06d5-4cc6-baea-1e5d942293dc.png)
 
 
 
 #### UCI datasets
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143655357.png" alt="image-20220128143655357" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151499993-c49b0920-baab-43a5-b787-0bcd08b74254.png)
 
 
 
 #### GAN
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128143735817.png" alt="image-20220128143735817" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/151500030-ed78cff3-8980-4400-823d-39907e659c4d.png)
 
 - MixUp이 판별자의 gradient 정규화 역할을 수행하여 training 안정화 진행
 
@@ -151,7 +148,7 @@
 
 - label smooting
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220128144722366.png" alt="image-20220128144722366" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/151500070-f51fb737-ea99-4876-a76c-ca3b0bb7dde3.png)
 
   - weight decay (weight의 값이 증가하는 것을 제한하는 방법) 10^-4일 때는, 초기에 기획했던 방법의 성능이 가장 우수하다.
   - weight decay 5*10^-4일 때는 layer1에서 MixUp을 한 것이 더 우수했다. 
