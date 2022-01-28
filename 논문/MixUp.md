@@ -1,7 +1,7 @@
 # 목차
 
 - [**출현 배경 & 효과**](#1-출현-배경) 
-- [**algorithm & expression**](#2-algorithm-expression)
+- [**algorithm & expression**](#2-algorithm-&-expression)
 - [**Results**](#3-results)
 - [**그 외**](#4-그-외)
   - 다양한 방법의 MixUp
