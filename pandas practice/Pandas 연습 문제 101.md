@@ -210,9 +210,24 @@ ser = pd.Series(np.random.randint(1, 5, [12]))
 ```python
 ser[~ser.isin(ser.value_counts(sort=True,ascending=False).index[:2])] = 'other'
 # value_counts를 통해 가장 많은 순대로 내림차순으로 정렬 
-# index가 해당 값, value가 해당 빈도수
+# index가 해당 값, value가 해당  빈도수
 # 해당 값에 속하지 않는 값들에 대해서 True로 바꿔준다. 
 # 그 다음 ser에 indexing하여 Ture인 값들을 'other'로 변경
 ser
+```
+
+
+
+#### 12. How to convert a numpy array to a dataframe of given shape? (L1)
+
+```python
+ser = pd.Series(np.random.randint(1, 10, 35))
+```
+
+- **Solution**
+
+```python
+df = pd.DataFrame(ser.values.reshape(7,5))
+df
 ```
 
