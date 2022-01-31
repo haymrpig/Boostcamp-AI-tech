@@ -231,3 +231,80 @@ df = pd.DataFrame(ser.values.reshape(7,5))
 df
 ```
 
+
+
+#### 13. How to find the positions of numbers that are multiples of 3 from a series?
+
+```python
+ser = pd.Series(np.random.randint(1, 10, 7))
+```
+
+- **Solution1**
+
+```python
+ser[ser.values % 3 == 0].index
+```
+
+- **Solution2**
+
+```python
+np.where(ser%3==0)
+```
+
+
+
+#### 14. How to extract items at given positions from a series
+
+```python
+ser = pd.Series(list('abcdefghijklmnopqrstuvwxyz'))
+pos = [0, 4, 8, 14, 20]
+```
+
+- **Solution1**
+
+```python
+ser.take(pos)
+```
+
+- **Solution2**
+
+```python
+ser[pos]
+```
+
+
+
+#### 15. How to stack two series vertically and horizontally ?
+
+```python
+ser1 = pd.Series(range(5))
+ser2 = pd.Series(list('abcde'))
+```
+
+- **Solution**
+
+```python
+pd.concat([ser1, ser2], axis=1)
+```
+
+
+
+#### 16. How to get the positions of items of series A in another series B?
+
+```python
+ser1 = pd.Series([10, 9, 6, 5, 3, 1, 12, 8, 13])
+ser2 = pd.Series([1, 3, 10, 13])
+```
+
+- **Solution1**
+
+```python
+[int(np.where(ser1==i)[0]) for i in ser2]
+```
+
+- **Solution2**
+
+```python
+[pd.Index(ser1).get_loc(i) for i in ser2]
+```
+
