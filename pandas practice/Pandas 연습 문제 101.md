@@ -308,3 +308,70 @@ ser2 = pd.Series([1, 3, 10, 13])
 [pd.Index(ser1).get_loc(i) for i in ser2]
 ```
 
+
+
+#### 17. How to compute the mean squared error on a truth and predicted series?
+
+```python
+truth = pd.Series(range(10))
+pred = pd.Series(range(10)) + np.random.random(10)
+```
+
+- **Solution**
+
+```python
+np.mean((truth-pred)**2)
+```
+
+
+
+#### 18. How to convert the first character of each element in a series to uppercase?
+
+```python
+ser = pd.Series(['how', 'to', 'kick', 'ass?'])
+```
+
+- **Solution1**
+
+```python
+ser.map(lambda x:x.capitalize())
+```
+
+- **Solution2**
+
+```python
+ser.map(lambda x:x[0].upper()+x[1:])
+```
+
+
+
+#### 19. How to calculate the number of characters in each word in a series?
+
+```python
+ser = pd.Series(['how', 'to', 'kick', 'ass?'])
+```
+
+- **Solution**
+
+```python
+ser.map(lambda x:len(x))
+```
+
+
+
+#### 20.How to compute difference of differences between consequtive numbers of a series?
+
+```python
+ser = pd.Series([1, 3, 6, 10, 15, 21, 27, 35])
+```
+
+- **Solution**
+
+```python
+print( list(ser.diff()) )
+print( list(ser.diff().diff()) )
+```
+
+
+
+####  
