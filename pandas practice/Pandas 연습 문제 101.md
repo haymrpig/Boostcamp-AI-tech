@@ -374,4 +374,41 @@ print( list(ser.diff().diff()) )
 
 
 
-####  
+####  21. How to convert a series of date-strings to a timeseries?
+
+```python
+ser = pd.Series(['01 Jan 2010', '02-02-2011', '20120303', '2013/04/04', '2014-05-05', '2015-06-06T12:20'])
+```
+
+- **Solution1**
+
+```python
+from dateutil.parser import parse
+ser.map(lambda x: parse(x))
+```
+
+- **Solution2**
+
+```python
+pd.to_datetime(ser)
+```
+
+
+
+#### 22. How to get the day of month, week number, day of year and day of week from a series of date strings?
+
+```python
+ser = pd.Series(['01 Jan 2010', '02-02-2011', '20120303', '2013/04/04', '2014-05-05', '2015-06-06T12:20'])
+```
+
+- **Solution**
+
+```python
+ser_ts = pd.to_datetime(ser)
+
+print( list(ser_ts.dt.day) )
+print( list(ser_ts.dt.weekofyear) )
+print( list(ser_ts.dt.dayofyear) )
+print( list(ser_ts.dt.day_name()) )
+```
+
