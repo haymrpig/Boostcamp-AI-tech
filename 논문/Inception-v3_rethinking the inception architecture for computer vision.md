@@ -81,14 +81,12 @@ dxd, k channel에서 d/2xd/2, 2k channel로 가고 싶을 때는
 > 방법3. conv + pooling 
 
 
-![image-20220204155902124](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204155902124.png)
+![image](https://user-images.githubusercontent.com/71866756/152635704-0341973c-e358-44d4-a931-942e339e521f.png)
 
-### 3. Label Smoothing
+### 3. Label Smoothing  
 
-$$
-new_label = (1-\epsilon )*one\_hot\_labels + \epsilon /K\\
-(hyper\;parameter)\epsilon=0.1\;\;\;(\#classes)K=1000
-$$
+![image](https://user-images.githubusercontent.com/71866756/152635719-81709cff-4906-426e-bed3-cccd65466206.png)  
+  
 
 
 
@@ -96,11 +94,11 @@ $$
 
 ### Inception-v2
 
-![image-20220205173833710](../../../../AppData/Roaming/Typora/typora-user-images/image-20220205173833710.png)
+![image](https://user-images.githubusercontent.com/71866756/152635728-c325e5e0-f5a3-4764-bf30-e68bdc79f7a5.png)
 
 
 
-![image-20220205174949479](../../../../AppData/Roaming/Typora/typora-user-images/image-20220205174949479.png)
+![image](https://user-images.githubusercontent.com/71866756/152635731-104d0042-a4c6-4d10-bef1-315386087ea2.png)
 
 ### Inception-v3
 
@@ -112,13 +110,12 @@ Inception-v2 + RMSProp + Label Smoothing + Factorized 7x7 + BN auxiliary (BN + �
 
 #### Single crop 실험 결과
 
-<img src="https://user-images.githubusercontent.com/57162812/152137928-cedda2fc-c342-4b80-ad6f-5f40a8f0e39d.png" alt="img" style="zoom:50%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635735-7bde6d00-3774-4a35-837a-09ec1ba468b0.png)
 
 #### Multi crop 실험 결과
 
-<img src="https://user-images.githubusercontent.com/57162812/152138010-9ab1c541-48db-4ba1-90f8-50ca71995b09.png" alt="img" style="zoom:50%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635739-66841f65-f290-4546-9f86-8eb0ec5cf049.png)
 
 #### Multi model, Multi crop 실험 결과
 
-<img src="https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png" alt="img" style="zoom:50%;" />
-=======
+![image](https://user-images.githubusercontent.com/71866756/152635743-9328f807-1c13-4823-bdc2-2ee6892f537a.png)
