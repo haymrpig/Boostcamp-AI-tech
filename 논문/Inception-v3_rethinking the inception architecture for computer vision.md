@@ -4,6 +4,8 @@
 - **사용된 기법들**
   - Factorizing convolutions with large filter size
   - efficient grid size reduction
+  - label smoothing
+- **Inception-v2, v3 구조**
 
 
 
@@ -79,3 +81,42 @@ dxd, k channel에서 d/2xd/2, 2k channel로 가고 싶을 때는
 > 방법3. conv + pooling 
 
 ![image-20220204155902124](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204155902124.png)
+
+### 3. Label Smoothing
+
+$$
+new_label = (1-\epsilon )*one\_hot\_labels + \epsilon /K\\
+(hyper\;parameter)\epsilon=0.1\;\;\;(\#classes)K=1000
+$$
+
+
+
+# Inception-v2, v3 구조
+
+### Inception-v2
+
+![image-20220205173833710](../../../../AppData/Roaming/Typora/typora-user-images/image-20220205173833710.png)
+
+
+
+![image-20220205174949479](../../../../AppData/Roaming/Typora/typora-user-images/image-20220205174949479.png)
+
+### Inception-v3
+
+Inception-v2 + RMSProp + Label Smoothing + Factorized 7x7 + BN auxiliary (BN + 보조 분류기)
+
+
+
+# 실험 결과
+
+#### Single crop 실험 결과
+
+<img src="https://user-images.githubusercontent.com/57162812/152137928-cedda2fc-c342-4b80-ad6f-5f40a8f0e39d.png" alt="img" style="zoom:50%;" />
+
+#### Multi crop 실험 결과
+
+<img src="https://user-images.githubusercontent.com/57162812/152138010-9ab1c541-48db-4ba1-90f8-50ca71995b09.png" alt="img" style="zoom:50%;" />
+
+#### Multi model, Multi crop 실험 결과
+
+<img src="https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png" alt="img" style="zoom:50%;" />
