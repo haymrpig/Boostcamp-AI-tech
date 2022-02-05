@@ -30,7 +30,7 @@
 
 #### 1-1. parameter 개수 줄이기
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204153149496.png" alt="image-20220204153149496" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635611-23c2e2dc-6902-430a-ac8a-c776fdb2f706.png)
 
 위의 이미지에서 처럼 5x5 filter를 3x3 filter 두개로 대체할 수 있다. 
 
@@ -40,11 +40,11 @@
 
 3x3을 마찬가지로 2x2로 줄일 수가 있다. 하지만, 실험 결과 2x2보다는 1x3, 3x1로 줄이는 것이 더 효과가 좋았다.
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204154054450.png" alt="image-20220204154054450" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635619-25a32a60-5006-44b9-aedc-a9e6ee071fce.png)
 
 위 그림처럼 nxn filter를 nx1로 쪼갤 수 있지만, early layer에서의 적용은 바람직하지 않았고, n이 12~20 사이일 때 효과가 가장 좋았다. 
 
-![image-20220204154701531](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204154701531.png)
+![image](https://user-images.githubusercontent.com/71866756/152635630-3dd97a2e-6a7a-45d5-bee2-d12cbfea349c.png)
 
 위의 그림처럼 분해가 가능하다. 
 
@@ -54,7 +54,7 @@
 
 하나의 conv filter를 여러개의 작은 filter들로 대체하면서 filter사이사이 비선형 activation 함수를 적용할 수 있다. 
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204153838958.png" alt="image-20220204153838958" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635636-c5885792-f635-48b6-a1a0-c44aa5da403d.png)
 
 위 사진처럼 사이사이 ReLU 함수를 넣은 실험결과가 선형적으로 배치했을 때보다 더 좋은 것을 알 수 있다. 이는 비선형성의 증가로 인한 결과로 보인다. 
 
@@ -72,13 +72,14 @@ dxd, k channel에서 d/2xd/2, 2k channel로 가고 싶을 때는
 
 이 있다. 
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204155915806.png" alt="image-20220204155915806" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152635640-d38ab73d-fa81-4332-96f9-ce7434582508.png)
 
 
 
 하지만, 방법1은 상대적으로 더 cost가 많이 들고, 방법2는 bottleneck 문제를 일으키기 때문에 새로운 방법을 제시한다. 
 
 > 방법3. conv + pooling 
+
 
 ![image-20220204155902124](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220204155902124.png)
 
@@ -120,3 +121,4 @@ Inception-v2 + RMSProp + Label Smoothing + Factorized 7x7 + BN auxiliary (BN + �
 #### Multi model, Multi crop 실험 결과
 
 <img src="https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png" alt="img" style="zoom:50%;" />
+=======
