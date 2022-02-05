@@ -412,3 +412,52 @@ print( list(ser_ts.dt.dayofyear) )
 print( list(ser_ts.dt.day_name()) )
 ```
 
+
+
+#### 23. How to convert year-month string to dates corresponding to the 4th day of the month?
+
+```python
+ser = pd.Series(['Jan 2010', 'Feb 2011', 'Mar 2012'])
+```
+
+- **Solution**
+
+```python
+ser_ts = pd.to_datetime(ser)
+ser_datestr = ser_ts.apply(lambda x : str(x.year)+'-'+str(x.month)+'-'+'4')
+ser_date = pd.to_datetime(ser_datestr, format="%Y-%m-%d")
+ser_date
+```
+
+
+
+#### 24. How to filter words that contain atleast 2 vowels from a series?
+
+```python
+ser = pd.Series(['Apple', 'Orange', 'Plan', 'Python', 'Money'])
+```
+
+- **Solution**
+
+```python
+from collections import Counter
+mask = ser.apply(lambda x: sum([Counter(x.lower()).get(i, 0) for i in list('aeiou')]) >= 2)
+ser[mask]
+```
+
+
+
+#### 25. How to filter valid emails from a series?
+
+```python
+emails = pd.Series(['buying books at amazom.com', 'rameses@egypt.com', 'matt@t.co', 'narendra@modi.com'])
+pattern ='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}'
+```
+
+- **Solution**
+
+```python
+mask = emails.apply(lambda x : len(re.findall(pattern, x)) > 0 )
+emails[mask]
+```
+
