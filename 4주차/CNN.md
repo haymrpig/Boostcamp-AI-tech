@@ -27,7 +27,7 @@
    - tanh
 7. [**Regularization**](#7-regularization)
 8. [**History**](#8-history)
-9. [CV Applications](9-cv-applications)
+9. [**CV Applications**](9-cv-applications)
 
 # 1. Convolution 연산
 
