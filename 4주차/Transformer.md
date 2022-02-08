@@ -5,6 +5,7 @@
   - transformer 개요
   - transformer 구조
   - 잘되는 이유? 한계점?
+- **Multiheaded attention (MHA)**
 
 # 1. Transformer
 
@@ -154,7 +155,7 @@ Queries, Keys, Values들을 한 단어당 여러개 (multiple attention heads)�
 
    만약 같은 단어가 각각 문자의 맨 앞, 맨 뒤에 배치되었다고 생각해보자. 
 
-   해당 단어의 embedding값은 같을 것이고, Q, K, V 또한 같을 것이다. 
+   해당 단어의 embedding값은 같을 것이다. 
 
    그렇다면 이 두 단어는 어떻게 구분해야 할까?
 
