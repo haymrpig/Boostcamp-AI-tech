@@ -37,10 +37,8 @@
 
 - **Markov model**
 
-  바로 이전의 데이터만 고려하는 것
-  $$
-  \prod_{t=1}^Tp(x_t|x_{t-1})
-  $$
+  바로 이전의 데이터만 고려하는 것  
+  ![image](https://user-images.githubusercontent.com/71866756/152985675-d118cf62-b92d-4546-95eb-020c710d49e7.png)  
 
   > 장점 : joint distribution을 표현하는데 용이하다. 
   >
@@ -56,7 +54,7 @@
 
 # 2. Long Short Term Memory (LSTM)
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208103501132.png" alt="image-20220208103501132" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152985722-bb7fa849-a5b3-4a2b-aeb0-9b3e0b536d4d.png)
 
 > LSTM의 전체적인 개요를 보여주는 그림이다. 
 
@@ -64,38 +62,27 @@
 
 - **Forget Gate**
 
-  어떤 정보를 배제할지 정해주는 gate
-  $$
-  f_t = \sigma(W_f[h_{t-1},x_t] + b_f)
-  $$
+  어떤 정보를 배제할지 정해주는 gate  
+  ![image](https://user-images.githubusercontent.com/71866756/152985750-2b76ca3f-7c5e-4bc6-b973-8af786163c47.png)  
 
   > Previous hidden state와 input에서 버릴 정보를 결정
 
 - **Input Gate**
 
-  어떤 정보를 cell state에 저장할지 결정하는 gate
-  $$
-  i_t =\sigma(W_i[h_{t-1},x_t] + b_i)\\
-  \tilde{C_t}=tanh(W_c[h_{t-1},x_t] + b_c)
-  $$
+  어떤 정보를 cell state에 저장할지 결정하는 gate  
+  ![image](https://user-images.githubusercontent.com/71866756/152985777-00b205cc-b9a2-42ad-9aeb-a6abb1248d87.png)  
 
   > Previous hidden state와 input에서 저장할 정보를 결정
 
 - **Update cell**
 
-  cell state를 업데이트한다.
-  $$
-  i_t =\sigma(W_i[h_{t-1},x_t] + b_i)\\
-  {C_t}=f_t{C_{t-1}}+i_t\tilde{C_t}
-  $$
+  cell state를 업데이트한다.  
+  ![image](https://user-images.githubusercontent.com/71866756/152985832-a2c29319-c156-44a5-b9a9-4723b634f667.png)  
 
 - **Output Gate**
 
-  output을 내보낸다. 
-  $$
-  o_t =\sigma(W_o[h_{t-1},x_t] + b_o)\\
-  h_t=o_ttanh(C_t)
-  $$
+  output을 내보낸다.   
+  ![image](https://user-images.githubusercontent.com/71866756/152985869-384521c0-8039-4053-aea0-e3f7a0a9129b.png)  
 
 > Cell state 차원과 Output의 차원은 일치해야 한다. 
 >
@@ -162,7 +149,7 @@ print ("Done.")
 
 ### 2-3. 파라미터 계산방법
 
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20220208123535427.png" alt="image-20220208123535427" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/152986036-17cbcb5e-f28f-462d-893c-ad06030583c7.png)
 
 > 위 그림에서 하나의 수식에 대한 Wh, Wx, b parameter의 개수 계산방법이 나와있다. 
 >
@@ -172,7 +159,7 @@ print ("Done.")
 >
 > 이들을 모두 고려해야 하기 때문에, weight의 행에 4배를 곱하면 된다. 
 
-![image-20220208123558804](../../../../AppData/Roaming/Typora/typora-user-images/image-20220208123558804.png)
+![image](https://user-images.githubusercontent.com/71866756/152986018-0053d830-67c4-47f5-a213-bea7b60c270c.png)
 
 ```python
 np.set_printoptions(precision=3)
@@ -201,7 +188,7 @@ print ("Total number of parameters:[%s]."%(format(n_param,',d')))
 
 # 3. Gated Recurrent Unit (GRU)
 
-![image-20220208104906743](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208104906743.png)
+![image](https://user-images.githubusercontent.com/71866756/152986074-9c008170-e4d5-4684-833e-73f2c6e6ec7e.png)
 
 - **LSTM과의 차이점**
 

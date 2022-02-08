@@ -31,19 +31,19 @@
 
   - **Self-Attention** 
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208141420372.png" alt="image-20220208141420372" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986184-efabee0e-4ddb-4438-ac84-36adce35f253.png)
 
     `Queries`, `keys`, `values`의 세 벡터를 만들어낸다. (각각이 하나의 neural network라고 생각)
 
     > 즉, 하나의 input (단어) 에 대해서 세개의 벡터를 생성한다. 
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208141435187.png" alt="image-20220208141435187" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986207-046a5350-0d41-413e-93bc-1dbeeac61354.png)
 
     해당 단어의 queries 벡터와 나머지 단어들의 key 벡터의 내적을 구하여 score를 낸다. 
 
     > 현재 단어와 다른 단어들이 얼마나 관계되어 있는지를 의미한다. 
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208141450748.png" alt="image-20220208141450748" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986241-3588390f-f86a-4c5a-97c5-e833ca214bd8.png)
 
     score를 normalize를 진행한다. 
 
@@ -53,15 +53,15 @@
     >
     > 이후, softmax를 취한다. 
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208142025741.png" alt="image-20220208142025741" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986276-642998e6-2c96-4597-bf21-ad2b79abd56c.png)
 
     이렇게 나온 결과 **(attention weight)**를 value vector와 weighted sum 한 것이 최종 결과가 된다. 
 
     >이 값이 **attention value**가 된다. 
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208142151546.png" alt="image-20220208142151546" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986302-72084702-9d2b-4b92-b4e5-8e20d342bc9c.png)
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208142202654.png" alt="image-20220208142202654" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152986323-5265925d-b759-4f67-b163-0acd1cf28e1d.png)
 
     위 과정을 모두 요약하면 위 그림처럼 표현할 수 있다. 
 
@@ -85,8 +85,7 @@
 
   아래 그림처럼 input이 단어 단위로 쪼개진다. 
 
-  ![image-20220208140311550](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208140311550.png)
-
+  ![image](https://user-images.githubusercontent.com/71866756/152986354-cfd53d86-38e5-4735-8016-123bbcb7d4e4.png)
   
 
   쪼개진 단어들이 **self-Attention**을 거치는데, 이때, x1->z1으로 변환이 일어날 때, z1은 비단 x1뿐만이 아닌, x2...xn까지의 값들을 포함하게 된다.
@@ -99,7 +98,7 @@
 
   **Feed Forward** 의 경우는 dependency가 없다. 즉, x1->z1으로 변환이 일어날 때, x2...부터는 고려되지 않는다. 
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208140330613.png" alt="image-20220208140330613" style="zoom:50%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/152986371-8b73e31d-e264-4f87-b529-5903fe81a0c3.png)
 
 
 
@@ -131,7 +130,7 @@ Queries, Keys, Values들을 한 단어당 여러개 (multiple attention heads)�
 
   나온 n개의 attention heads들을 다시 encoder의 입력으로 넣어야 하기 때문에, 입력차원과 똑같이 맞춰줘야 한다.
 
-  ![image-20220208144108945](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208144108945.png)
+  ![image](https://user-images.githubusercontent.com/71866756/152986416-534043f7-d16e-4eaa-9260-3f354ced7aca.png)
 
   따라서 n개의 attention heads들을 stack하고, n x input_dim의 weight를 곱해주어 입력차원과 동일하게 맞춰준다. 
 

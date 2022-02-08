@@ -348,10 +348,9 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
 - **Parameter Norm Penalty**
 
-  전체적인 Parameter의 값을 낮춘다는 의미이다. 
-  $$
-  total\; cost = loss(D;W) +\frac{\alpha}{2}||W||_2^2
-  $$
+  전체적인 Parameter의 값을 낮춘다는 의미이다.   
+  ![image](https://user-images.githubusercontent.com/71866756/152984879-c727e1ea-7ade-4280-8f23-b80bbcb3d931.png)  
+
   전체적인 parameter의 값 (절대값)이 작을수록, model의 function space가 더 부드러질 것이며, 부드러운 function일수록 generalize가 잘 될 것이다라는 가정을 내포하고 있다. 
 
 - **Data Augmentation**
