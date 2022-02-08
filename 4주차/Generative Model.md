@@ -58,14 +58,8 @@ generative model로 할 수 있는 것의 예시는 아래와 같다.
 
 parameter의 수는 2^n-1일 것이다. 
 
-- **Structure Through Independence**
-  $$
-  EX2에서 \;X_1,...,X_n을\; 독립이라고\; 가정해보자.\\
-  가능한\; 경우의\; 수 : 2^n\\
-  parameter\; 수 : n\\
-  (왜냐하면\; 독립이기\; 때문에\; p(x1)을\; 알면\; p(\sim x1)을\; 알\; 수\; 있기\; 때문에\\
-  x가 \;n개\; 있을\; 때,\; 각각\; n개를\; 알면\;된다. )
-  $$
+- **Structure Through Independence**  
+  ![image](https://user-images.githubusercontent.com/71866756/152985170-e81b62af-5c67-4571-b67d-d588b220becb.png)  
 
   > 독립이라고 가정할 경우, parameter가 급격하게 줄어들지만, 이는 현실과는 너무 다르다. 
   >
@@ -73,38 +67,22 @@ parameter의 수는 2^n-1일 것이다.
 
 - **Conditional Independence**
 
-  먼저 세가지 기본적인 법칙에 대해서 알아보자. 
-  $$
-  Chain\; Rule\;:\; p(x_1,...,x_n)=p(x_1)p(x_2|x_1)p(x_3|x_1,x_2)...p(x_n|x_1,...,x_{n-1})\\
-  Bayes' \;Rule\;:\;p(x|y)=\frac{p(x,y)}{p(y)}=\frac{p(y|x)p(x)}{p(y)}\\
-  Conditional\; independence\;:\;if x\perp y|z, then p(x|y,z)=p(x|z)
-  $$
+  먼저 세가지 기본적인 법칙에 대해서 알아보자.   
+  ![image](https://user-images.githubusercontent.com/71866756/152985231-daafdae1-63d9-43e6-a1b5-80aea06fd3b8.png)  
   그렇다면 위 수식을 이용하여 좀 더 현실적인 가정을 할 수 있지 않을까?
 
   먼저, Chain Rule을 이용한다. 
 
-  베르누이 분포에서 Chain Rule을 생각해보고, 필요한 parameter의 수를 적어보자. 
-  $$
-  p(x_1) : 1\\
-  p(x_2|x_1) : 2\\
-  (간단하게\; x_1=1일\; 때\;x_2가\; 뭔지\; 알면\; 나머지도\; 알고, 
-  \\x_1=0일 \;때,\; x_2가\; 뭔지\; 알면\; 나머지도\; 아니깐\; 2개의\; parameter가\; 필요한\; 셈이다. )\\
-  p(x_3|x_1,x_2) : 4\\
-  ...\\
-  
-  따라서, \;1+2+2^2+...+2^{n-1}=2^n-1개의 \;parameter가\; 필요하다.
-  $$
+  베르누이 분포에서 Chain Rule을 생각해보고, 필요한 parameter의 수를 적어보자.   
+  ![image](https://user-images.githubusercontent.com/71866756/152985273-c6911844-1e6a-42d9-aac3-71b7bc36103a.png)  
   Chain Rule은 독립이든 독립이 아니든 성립하는 식이기 때문에 parameter의 변화는 없다....
 
   그렇다면, 여기에 Markov assumption을 추가해보자.
 
   Markov assumption이란 현재 상태는 오직 이전 상태의 영향만 받는다는 가정이다. 
 
-  그렇다면 Conditional Independence를 이용해서 식을 좀 더 단순화해보자. 
-  $$
-  p(x_1,...,x_n)=p(x_1)p(x_2|x_1)p(x_3|x_2)...p(x_n|x_{n-1})\\
-  그렇다면\; parameter의\; 개수는 \;2n-1이 \; 된다!!
-  $$
+  그렇다면 Conditional Independence를 이용해서 식을 좀 더 단순화해보자.   
+  ![image](https://user-images.githubusercontent.com/71866756/152985301-ad348b9f-4aa5-4e51-94e9-67b97dd604aa.png)  
   parameter가 매우 적어진 것을 확인할 수 있다!!!!
 
   따라서, **Auto-regressive models**에서는 위 가정을 이용하여 모델링한다. 
@@ -123,16 +101,12 @@ NADE는 ARN으로 현재값이 이전 값들에 모두 dependent하다고 모델
 
 또한 NADE는 explicit model로 결과를 확률로써 나타낼 수 있다.
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208203826129.png" alt="image-20220208203826129" style="zoom:67%;" />
-$$
-p(x_i|x_{1:i-1})=\sigma(\alpha_ih_i+b_i) \;where\; h_i=\sigma(W_{<i}x_{1:i-1}+c)
-$$
+![image](https://user-images.githubusercontent.com/71866756/152985352-877798d3-1794-40db-be72-d91125bdc684.png)  
+![image](https://user-images.githubusercontent.com/71866756/152985370-c5eb91e9-4426-409b-84c6-0174705aa6ce.png)  
 위 식으로 나타낼 수 있다. 
 
-그리고 위 수식을 Chain Rule과 Conditional distribution을 고려하면 아래와 같다.
-$$
-p(x_1,...x_{784})=p(x_1)p(x_2|x_1)...p(x_{784}|x_{1:783})
-$$
+그리고 위 수식을 Chain Rule과 Conditional distribution을 고려하면 아래와 같다.  
+![image](https://user-images.githubusercontent.com/71866756/152985403-89623863-fce1-4a98-b7a6-2fa75c68dce9.png)  
 
 > 즉, 1번째 pixel의 확률분포를 알고 있다면 2번째 pixel의 확률분포를 알고,
 >
@@ -148,7 +122,7 @@ $$
 
 generation model로 RNN을 활용할 수 있다. 
 
-![image-20220208204908789](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208204908789.png)
+![image](https://user-images.githubusercontent.com/71866756/152985465-ed428f50-dba4-4658-b33e-6b1fe5f6dfe0.png)
 
 이런 방식으로 R, G, B값을 생성해낸다. 
 
@@ -158,24 +132,20 @@ Pixel RNN은 chain의 ordering에 기반한 두 모델이 있다.
 
 - **Diagonal BiLSTM**
 
-  ![image-20220208205107902](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220208205107902.png)
+  ![image](https://user-images.githubusercontent.com/71866756/152985479-5a58f6c6-255f-49f4-b81a-519b10150d79.png)
 
 
 
 # 3. Variational Auto-encoder
 
-`Variantional inference` : VI의 목적은 posterior 분포에 가장 일치하는 variational 분포를 최적화하는데 있다. 
-$$
-Posterior\; distribution:p_\theta(z|x)
-$$
+`Variantional inference` : VI의 목적은 posterior 분포에 가장 일치하는 variational 분포를 최적화하는데 있다.   
+![image](https://user-images.githubusercontent.com/71866756/152985493-21c11c2d-515e-4471-bba4-fbfad0bfb946.png)  
 observation이 주어졌을 때, 관심 있어하는 random variable의 확률분포이다. 
 
 일반적으로 posterior distribution을 구하는 것은 어려우며, 때로는 불가능하다. 
 
-따라서 posterior distribution을 제일 잘 근사하는 Variational distribution을 찾는 것이 목적이다. 
-$$
-Variational\; distribution:q_\phi(z|x)
-$$
+따라서 posterior distribution을 제일 잘 근사하는 Variational distribution을 찾는 것이 목적이다.   
+![image](https://user-images.githubusercontent.com/71866756/152985521-de7479bb-5b25-4e5f-9aa9-1e7e56fc357b.png)  
 이 때, KL발산을 이용한다. 
 
 [**Reference**]
