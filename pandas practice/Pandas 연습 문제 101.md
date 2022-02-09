@@ -461,3 +461,67 @@ mask = emails.apply(lambda x : len(re.findall(pattern, x)) > 0 )
 emails[mask]
 ```
 
+
+
+#### 26. How to get the mean of a series grouped by another series?
+
+```python
+fruit = pd.Series(np.random.choice(['apple', 'banana', 'carrot'], 10))
+weights = pd.Series(np.linspace(1, 10, 10))
+print(weights.tolist())
+print(fruit.tolist())
+```
+
+- **Solution**
+
+```python
+weights.groupby(fruit).mean()
+```
+
+
+
+#### 27. How to compute the euclidean distance between two series?
+
+```python
+p = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+q = pd.Series([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+```
+
+- **Solution**
+
+```python
+np.sqrt(((p-q)**2).sum())
+```
+
+
+
+#### 28. How to find all the local maxima (or peaks) in a numeric series?
+
+```python
+ser = pd.Series([2, 10, 3, 4, 9, 10, 2, 7, 3])
+```
+
+- **Solution**
+
+```python
+dd = np.diff(np.sign(np.diff(ser)))
+np.where(dd==-2)[0]+1
+```
+
+
+
+#### 29. How to replace missing spaces in a string with the least frequent character?
+
+```python
+my_str = 'dbc deb abed gade'
+```
+
+- **Solution**
+
+```
+my_str = 'dbc deb abed gade'
+s = pd.Series(list(my_str)).value_counts()
+s.drop(" ", inplace=True)
+my_str.replace(" ", s.index[-1])
+```
+
