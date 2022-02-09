@@ -224,7 +224,7 @@ ELBO를 쪼갰을 때 나오는 좌측 항은 **reconstruction term**이라고 �
 
 아래 식은 isotropic gaussian을 prior distribution으로 사용한 경우이다. 
 
-![image-20220208235656945](../../../../AppData/Roaming/Typora/typora-user-images/image-20220208235656945.png)
+![image](https://user-images.githubusercontent.com/71866756/153200507-813cdbe1-a5d3-4893-b2ec-473de308869a.png)
 
 
 
@@ -254,31 +254,30 @@ GAN의 discriminator를 활용하여 latent distribution과 prior distribution �
 
 GAN은 가짜 이미지를 생성하는 generator와 이미지의 진위여부를 판단하는 discriminator로 구분이 되면, 이 둘의 minmax game이라고 할 수 있다. 
 
-![image-20220209102849405](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209102849405.png)
+![image](https://user-images.githubusercontent.com/71866756/153200541-e7a4019a-8611-4ad4-9d94-dd05d3d1ddca.png)
 
 위 수식으로 optimize를 한다. 
 
 먼저 **discriminator**를 따로 살펴보자.
 
-![image-20220209102955215](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209102955215.png)
+![image](https://user-images.githubusercontent.com/71866756/153200560-a74bd18d-7372-42c7-9693-84a8a78c8364.png)
 
 위 수식으로 D를 maximize하는 방향으로 학습을 진행한다. 
 
 그렇다면 optimal discriminator는 아래 수식이 된다. 
 
-![image-20220209103218631](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209103218631.png)
+![image](https://user-images.githubusercontent.com/71866756/153200577-cbf74a77-b84f-4401-bd7e-e4c4678d7718.png)
 
 수식에서 만약 fix된 generator를 사용한다면, 수식의 값이 클수록 discriminator는 실제 이미지라고 판단해야 하고, 수식의 값이 작을수록 discriminator는 가짜 이미지라고 판단해야 한다. 
 
-이제, **generator**를 살펴보자.
-$$
-\min_G V(G,D)=E_{z\sim P_z(z)}[log(1-D(G(z)))]
-$$
+이제, **generator**를 살펴보자.  
+![image](https://user-images.githubusercontent.com/71866756/153200654-a4b8d017-9800-41d7-9bea-93abfa6de51f.png)  
+
 라고 표현할 수 있다.
 
 그렇다면 위에서 구한 optimal discriminator수식을 대입해보자.
 
- ![image-20220209104034827](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209104034827.png)
+ ![image](https://user-images.githubusercontent.com/71866756/153200596-e578d11d-fb9c-4a7b-9aec-6820aed8484b.png)
 
 위와 같은 수식을 얻을 수 있으며, 목적은 Jenson-Shannon divergence를 줄이는 것이 목적이 된다. 
 
