@@ -34,7 +34,7 @@
 
 #### 3-1. Missingno
 
-- **결측치(missing value)**를 체크하는 시각화 라이브러리
+- **결측치 (missing value)** 를 체크하는 시각화 라이브러리
 
 #### 3-2. Squarify, Plotly
 
