@@ -148,6 +148,8 @@ Queries, Keys, Values들을 한 단어당 여러개 (multiple attention heads)�
 
 [The Illustrated Transformer]([The Illustrated Transformer – Jay Alammar – Visualizing machine learning one concept at a time. (jalammar.github.io)](http://jalammar.github.io/illustrated-transformer/))
 
+[attention map관련 블로그](https://hongl.tistory.com/234)
+
 # 질문
 
 1. **왜 positional encoding이 필요한가? 왜 positional encoding이 없으면 단어들을 time independent할까?**
