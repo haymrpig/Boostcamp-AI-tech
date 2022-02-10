@@ -525,3 +525,43 @@ s.drop(" ", inplace=True)
 my_str.replace(" ", s.index[-1])
 ```
 
+
+
+#### 30. How to create a TimeSeries starting ‘2000-01-01’ and 10 weekends (saturdays) after that having random numbers as values?
+
+- **Solution**
+
+```python
+ser = pd.Series(np.random.randint(1, 10, 10), pd.date_range("2000-01-01", periods=10, freq="W-SAT"))
+ser
+```
+
+
+
+#### 31. How to fill an intermittent time series so all missing dates show up with values of previous non-missing date?
+
+```
+ser = pd.Series([1,10,3,np.nan], index=pd.to_datetime(['2000-01-01', '2000-01-03', '2000-01-06', '2000-01-08']))
+```
+
+- **Solution**
+
+```python
+ser.resample("D").ffill()
+```
+
+
+
+#### 32. How to compute the autocorrelations of a numeric series?
+
+```python
+ser = pd.Series(np.arange(20) + np.random.normal(1, 10, 20))
+```
+
+- **Solution**
+
+```python
+autocorrelations = list(ser.autocorr(i).round(2) for i in range(11))
+autocorrelations[1:]
+```
+
