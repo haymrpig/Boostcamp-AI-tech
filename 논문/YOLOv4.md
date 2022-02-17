@@ -16,7 +16,8 @@
 # 1. Abstract
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+    
 #### 1-1. 한 줄 요약
 
 YOLOv4는 기존의 BoS + modified BoF를 적용하여, 단일 GPU에서도 잘 돌아가는 빠르고 정확한 object detector를 만들었다.
@@ -54,9 +55,9 @@ CNN의 정확도를 향상시키기 위한 방법 (feature)들은 많고, 이 fe
 # 2. Introduction
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
 
-대부분의 **CNN기반 object detector**는 **주어진 특정 상황**에서만 사용이 된다. 
+  대부분의 **CNN기반 object detector**는 **주어진 특정 상황**에서만 사용이 된다. 
 
 > 예를 들어, car collision은 빠르지만 덜 정확한 model을 사용하며, free parking space 찾는 것은 느리지만 정확한 model을 사용한다.
 
@@ -80,7 +81,7 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 # 3. Related work
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
 
 **기존 object detection의 구조**는 두 파트로 이루어져 있다. 
 
@@ -125,7 +126,8 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 # 4. Bag of freebies
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+  
 training기법을 바꾸는 등의 방법을 통해 accuracy를 증가시키는 방법을 의미한다. 
 
 > training cost만 늘리고, inference cost는 그대로 유지
@@ -211,7 +213,8 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 # 5. Bag of specials
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+  
 약간의 inference cost 증가로 accuracy를 증가시키는 post-processing, plugin modules 방법들을 일컫는 말
 
 일반적으로, 이런 **plugin modules**는 **receptive field를 늘리거나, attention mechanism을 도입**하거나, **feature integration capability를 강화**하는 등, **모델의 특정 속성을 강화**하는 것이다. 
@@ -337,7 +340,8 @@ FPN과 같은 multi-scale prediction method가 유명해져서 다른 feature py
 # 6. Methodology  
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+    
 - GPU에서 convolutional layer에서 group의 수가 작은(1-8) CSPResNeXt50 / CSPDarknet53 사용
 
 - VPU에서 grouped-convolution을 썻지만 SE block을 사용하는 것을 삼갔다. (EfficientNet-lite / MixNet [76] / GhostNet [21] / MobileNetV3 이런 모델들)
@@ -465,7 +469,8 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 # 7. YOLOv4 최종 정리
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+    
 | 구성                    | bag of freebies (BoF)              | Bag of Specials                                        |
 | ----------------------- | ---------------------------------- | ------------------------------------------------------ |
 | backbone (CSPDarknet53) | cutmix, Mosaic (data augmentation) | Mish (활성함수)                                        |
@@ -491,8 +496,9 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 # 8. Experiment
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
-- MS COCO (test-dev 2017), ImageNet(ILSVRC 2012 val)에서 실험
+<div markdown="1">  
+  
+  - MS COCO (test-dev 2017), ImageNet(ILSVRC 2012 val)에서 실험
 
 #### 8-1. 분류 문제
 
@@ -572,7 +578,8 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">
-![image-20220217225500349](https://user-images.githubusercontent.com/71866756/154501107-37d73ec8-273b-42af-aefc-d73d13e445de.png)
+  
+![image](https://user-images.githubusercontent.com/71866756/154505163-abc1ed82-605b-47bc-8f83-a38641731f31.png)
 
 그 어떤 detector보다 빠르고 정확했다!
 
@@ -582,10 +589,12 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 </div>
 </details>
 
-# 10. Appendix  
+# 10. Appendix
+    
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+<div markdown="1">  
+  
 #### 1. Cross-iteration Batch Normalization (CBN)
 
 - **Batch Normalization 이란?**
