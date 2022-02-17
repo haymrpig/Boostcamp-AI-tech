@@ -13,6 +13,9 @@ YOLOv4는 기존의 BoS + modified BoF를 적용하여, 단일 GPU에서도 잘 
 
 
 #### 1-2. 개요 
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 
 CNN의 정확도를 향상시키기 위한 방법 (feature)들은 많고, 이 feature들은 이용하는데는 large dataset에서의 실험과 결과의 이론적인 증명이 필요하다고 한다. 
 
@@ -36,9 +39,13 @@ CNN의 정확도를 향상시키기 위한 방법 (feature)들은 많고, 이 fe
 
 [github link](https://github.com/AlexeyAB/darknet)
 
-
+</div>
+</details>
 
 # 2. Introduction
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 
 대부분의 **CNN기반 object detector**는 **주어진 특정 상황**에서만 사용이 된다. 
 
@@ -58,9 +65,13 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 
 ![image](https://user-images.githubusercontent.com/71866756/154497635-5eae2c06-287d-48c0-8799-00aa69a6316e.png)
 
-
+</div>
+</details>
 
 # 3. Related work
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 
 **기존 object detection의 구조**는 두 파트로 이루어져 있다. 
 
@@ -99,10 +110,13 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 
 
 
-
+</div>
+</details>
 
 # 4. Bag of freebies
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 training기법을 바꾸는 등의 방법을 통해 accuracy를 증가시키는 방법을 의미한다. 
 
 > training cost만 늘리고, inference cost는 그대로 유지
@@ -182,10 +196,13 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 >
 > (CIoU는 BBox regression (박스 위치를 교정해주는 것) 문제에 최고의 속도와 정확도를 달성시킴)
 
-
+</div>
+</details>
 
 # 5. Bag of specials
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 약간의 inference cost 증가로 accuracy를 증가시키는 post-processing, plugin modules 방법들을 일컫는 말
 
 일반적으로, 이런 **plugin modules**는 **receptive field를 늘리거나, attention mechanism을 도입**하거나, **feature integration capability를 강화**하는 등, **모델의 특정 속성을 강화**하는 것이다. 
@@ -305,9 +322,13 @@ FPN과 같은 multi-scale prediction method가 유명해져서 다른 feature py
   하지만, anchor free 방식은 객체의 중앙이나 keypoint들을 바로 예측하기 때문에 filtering이 필요없다. )
 
 
+</div>
+</details>
 
-# 6. Methodology
-
+# 6. Methodology  
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 - GPU에서 convolutional layer에서 group의 수가 작은(1-8) CSPResNeXt50 / CSPDarknet53 사용
 
 - VPU에서 grouped-convolution을 썻지만 SE block을 사용하는 것을 삼갔다. (EfficientNet-lite / MixNet [76] / GhostNet [21] / MobileNetV3 이런 모델들)
@@ -429,10 +450,13 @@ CmBN은 CBN의 수정된 버전으로 mini batch 사이의 통계정보만 모�
 
 SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut connection을 concatenate으로 변경
 
-
+</div>
+</details>
 
 # 7. YOLOv4 최종 정리
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 | 구성                    | bag of freebies (BoF)              | Bag of Specials                                        |
 | ----------------------- | ---------------------------------- | ------------------------------------------------------ |
 | backbone (CSPDarknet53) | cutmix, Mosaic (data augmentation) | Mish (활성함수)                                        |
@@ -452,9 +476,13 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 |                         | random training shapes             |                                                        |
 
 
-
+</div>
+</details>
+  
 # 8. Experiement
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 - MS COCO (test-dev 2017), ImageNet(ILSVRC 2012 val)에서 실험
 
 #### 8-1. 분류 문제
@@ -528,10 +556,13 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
 ![image-20220216233230746](https://user-images.githubusercontent.com/71866756/154501216-383e09f9-80f4-4b58-bcb1-af7c66a33dc3.png)
 
+</div>
+</details>
 
-
-# 9. Results
-
+# 9. Results  
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 ![image-20220217225500349](https://user-images.githubusercontent.com/71866756/154501107-37d73ec8-273b-42af-aefc-d73d13e445de.png)
 
 그 어떤 detector보다 빠르고 정확했다!
@@ -539,8 +570,13 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 ![image](https://user-images.githubusercontent.com/71866756/154500907-a0a6aa0d-6c1e-4361-be0f-2ab4096c8489.png)
 ![image](https://user-images.githubusercontent.com/71866756/154500779-5cbece22-6800-4a8b-8a88-ac18a069b89e.png) 
 ![image](https://user-images.githubusercontent.com/71866756/154500668-8054fa0e-57bd-4baf-9cff-decb454fb75e.png) 
-# 10. Appendix
-
+</div>
+</details>
+  
+# 10. Appendix  
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 #### 1. Cross-iteration Batch Normalization (CBN)
 
 - **Batch Normalization 이란?**
@@ -867,3 +903,6 @@ forward 에서 추출된 의미 정보들을 top-down 과정에서 업샘플링�
 forward에서 손실된 지역적인 정보들을 skip connection 으로 보충해서 스케일 변화에 강인하게 되는 것이다.
 
 출처: https://eehoeskrap.tistory.com/300 [Enough is not enough]
+
+</div>
+</details>
