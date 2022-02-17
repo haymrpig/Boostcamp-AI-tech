@@ -56,7 +56,7 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 
 - **기여3.** SOTA 방법을 좀 수정하여, 싱글 GPU에 적합하게 만듬 (CBN, PAN, SAM 등)
 
-![image-20220215004308683](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220215004308683.png)
+![image](https://user-images.githubusercontent.com/71866756/154497635-5eae2c06-287d-48c0-8799-00aa69a6316e.png)
 
 
 
@@ -95,7 +95,7 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 
 #### 요약
 
-![image-20220215005911036](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220215005911036.png)
+![image](https://user-images.githubusercontent.com/71866756/154497672-41378412-3276-4ccb-92a8-2194a8a1851d.png)
 
 
 
@@ -206,7 +206,7 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 
   >SPP는 1차원을 출력하기에, fully convolutional network(FCN)을 적용못해서, yolov3에서는 kxk (k=1,5,9,13), stride 1의 max pooling output을 concat해서 사용했다. 
   >
-  >![image-20220217211129203](../AppData/Roaming/Typora/typora-user-images/image-20220217211129203.png)
+  >![image-20220217211129203](https://user-images.githubusercontent.com/71866756/154501684-d9a901f1-d8fd-4da0-a286-af5818eb6e44.png)
   >
   >yolov3-608 (improved SPP)은  오직 0.5%의 계산량을 추가하여 MS COCO에서 AP_50dmf 2.7%의 이득을 보았다. 
 
@@ -214,7 +214,7 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 
   imporved SPP와 다르게, **3x3 커널을 dilated ratio=k**로 만든 것
 
-  ![img](https://miro.medium.com/max/1400/1*Eo9D404sc3gyr-CkGou0rQ.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154497762-6337e7de-c46b-46ad-ac5f-d9c512a93596.png)
 
   > 이렇게 dilated convolution을 사용하면 더 넓은 receptive field를 가진다는 장점이 있다. 
   >
@@ -255,15 +255,15 @@ FPN과 같은 multi-scale prediction method가 유명해져서 다른 feature py
 >
 > **SFAM** : channel wise level re-weighting을 multi scale concatenated feature map에 사용하기 위해서SE 모듈을 사용
 >
-> ![img](https://blog.kakaocdn.net/dn/dcKdR9/btq4pAKS8i1/kmK89xMXWQ7PBxUP15ni81/img.png)
+> ![image](https://user-images.githubusercontent.com/71866756/154497947-023c6286-a159-4817-b9a5-6c8b2338ce27.png)
 >
 > **Adaptively Spatial Feature Fusion (ASFF)** : softmax를 point wise level re weighting으로 사용한 다음, 서로 다른 scale의 feature map을 더하는 것
 >
-> ![image-20220217215902681](../AppData/Roaming/Typora/typora-user-images/image-20220217215902681.png)
+> ![image-20220217215902681](https://user-images.githubusercontent.com/71866756/154501641-ff1215b5-bb35-4464-a05a-a46c6b6c0d21.png)
 >
 > **Bi-directional Feature Pyramid Networks(BiFPN)** : scale wise level re weighting을 위해 multi input weighted residual connections을 제안하였다. 그리고 서로 다른 scale의 feature map을 더한 것
 >
-> ![image-20220217220108695](../AppData/Roaming/Typora/typora-user-images/image-20220217220108695.png)
+> ![image-20220217220108695](https://user-images.githubusercontent.com/71866756/154501612-941171fc-8e5f-4f84-bb7f-c2df871fbf4b.png)
 
 
 
@@ -338,7 +338,7 @@ FPN과 같은 multi-scale prediction method가 유명해져서 다른 feature py
 
 이론적으로 큰 receptive field (더 많은 수의 3x3 conv), 많은 파라미터를 가지는 모델을 선택하는게 맞다. 
 
-![image-20220216223552683](../AppData/Roaming/Typora/typora-user-images/image-20220216223552683.png)
+![image-20220216223552683](https://user-images.githubusercontent.com/71866756/154501536-dccc37d7-da05-4c2c-8ce5-dc79f7690433.png)
 
 위의 결과에서 **CSPDarknet53**이 이론적으로 그리고 실험적으로도 **가장 detector에 적합**했다.
 
@@ -401,7 +401,7 @@ PANet을 path-aggregation neck으로 사용하였다.
 
 #### 6-3. Mosaic
 
-![image-20220216230320368](../AppData/Roaming/Typora/typora-user-images/image-20220216230320368.png)
+![image-20220216230320368](https://user-images.githubusercontent.com/71866756/154501482-d70a4da9-9dbb-4c41-8da6-ef532fbe8c9c.png)
 
 4개의 training image를 섞어 하나의 이미지를 만든다. 
 
@@ -459,7 +459,7 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 
 #### 8-1. 분류 문제
 
-![image-20220217224304462](../AppData/Roaming/Typora/typora-user-images/image-20220217224304462.png)
+![image-20220217224304462](https://user-images.githubusercontent.com/71866756/154501420-ed54be61-f1f3-4031-8d15-ce1a1a6c4ac3.png)
 
 위 방법들 중 아래 방법들에서 정확도 향상을 확인할 수 있었다. 
 
@@ -473,7 +473,7 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 
   따라서 backbone에서 **cutmix, mosaic, class label smoothing 사용**했다 (mish는 옵션) 
 
-![image-20220216232103322](../AppData/Roaming/Typora/typora-user-images/image-20220216232103322.png)
+![image-20220216232103322](https://user-images.githubusercontent.com/71866756/154501388-b86fbf96-ba83-4eb7-8b25-1df5923c68df.png)
 
 #### 8-2. Detection 문제
 
@@ -497,13 +497,13 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 
 - **GIoU, CIoU, DIoU, MSE** : BBox regression에 서로 다른 loss 사용
 
-![image-20220216232547346](../AppData/Roaming/Typora/typora-user-images/image-20220216232547346.png)
+![image-20220216232547346](https://user-images.githubusercontent.com/71866756/154501341-0bb37abd-8adb-435d-a1f4-413cc6ac2105.png)
 
 - **BoS 테스트 (PAN, RFB, SAM, Gaussian YOLO(G), ASFF)**
 
   -> 가장 좋았던 결과는 **SPP,PAN, SAM**
 
-![image-20220216232535847](../AppData/Roaming/Typora/typora-user-images/image-20220216232535847.png)
+![image-20220216232535847](https://user-images.githubusercontent.com/71866756/154501309-79007262-3f04-4be0-91bf-f76fb9d6eb88.png)
 
 
 
@@ -520,28 +520,25 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 
 -> 결론은 **CSPResNeXt53 backbone으로 좋다.** 
 
-![image-20220216233254920](../AppData/Roaming/Typora/typora-user-images/image-20220216233254920.png)
+![image-20220216233254920](https://user-images.githubusercontent.com/71866756/154501257-3e92b881-9cfb-4cb9-87ed-c61b4e8a2607.png)
 
 #### 8-3. Influence of different mini-batch size on Detector training
 
 BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주지 않아서, 비싼 GPU에서 돌릴 필요가 없어졌다.
 
-![image-20220216233230746](../AppData/Roaming/Typora/typora-user-images/image-20220216233230746.png)
+![image-20220216233230746](https://user-images.githubusercontent.com/71866756/154501216-383e09f9-80f4-4b58-bcb1-af7c66a33dc3.png)
 
 
 
 # 9. Results
 
-![image-20220217225500349](../AppData/Roaming/Typora/typora-user-images/image-20220217225500349.png)
+![image-20220217225500349](https://user-images.githubusercontent.com/71866756/154501107-37d73ec8-273b-42af-aefc-d73d13e445de.png)
 
 그 어떤 detector보다 빠르고 정확했다!
 
-![image-20220217225733071](../AppData/Roaming/Typora/typora-user-images/image-20220217225733071.png)
-
-![image-20220217225750315](../AppData/Roaming/Typora/typora-user-images/image-20220217225750315.png)
-
-![image-20220217225804840](../AppData/Roaming/Typora/typora-user-images/image-20220217225804840.png)
-
+![image](https://user-images.githubusercontent.com/71866756/154500907-a0a6aa0d-6c1e-4361-be0f-2ab4096c8489.png)
+![image](https://user-images.githubusercontent.com/71866756/154500779-5cbece22-6800-4a8b-8a88-ac18a069b89e.png) 
+![image](https://user-images.githubusercontent.com/71866756/154500668-8054fa0e-57bd-4baf-9cff-decb454fb75e.png) 
 # 10. Appendix
 
 #### 1. Cross-iteration Batch Normalization (CBN)
@@ -550,15 +547,15 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   각 batch로 계산한 통계값 (평균, 분산)이 전체 training set과 일치한다고 가정하여, **mini-batch** 안에 존재하는 **sample**들로 **평균과 분산을 계산**한다. 
 
-  ![image-20220217144744920](../AppData/Roaming/Typora/typora-user-images/image-20220217144744920.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154500620-d469c8a1-b96a-417b-935e-cb41c770c3f8.png)
 
   이 값을 토대로 **whitening**을 진행한다. (값의 분포가 평균 0, 분산 1을 갖도록 하는 방법이후,
 
-  ![image-20220217143123719](../AppData/Roaming/Typora/typora-user-images/image-20220217143123719.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154500587-80a5f8bd-f1e0-4bdf-b749-ac253aa10e39.png)
 
    whitening된 값에 학습 가능한 파라미터 감마와 베타를 갖도록 선형 변환을 수향한다. 
 
-  ![image-20220217143115906](../AppData/Roaming/Typora/typora-user-images/image-20220217143115906.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154500537-ff21b31e-af91-4b61-ad0a-3808589aeb58.png)
 
   - **Batch Normalization의 문제점**
 
@@ -576,31 +573,31 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   - **테일러 시리즈**
 
-    ![image-20220217144135087](../AppData/Roaming/Typora/typora-user-images/image-20220217144135087.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154500465-7bf16604-fa46-4a6c-a953-60bfb023afe1.png)
 
-    ![image-20220217144149346](../AppData/Roaming/Typora/typora-user-images/image-20220217144149346.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154500414-c57dd32c-4b80-45b4-be5a-c74e013a35ae.png)
 
     위 식에 따라서 가중치의 차이도 아래 식으로 나타낼 수 있다. 
 
-    ![image-20220217144255474](../AppData/Roaming/Typora/typora-user-images/image-20220217144255474.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154500310-9c0b2deb-4686-47ba-9a0c-906167cb75ca.png)
 
     > f(t)를 현재 가중치, f(a)를 이전 가중치로 보고 f(t) - f(a)를 전개한 것!
 
     어차피, 값의 차이는 매우 적으니, 3차 이상부터는 날린다. 
 
-    ![image-20220217144351770](../AppData/Roaming/Typora/typora-user-images/image-20220217144351770.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154500228-fa2152fb-dc10-465f-ad0d-9370c8661cf5.png)
 
     이렇게 새로 구한 평균과 분산을 이용해 batch normalization을 진행한다. 
 
     > 추가적으로, 바로 이전 iteration 뿐만 아니라 몇 개 이전의 iteration까지 같이 계산할 수 있고, 이를 hyper parameter k로 정의한다. 
     >
-    > ![image-20220217144910465](../AppData/Roaming/Typora/typora-user-images/image-20220217144910465.png)
+    > ![image](https://user-images.githubusercontent.com/71866756/154500171-ab22ef25-0e2e-46ae-a3c3-ed7ffe135ce1.png)
     >
     > k 값이 있음에 따라 평균과 E(X^2)을 구하는 식이 달라진다.
     >
     > (현재 - 1번째 iter / 현재 - 2번째 iter / ... / 현재 - k번째 iter 이런식으로 계산)
     >
-    > ![image-20220217144950190](../AppData/Roaming/Typora/typora-user-images/image-20220217144950190.png)
+    > ![image](https://user-images.githubusercontent.com/71866756/154500111-82d19cdb-3370-471c-b325-e71494de8c27.png)
     >
     > 원래 E(X^2)을 구하는 식과 달라진 점이 있는데, 바로 max연산이다. 
     >
@@ -626,7 +623,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   - **Bottom-up Path Augmentation**
 
-    ![image-20220217150020134](../AppData/Roaming/Typora/typora-user-images/image-20220217150020134.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154500045-7797532c-cabd-4d8b-b4b7-3f93d113804a.png)
 
     기존의 방법이 빨간 선이였다면 Bottom-up Path Augmentation은 초록 선이다. 
 
@@ -634,7 +631,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   - **Adaptive Feature Pooling**
 
-    ![image-20220217150234846](../AppData/Roaming/Typora/typora-user-images/image-20220217150234846.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154499980-fe34dc51-3b2a-46da-b8ec-e52f73a852e1.png)
 
     N2~N5 각각의 feature map에 RPN이 적용되어 ROI를 생성한다.
 
@@ -646,7 +643,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   - **Fully-connected Fusion**
 
-    ![image-20220217150545950](../AppData/Roaming/Typora/typora-user-images/image-20220217150545950.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154499922-ddd95a56-5521-44b8-97bb-030483da6aaf.png)
 
     **FCN**은 각 **class에 해당하는 pixel**을 나타내는 이진 마스크 예측, 
 
@@ -668,17 +665,17 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   예측한 BBox와 ground truth BBox의 교집합 / 합집합으로 표현되며, 
 
-  ![img](https://blog.kakaocdn.net/dn/kHVLd/btq4ZRjTTT4/n1oWiNIYsq6xPmsB88fac1/img.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154498026-24235af9-88e7-4089-b64e-fc547a20e848.png)
 
   IoU가 1에 가까울수록, 즉 **두 BBox가 겹칠수록 loss는 작아진다**.  
 
   단순히 BBox에 좌표에 대한 l2 norm으로 구하는 loss보다 훨씬 정확하다. 
 
-  ![Drawing](https://gaussian37.github.io/assets/img/vision/detection/giou/2.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154498012-c8fc4516-a63f-4841-9b4a-4d8eee6ed6cc.png)
 
   하지만, 단점으로는 **교집합이 존재하지 않을 때 문제가 발생**한다. 
 
-  ![image-20220217171505800](../AppData/Roaming/Typora/typora-user-images/image-20220217171505800.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499853-a93b653e-aaa8-4732-a198-71d26f7e8e09.png)
 
   제일 아래쪽 사진이 loss가 제일 커야 정상이지만, 그렇지 못한다. 
 
@@ -688,7 +685,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   예측 BBox와 ground truth BBox를 모두 포함하는 제일 작은 사각형을 구하는 것!
 
-  ![image-20220217172205808](../AppData/Roaming/Typora/typora-user-images/image-20220217172205808.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499775-bb9f9f3a-11e0-4ba8-bf9d-34f3c1118e41.png)
 
   GIoU식을 보면, IoU에서 전체 넓이 C에 대해서 C - (A U B) 로 중간 그림에서 보면, 전체 넓이에 대해 회색부분의 넓이 비를 구하여 뺀 것이다. 
 
@@ -698,19 +695,19 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   Loss = 1 - GIoU
 
-  ![img](https://blog.kakaocdn.net/dn/chVaey/btq4Xbxl2GO/P0NOZS5tIDihWUkEKYPKw1/img.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154498113-060c5502-eb9f-41d0-b9f5-ca04723bbfd3.png)
 
   하지만, 단점으로는 **예측 BBox가 ground truth BBox를 포함**하고 있으면, **IoU와 마찬가지**로 동작하기 때문에 수렴속도가 느리고 성능이 좋지 않다. 
 
-  ![image-20220217183918990](../AppData/Roaming/Typora/typora-user-images/image-20220217183918990.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499574-d1f6a53a-51b8-4ada-bc37-102c7c802240.png)
 
 - **DIoU (Distance Intersection over Union)**
 
   GIoU가 면적 기반의 페널티를 부여했다면, DIoU는 여기에 거리 기반의 페널티를 부여한다. 
 
-  ![image-20220217184800934](../AppData/Roaming/Typora/typora-user-images/image-20220217184800934.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499502-75ce2652-1e4f-45e1-95b6-d76f79ada241.png)
 
-  ![image-20220217184910174](../AppData/Roaming/Typora/typora-user-images/image-20220217184910174.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499381-2315171d-4a29-465b-a5b7-74ea1000ac2e.png)
 
   d는 두 BBox의 중심 거리를 의미한다.
 
@@ -730,7 +727,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
   1,2까지 고려한 것이 DIoU라면, 이 세가지를 모두 고려하는 것이 CIoU이다. 
 
-  ![img](https://blog.kakaocdn.net/dn/ShCpy/btraBSyKmOK/RVeTUXpMODLTaljyuLYmPK/img.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499252-d2ed6824-8598-4618-be88-490fd4e5deba.png)
 
   v는 두 BBox의 aspect ratio의 일치성을 측정하는 역할이며, alpha는 positive-trade-off parameter로 non-overlapping case와 overlapping case의 균형을 조절한다. 
 
@@ -801,13 +798,13 @@ SPP는 Spatial Pyramid Matching에서 기인하였으므로, Spatial Pyramid Mat
 
     이미지를 **여러 단계의 resolution으로 분할**한 후, 각 단계의 **분할 영역마다 히스토그램**을 구하여 전체적으로 비교하는 방법이다. 
 
-    ![image-20220217203751407](../AppData/Roaming/Typora/typora-user-images/image-20220217203751407.png)
+    ![image](https://user-images.githubusercontent.com/71866756/154499205-03b92669-ac1f-4ae0-9a2f-a9fc99425619.png)
 
     **이거 논문 잇는데 이해가 안되네;;;**
 
 - **Spatial Pyramid Pooling**
 
-  ![img](https://media.vlpt.us/images/lolo5329/post/ad7b9935-be40-42fb-a948-f68b382a2e4b/image.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154499025-c105d7de-c39c-455c-875c-049c26fdb033.png)
 
   위와 같이 미리 정해진 영역으로 나눠진 **피라미드**를 이용한다. 
 
@@ -833,7 +830,7 @@ SPP는 Spatial Pyramid Matching에서 기인하였으므로, Spatial Pyramid Mat
 
 #### 5. Spatial Attention Module (SAM)
 
-![img](https://blog.kakaocdn.net/dn/XkQ8E/btqYZ7ABgRk/p7wSC0okZzR37ykhPIewK0/img.png)
+![image](https://user-images.githubusercontent.com/71866756/154498929-237cc713-c915-4c5c-a714-ea62238a8c35.png)
 
 **Average Pooling과 MaxPooling을 channel 축으로 적용**한 것이다. 
 
@@ -849,7 +846,7 @@ SPP는 Spatial Pyramid Matching에서 기인하였으므로, Spatial Pyramid Mat
 
 #### 6. Feature Pyramid Network
 
-![image-20220217215040709](../AppData/Roaming/Typora/typora-user-images/image-20220217215040709.png)
+![image](https://user-images.githubusercontent.com/71866756/154498822-2e3d16ee-d8e3-49df-95d1-dabbdab69e9e.png)
 
 **Top-down 방식**으로 특징을 추출하며, 
 
