@@ -257,7 +257,7 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 
 - **point wise attention** 
 
-  **Spatial Attention Module (SAM)**은 오직 0.1%의 추가 계산이 필요하고, ResNet50의 성능을 imagenet 에서 top-1을 0.5% 높였다. 그래서 추론 시간을 늘리지 않는다.
+  **Spatial Attention Module (SAM)** 은 오직 0.1%의 추가 계산이 필요하고, ResNet50의 성능을 imagenet 에서 top-1을 0.5% 높였다. 그래서 추론 시간을 늘리지 않는다.
 
 
 
