@@ -14,7 +14,9 @@
 
 
 # 1. Abstract
-
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
 #### 1-1. 한 줄 요약
 
 YOLOv4는 기존의 BoS + modified BoF를 적용하여, 단일 GPU에서도 잘 돌아가는 빠르고 정확한 object detector를 만들었다.
@@ -22,9 +24,7 @@ YOLOv4는 기존의 BoS + modified BoF를 적용하여, 단일 GPU에서도 잘 
 
 
 #### 1-2. 개요 
-<details>
-<summary>접기/펼치기</summary>
-<div markdown="1">
+
 
 CNN의 정확도를 향상시키기 위한 방법 (feature)들은 많고, 이 feature들은 이용하는데는 large dataset에서의 실험과 결과의 이론적인 증명이 필요하다고 한다. 
 
