@@ -17,12 +17,12 @@
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-    
+
 #### 1-1. 한 줄 요약
 
 YOLOv4는 기존의 BoS + modified BoF를 적용하여, 단일 GPU에서도 잘 돌아가는 빠르고 정확한 object detector를 만들었다.
 
-
+그리고 [여기](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=dnjswns2280&logNo=222043364404)가 진짜 깔끔하게 정리했으니, 나중에 다시 볼 땐 이걸 보자.
 
 #### 1-2. 개요 
 
@@ -82,6 +82,7 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
+![img](https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjdfMzkg/MDAxNTk1ODQwMTAwMzU0.m5c4-X6DEwFZ0J53fDzGeBWbj497uGO-jUeP82p2wSwg.4YNVvrsRTyjX4xvR-E8iu3sPxkV8YZ8Y7TB5nQfJQUwg.PNG.dnjswns2280/image.png?type=w800)
 
 **기존 object detection의 구조**는 두 파트로 이루어져 있다. 
 
@@ -101,6 +102,8 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 | one-stage detector | None        | YOLO, SSD, RetinaNet                                         |
 | two-stage detector | None        | R-CNN 시리즈, fast R-CNN, faster R-CNN, <br />R-FCN, Libra R-CNN |
 |                    | anchor free | RedPoints                                                    |
+
+> RedPoints : deformable convolution을 활용하여 객체의 둘레에 점을 찍어 얻은 reppoints를 기반으로 anchor 없이 객체 탐지를 수행하는 모델 
 
 - 최근에는 backbone과 head사이에 layer를 추가해서 different stages에서 feature map을 모으기도 함
 
@@ -127,7 +130,7 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-  
+
 training기법을 바꾸는 등의 방법을 통해 accuracy를 증가시키는 방법을 의미한다. 
 
 > training cost만 늘리고, inference cost는 그대로 유지
@@ -214,7 +217,7 @@ IoU의 장점으로는 좌표와 달리 **scale invariant**하다는 것이다.
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-  
+
 약간의 inference cost 증가로 accuracy를 증가시키는 post-processing, plugin modules 방법들을 일컫는 말
 
 일반적으로, 이런 **plugin modules**는 **receptive field를 늘리거나, attention mechanism을 도입**하거나, **feature integration capability를 강화**하는 등, **모델의 특정 속성을 강화**하는 것이다. 
@@ -341,7 +344,7 @@ FPN과 같은 multi-scale prediction method가 유명해져서 다른 feature py
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-    
+
 - GPU에서 convolutional layer에서 group의 수가 작은(1-8) CSPResNeXt50 / CSPDarknet53 사용
 
 - VPU에서 grouped-convolution을 썻지만 SE block을 사용하는 것을 삼갔다. (EfficientNet-lite / MixNet [76] / GhostNet [21] / MobileNetV3 이런 모델들)
@@ -449,7 +452,15 @@ PANet을 path-aggregation neck으로 사용하였다.
 
 1st stage : network weight를 original image로 바꾸게 되면, 자기 자신에 대해 적대적으로 만들어줘서 원하는 객체가 없다고 오인하게 만들 수 있다. 
 
+> 무슨 의미인지 몰라서 찾아보니,
+>
+> trained된 모델에 대해서 weight는 freeze시키고, input image를 optimize하게 한다. 
+>
+> 이렇게 하면 input image에 noise가 낀다고 한다. 
+
 2nd stage : 이 변환된 이미지에서 객체를 찾게 한다. 
+
+>노이즈가 낀 이미지에 대해서 학습을 진행하면 좀 더 디테일한 영역을 학습 시킬 것이다. 
 
 
 
@@ -467,16 +478,18 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 </details>
 
 # 7. YOLOv4 최종 정리
+
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-    
+
+
 | 구성                    | bag of freebies (BoF)              | Bag of Specials                                        |
 | ----------------------- | ---------------------------------- | ------------------------------------------------------ |
 | backbone (CSPDarknet53) | cutmix, Mosaic (data augmentation) | Mish (활성함수)                                        |
 |                         | DropBlock (정규화)                 | Cross-stage partial connections (CSP)                  |
 |                         | label smoothing                    | multi input weighted residual<br />connections (MiWRC) |
-| Neck (SPP,PAN)          |                                    |                                                        |
+| Neck (SPP+PAN)          |                                    |                                                        |
 | Head (YOLOv3)           |                                    |                                                        |
 | detector                | CIoU-loss                          | mish                                                   |
 |                         | CmBN                               | spp block                                              |
@@ -489,6 +502,9 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 |                         | optimal hyper parameter            |                                                        |
 |                         | random training shapes             |                                                        |
 
+![image-20220218132924894](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218132924894.png)
+
+
 
 </div>
 </details>
@@ -497,7 +513,7 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-  
+
   - MS COCO (test-dev 2017), ImageNet(ILSVRC 2012 val)에서 실험
 
 #### 8-1. 분류 문제
@@ -520,7 +536,11 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 
 #### 8-2. Detection 문제
 
-- **S** : Eliminate grid sensitivity the equation bx = σ(tx)+ cx, by = σ(ty)+cy, where cx and cy are always whole numbers, is used in YOLOv3 for evaluating the object coordinates, therefore, extremely high tx absolute values are required for the bx value approaching the cx or cx + 1 values. We solve this problem through multiplying the sigmoid by a factor exceeding 1.0, so eliminating the effect of grid on which the object is undetectable. 
+- **S** : Eliminate grid sensitivity 
+
+  the equation bx = σ(tx)+ cx, by = σ(ty)+cy, where cx and cy are always whole numbers, is used in YOLOv3 for evaluating the object coordinates, therefore, extremely high tx absolute values are required for the bx value approaching the cx or cx + 1 values. 
+
+  We solve this problem through multiplying the sigmoid by a factor exceeding 1.0, so eliminating the effect of grid on which the object is undetectable. 
 
 - **M**: Mosaic data augmentation
 
@@ -578,7 +598,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">
-  
+
 ![image](https://user-images.githubusercontent.com/71866756/154505163-abc1ed82-605b-47bc-8f83-a38641731f31.png)
 
 그 어떤 detector보다 빠르고 정확했다!
@@ -590,12 +610,12 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 </details>
 
 # 10. Appendix
-    
+
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-  
-#### 1. Cross-iteration Batch Normalization (CBN)
+
+#### 1. Cross mini Batch Normalization (CmBN)
 
 - **Batch Normalization 이란?**
 
@@ -617,9 +637,11 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
 
     **작은 batch-size의 통계값은 training set의 통계값과 동일하지 않게 된다.** 
 
-- **CBN 이란?**
+- **Cross-iteration Batch Normalization (CBN) 이란?**
 
   small batch에서 발생하는 Batch Normalization 문제를 해결하기 위한 방법으로, **이전 iteration에서 사용한 sample 데이터의 평균과 분산을 계산**한다.
+
+  ![img](https://blog.kakaocdn.net/dn/b06q76/btq42zwx7FA/FKo5JAa5ckpCd3a6tZpDlK/img.png)
 
   현재 가중치와 이전 가중치가 다르기 때문에, 단순히 이전 iteration의 통계값을 이용하면 부정확하기 때문에, 테일러 시리즈를 사용하여 **이전 가중치와 현재 가중치의 차이만큼 보상**하여 근사한다.
 
@@ -642,7 +664,7 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
     ![image](https://user-images.githubusercontent.com/71866756/154500228-fa2152fb-dc10-465f-ad0d-9370c8661cf5.png)
 
     이렇게 새로 구한 평균과 분산을 이용해 batch normalization을 진행한다. 
-
+  
     > 추가적으로, 바로 이전 iteration 뿐만 아니라 몇 개 이전의 iteration까지 같이 계산할 수 있고, 이를 hyper parameter k로 정의한다. 
     >
     > ![image](https://user-images.githubusercontent.com/71866756/154500171-ab22ef25-0e2e-46ae-a3c3-ed7ffe135ce1.png)
@@ -656,6 +678,10 @@ BoF와 BoS를 적용하니 mini batch는 detector performance에 영향을 주�
     > 원래 E(X^2)을 구하는 식과 달라진 점이 있는데, 바로 max연산이다. 
     >
     > 원래 분산은 E(X^2) - E(X)^2으로 계산하고, E(X^2)은 항상 E(X)^2보다 크지만, 테일러 시리즈로 근사하였기 때문에, 작아질 수 있어서 음수가 나오지 않게 하기 위해 max 연산을 취한다. 
+
+- **Cross-mini batch normalization (CmBN)**
+
+  CBN이 iteration 단위로 되어있다면, CmBN은 mini batch 단위로 계산하는 것
 
 [**Ref**]
 
@@ -894,6 +920,12 @@ SPP는 Spatial Pyramid Matching에서 기인하였으므로, Spatial Pyramid Mat
 
 **channel attention이 어떤 정보가 있냐**에 집중했다면, **spatial attention은 정보가 어디에 있냐**를 중점으로 둔다고 한다. 
 
+[**Ref**]
+
+https://deep-learning-study.tistory.com/666
+
+https://arxiv.org/abs/1807.06521
+
 
 
 ------
@@ -921,6 +953,66 @@ forward 에서 추출된 의미 정보들을 top-down 과정에서 업샘플링�
 forward에서 손실된 지역적인 정보들을 skip connection 으로 보충해서 스케일 변화에 강인하게 되는 것이다.
 
 출처: https://eehoeskrap.tistory.com/300 [Enough is not enough]
+
+
+
+------
+
+#### 7. Mish 활성화 함수
+
+$$
+f(x) = xtanh(ln(1+e^x))
+$$
+
+![img](https://blog.kakaocdn.net/dn/bNMfJN/btqEGDFuxqe/aEPskQf9rGAOikQRykXxnk/img.png)
+
+Mish 활성화 함수는 무한대로 뻗어나가기 (unbounded above) 때문에 포화를 피할 수 있으며, 
+
+> 여기서 포화의 의미를 gradient exploding으로 생각했는데 그게 아니였다. 
+>
+> 포화(saturation)란 입력값이 변해도 출력값이 변하지 않는 상태를 의미한다. 
+>
+> 즉, gradient 포화 = gradient vanishing로, 이 둘은 같은 의미이다. 
+
+bounded below이기 때문에 strong regularization이 나타나며 overfitting을 감소시킬 수 있다고 한다. 
+
+또한, ReLU와는 다르게 음수인 부분에서도 gradient 존재하며, 작은 음수의 input은 작은 음수 값으로 매칭이 된다. 따라서 expressivity와 gradient flow를 향상시킨다고 한다. 
+
+[**Ref**]
+
+https://hongl.tistory.com/213
+
+https://stats.stackexchange.com/questions/544739/why-does-being-bounded-below-in-swish-reduces-overfitting
+
+
+
+------
+
+#### 8. Cross-stage partial connections (CSP)
+
+CSPNet의 구조인 CSP는 컴퓨팅 파워가 낮은 환경에서도 용이하게 하기 위한 구조로서, network의 연산량이 optimization 과정 중, gradients의 정보 중복으로 인해 증가한다는 점을 고려한 결과이다. 
+
+![img](https://blog.kakaocdn.net/dn/bquRKO/btq4Ue7UT1C/krDquk5cbD1qHIDhkLyAFK/img.png)
+
+위 그림에서 dense layer의 입력과 출력이 concatenation이 된다. 
+
+![image-20220218123100386](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218123100386.png)
+
+위 식을 보면 중복된 input으로 인해, 가중치를 업데이트할 때, gradient 정보도 중복이 된다.
+
+ ![img](https://ichi.pro/assets/images/max/724/1*u-vu3UCTBwyGE893yIRyUA.png)
+
+![img](https://ichi.pro/assets/images/max/724/1*x3dS9A6KKZsGQ57WuOVxGA.png)
+
+![image-20220218124234180](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218124234180.png)
+
+[**Ref**]
+
+https://ichi.pro/ko/cspnet-cross-stage-partial-network-64805303419044
+
+
+
+
 
 </div>
 </details>
