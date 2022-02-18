@@ -82,10 +82,10 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-    
+
 ![image](https://user-images.githubusercontent.com/71866756/154618290-99ab2cbf-f807-46ad-a763-13b8cff85fae.png)
 
-    
+
 **기존 object detection의 구조**는 두 파트로 이루어져 있다. 
 
  **Imagenet pretrained backbone + head** (class, bbox예측) 이다. 
@@ -475,6 +475,8 @@ CmBN은 CBN의 수정된 버전으로 mini batch 사이의 통계정보만 모�
 #### 6-5. modified SAM & modified PAN
 
 SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut connection을 concatenate으로 변경
+
+![image](https://user-images.githubusercontent.com/71866756/154620769-46446886-82a0-4a54-a016-e1596f66e4b2.png)
 
 </div>
 </details>
@@ -963,7 +965,7 @@ forward에서 손실된 지역적인 정보들을 skip connection 으로 보충�
 #### 7. Mish 활성화 함수  
 
 ![image](https://user-images.githubusercontent.com/71866756/154618610-7c33b696-6b79-4e07-804e-fbbc3936e946.png)  
-  
+
 
 ![img](https://blog.kakaocdn.net/dn/bNMfJN/btqEGDFuxqe/aEPskQf9rGAOikQRykXxnk/img.png)
 
