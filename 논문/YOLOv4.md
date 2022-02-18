@@ -82,8 +82,10 @@ real time object detecter의 정확도를 높이는 것은 이러한 제약 사�
 <details>
 <summary>접기/펼치기</summary>
 <div markdown="1">  
-![img](https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjdfMzkg/MDAxNTk1ODQwMTAwMzU0.m5c4-X6DEwFZ0J53fDzGeBWbj497uGO-jUeP82p2wSwg.4YNVvrsRTyjX4xvR-E8iu3sPxkV8YZ8Y7TB5nQfJQUwg.PNG.dnjswns2280/image.png?type=w800)
+    
+![image](https://user-images.githubusercontent.com/71866756/154618290-99ab2cbf-f807-46ad-a763-13b8cff85fae.png)
 
+    
 **기존 object detection의 구조**는 두 파트로 이루어져 있다. 
 
  **Imagenet pretrained backbone + head** (class, bbox예측) 이다. 
@@ -502,7 +504,7 @@ SAM을 spatial-wise attention -> point-wise attention 변경 + PAN의 shortcut c
 |                         | optimal hyper parameter            |                                                        |
 |                         | random training shapes             |                                                        |
 
-![image-20220218132924894](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218132924894.png)
+![image](https://user-images.githubusercontent.com/71866756/154618414-d61a8c12-d5eb-444c-8693-3ac1d459807c.png)
 
 
 
@@ -958,11 +960,10 @@ forward에서 손실된 지역적인 정보들을 skip connection 으로 보충�
 
 ------
 
-#### 7. Mish 활성화 함수
+#### 7. Mish 활성화 함수  
 
-$$
-f(x) = xtanh(ln(1+e^x))
-$$
+![image](https://user-images.githubusercontent.com/71866756/154618610-7c33b696-6b79-4e07-804e-fbbc3936e946.png)  
+  
 
 ![img](https://blog.kakaocdn.net/dn/bNMfJN/btqEGDFuxqe/aEPskQf9rGAOikQRykXxnk/img.png)
 
@@ -992,19 +993,19 @@ https://stats.stackexchange.com/questions/544739/why-does-being-bounded-below-in
 
 CSPNet의 구조인 CSP는 컴퓨팅 파워가 낮은 환경에서도 용이하게 하기 위한 구조로서, network의 연산량이 optimization 과정 중, gradients의 정보 중복으로 인해 증가한다는 점을 고려한 결과이다. 
 
-![img](https://blog.kakaocdn.net/dn/bquRKO/btq4Ue7UT1C/krDquk5cbD1qHIDhkLyAFK/img.png)
+![image](https://user-images.githubusercontent.com/71866756/154618519-a6da010d-85d1-4b41-a56b-05dae888c073.png)
 
 위 그림에서 dense layer의 입력과 출력이 concatenation이 된다. 
 
-![image-20220218123100386](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218123100386.png)
+![image](https://user-images.githubusercontent.com/71866756/154618536-bf6138ff-c490-40d7-b701-c0e3d15f881c.png)
 
 위 식을 보면 중복된 input으로 인해, 가중치를 업데이트할 때, gradient 정보도 중복이 된다.
 
- ![img](https://ichi.pro/assets/images/max/724/1*u-vu3UCTBwyGE893yIRyUA.png)
+ ![image](https://user-images.githubusercontent.com/71866756/154618552-d7a10328-aa45-4de9-90e9-5241f6d3fedd.png)
 
-![img](https://ichi.pro/assets/images/max/724/1*x3dS9A6KKZsGQ57WuOVxGA.png)
+![image](https://user-images.githubusercontent.com/71866756/154618562-d6113e88-f717-4ee9-ae95-48cdfc949137.png)
 
-![image-20220218124234180](../../../../AppData/Roaming/Typora/typora-user-images/image-20220218124234180.png)
+![image](https://user-images.githubusercontent.com/71866756/154618576-6f424ad7-6550-4109-a979-b9acfd6c1850.png)
 
 [**Ref**]
 
