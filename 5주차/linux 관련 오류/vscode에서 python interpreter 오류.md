@@ -8,7 +8,7 @@ wsl을 사용하는 경우에도 terminal에서 code .를 실행해도 vscode는
 
 - **vscode extension에서 Remote-WSL 설치**
 
-  ![image-20220221015416615](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220221015416615.png)
+  ![image](https://user-images.githubusercontent.com/71866756/154961312-92d0b8ba-1809-4e02-b893-c937ea7a7b86.png)
 
 - **ctrl+shift+p로 Remote-WSL검색, Remote-WSL:New WSL Window 선택**
 
