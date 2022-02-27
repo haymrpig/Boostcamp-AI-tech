@@ -12,14 +12,13 @@ class _BaseWrapper():
 
     def forward(self, images):
         self.image_shape = images.shape[2:]
-        print(self.image_shape)
         self.logits = self.model(images)
         self.probs = F.softmax(self.logits, dim=1)
         return self.probs.sort(dim=1, descending=True)
 
     def backward(self, ids):
         one_hot = F.one_hot(ids, self.logits.shape[-1])
-        one_hot = one_hot.squeeze()
+        one_hot = one_hot.squeeze(0)
         self.model.zero_grad()
         self.logits.backward(gradient=one_hot, retain_graph=True)
         # gradient는 해당 index에 대해서만 미분을 통한 backpropagation을 하겠다는 의미이다. 
@@ -66,14 +65,14 @@ class GradCAM(_BaseWrapper):
         grad_cam = torch.mul(feature_maps, weights).sum(dim=1, keepdim=True)
         grad_cam = F.relu(grad_cam)
         grad_cam = F.interpolate(grad_cam, self.image_shape, mode="bilinear", align_corners=False)
-        B, C, H, W = grad_cam.shape
-        # C는 1인듯?
+        B, C, W, H = grad_cam.shape
+        # C는 1
 
         grad_cam = grad_cam.view(B, -1)
         grad_cam -= grad_cam.min(dim=1, keepdim=True)[0]
         # 양수 만들어주려고 하는듯
         grad_cam /= grad_cam.max(dim=1, keepdim=True)[0]
-        grad_cam = grad_cam.view(B, C, H, W)
+        grad_cam = grad_cam.view(B, C, W, H)
 
         return grad_cam
 

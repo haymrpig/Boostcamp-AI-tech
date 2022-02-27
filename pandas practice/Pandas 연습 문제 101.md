@@ -565,3 +565,19 @@ autocorrelations = list(ser.autocorr(i).round(2) for i in range(11))
 autocorrelations[1:]
 ```
 
+
+
+#### 33. How to import only every nth row from a csv file to create a dataframe?
+
+- **Solution**
+
+```
+df = pd.read_csv("test.csv", chunksize=10)
+# 10개 단위로 df을 구성한다. 
+# index는 계속해서 지속된다. 즉, 첫번째 df는 0~9까지, 두번째 df는 10~19까지 이런방식이다. 
+df2 = pd.concat([chunk.iloc[0] for chunk in df])
+# 따라서, 원하는 간격으로 한 row씩 가져오고 싶다면 이런식으로 하면 된다. 
+```
+
+
+

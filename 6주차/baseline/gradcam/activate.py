@@ -2,6 +2,7 @@ import glob
 import os
 from PIL import Image
 import torch
+from gradcan import *
 
 def readImages(img_path):
     return glob.glob(os.path.join(img_path, "*.*"))
