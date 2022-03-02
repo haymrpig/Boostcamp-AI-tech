@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "trainA.py", line 105, in <module>
+    main(config)
+  File "trainA.py", line 62, in main
+    A.RandomHorizontalFlip(),
+AttributeError: module 'albumentations' has no attribute 'RandomHorizontalFlip'
+Traceback (most recent call last):
+  File "trainA.py", line 105, in <module>
+    main(config)
+  File "trainA.py", line 62, in main
+    A.RandomHorizontalFlip(),
+AttributeError: module 'albumentations' has no attribute 'RandomHorizontalFlip'

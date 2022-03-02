@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "trainA.py", line 105, in <module>
+    main(config)
+  File "trainA.py", line 60, in main
+    A.Resize((img_shape,img_shape)),
+TypeError: __init__() missing 1 required positional argument: 'width'
+Traceback (most recent call last):
+  File "trainA.py", line 105, in <module>
+    main(config)
+  File "trainA.py", line 60, in main
+    A.Resize((img_shape,img_shape)),
+TypeError: __init__() missing 1 required positional argument: 'width'

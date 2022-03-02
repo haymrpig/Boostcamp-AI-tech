@@ -1,126 +1,109 @@
-import argparse
-import configparser
 import os
 import glob
-import random
+import timm
+#import random
+import argparse
+import configparser
+
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 import wandb
-
-from trainer.trainer import Trainer 
-import models.model as models
+import pandas as pd
+import models.model as callModel
 import models.loss as module_loss
-from dataset.dataset import myDataset
-from utils.util import checkDevice, readFile
-config_all_keys = ["net", "path", "project"]
 
-def age_group(x):
-    if x == ">= 30 and < 60":
-        return 1
-    elif x=="< 30":
-        return 0
-    else:
-        return 2
+from functools import partial
+from torch.utils.data import DataLoader
+from trainer.trainer import MultiHeadTrainer, Trainer
+from dataset.dataset import myDataset, train_transform, val_transform
+from utils.util import checkDevice, readFile, getOptimizer, setLog, Parser, setSeed, initwandb
+from ray import tune
+from ray.tune import CLIReporter
+from ray.tune.schedulers import ASHAScheduler
 
-def gender(x):
-    if x=="female":
-        return 1
-    else:
-        return 0
 
-def mask_type(x):
-    if x=="incorrect":
-        return 1
-    elif x=="wear":
-        return 0
-    else:
-        return 2
-def add_path(x):
-    return os.path.join("/opt/ml/input/data/train/images", x)
-
-def main(config):
+def main(config, logger):
     device = checkDevice()
 
-    model_name = config["net"]["model"]
-    num_classes = int(config["net"]["num_classes"])
-    pretrained = True if config["net"]["pretrained"]=="True" else False
-    freeze = True if config["net"]["freeze"]=="True" else False
-    epoch = int(config["net"]["epoch"])
-    batch_size = int(config["net"]["batch_size"])
-    lr = float(config["net"]["lr"])
-
-    config_ = {"epochs":epoch, "batch_size": batch_size, "learning_rate": lr}
-    wandb.init(project=config["project"]["name"], config = config_, entity="haymrpig")
-    wandb.run.name = config["net"]["model"]
-
-    model = getattr(models, config["net"]["model"])(pretrained, num_classes, freeze)
-    criterion = getattr(module_loss, config["net"]["criterion"])()
-    optimizer = getattr(torch.optim, config["net"]["optimizer"])(model.parameters(), lr)
-
-
-    df = readFile(config["path"]["train_data"], config["path"]["train_data_name"], int(config["path"]["train_header"]))
-    df["age_group"] = df["age_group"].apply(age_group)
-    df["gender"] = df["gender"].apply(gender)
-    df["mask_type"] = df["mask_type"].apply(mask_type)
-    df["fname"] = df["fname"].apply(add_path)
+    # about model
+    model_       = config["net"]["model"]
+    freeze      = True if config["net"]["freeze"]=="True" else False
+    classes     = int(config["net"]["num_classes"])
+    pretrained  = True if config["net"]["pretrained"]=="True" else False
     
-    df_test = readFile(config["path"]["test_data"], config["path"]["test_data_name"], int(config["path"]["test_header"]))
-    df_test["fname"]="/opt/ml/input/data/eval/images/" + df_test["ImageID"]
-
-    train_transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.RandomHorizontalFlip(),
-            transforms.Resize((384,512)),
-            transforms.Normalize((0.56, 0.524, 0.501), (0.258, 0.265, 0.267)),
-        ])
-
-    val_transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Resize((384,512)),
-            transforms.Normalize((0.56, 0.524, 0.501), (0.258, 0.265, 0.267)),
-        ])
-
-    test_transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Resize((384,512)),
-            transforms.Normalize((0.56, 0.524, 0.501), (0.258, 0.265, 0.267)),
-        ])
-
-    transform = {"train" : train_transform, "val" : val_transform, "test" : test_transform}
-    total_images = len(df)
-    split_ratio = 0.8
-    train_index = int(len(df)*0.8)
-    df_train = df.loc[:train_index]
-    df_val = df.loc[train_index+1:]
-
-
-    train_dataset = myDataset(df_train, "ans", transform["train"])
-    val_dataset = myDataset(df_val, "ans", transform["val"])
-    test_dataset = myDataset(df_test, "ans",transform["test"])
-
-    train_loader = DataLoader(train_dataset, batch_size = batch_size, shuffle = True, drop_last=True, num_workers=1)
-    val_loader = DataLoader(val_dataset, batch_size = batch_size, num_workers=1)
-    test_loader = DataLoader(test_dataset, batch_size = batch_size, num_workers=1) 
+    # hyper parameters
+    epoch       = int(config["net"]["epoch"])
+    batch       = int(config["net"]["batch_size"])
+    lr          = float(config["net"]["lr"])
+    img_shape   = int(config["net"]["img_shape"])
     
-    dataloaders = {"train":train_loader, "val":val_loader, "test":test_loader}
-    trainer = Trainer(model, criterion, optimizer, config, dataloaders, device, epoch)
+    # for training
+    criterion   = config["net"]["criterion"]
+    optimizer   = config["net"]["optimizer"]
     
-    trainer.train()
+    if config['mode']['mode'] == 'Train':
+        # for wandb
+        initwandb(config)
+
+        # get model, criterion, optimizer, lr_scheduler
+        model = callModel(model_, pretrained, classes, freeze).to(device)
+        criterion = getattr(module_loss, criterion)()
+        optimizer = getOptimizer(optimizer, model, lr)
+        
+        # lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', 0.2, 2)
+
+        transform = {"train":train_transform(config), "val":val_transform(config)}
+
+        df_train = pd.read_csv("/opt/ml/baseline/train_df_age58.csv", header=0)
+        df_val = pd.read_csv("/opt/ml/baseline/val_df_age58.csv", header=0)
+
+        train_dataset = myDataset(df_train, "ans", transform["train"])
+        val_dataset = myDataset(df_val, "ans", transform["val"])
+
+        train_loader = DataLoader(train_dataset, batch_size = batch, shuffle = True, drop_last=True, num_workers=2)
+        val_loader = DataLoader(val_dataset, batch_size = batch, num_workers=2)
+    
+        dataloaders = {"train":train_loader, "val":val_loader}
+    
+        # choose between multihead or singlehead
+        if 'multihead' in config["net"]["model"].split("_"):
+            trainer = MultiHeadTrainer(logger, config, model, criterion, optimizer, dataloaders, device, epoch)
+        else:
+            trainer = Trainer(logger, config, model, criterion, optimizer, dataloaders, device, epoch)
+        
+        trainer.train()
+
+    else:
+        df_test = pd.read_csv('/opt/ml/baseline/test.csv', header=0)
+        transform = {'test':val_transform(config)}
+
+        test_dataset = myDataset(df_test, 'ans', transform['test'])
+        test_loaders = DataLoader(test_dataset, batch_size=batch, num_workers=2)
+
+        dataloader = {'test':test_loaders}
+    
+        if 'multihead' in config["net"]["model"].split("_"):
+            trainer = MultiHeadTrainer(logger, config, model, criterion, optimizer, dataloaders, device, epoch)
+        else:
+            trainer = Trainer(logger, config, model, criterion, optimizer, dataloaders, device, epoch)
+    
+        loss, answer = trainer.test()
+        
+        submission_path = os.path.join('/opt/ml/baseline/submission',model_,'submission.csv')
+        info_df = pd.read_csv('/opt/ml/baseline/info.csv')
+        info_df['ans'] = answer
+        info_df.to_csv(submission_path)
+        logger(f'submission file saved at .... {submission_path}' )
 
 
 if __name__=="__main__":
-    args = argparse.ArgumentParser(description="baseline code")
-    args.add_argument("--config", default=os.environ.get('CONFIG_FILE', '/opt/ml/baseline/config.cfg'), type=str,
-                    help="config file path (default : None)")
+    setSeed(777)
+    config = Parser()
+    logger = setLog(config)
     
-    args = args.parse_args()
-    config = configparser.ConfigParser()
-    config.read(args.config)
-
-    main(config)
+    main(config, logger)
 
 
 

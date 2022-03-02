@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 74, in main
+    lr_scheduler = None if lr_scheduler is None else getattr(torch.optim.lr_scheduler, lr_scheduler)
+AttributeError: module 'torch.optim.lr_scheduler' has no attribute 'None'
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 74, in main
+    lr_scheduler = None if lr_scheduler is None else getattr(torch.optim.lr_scheduler, lr_scheduler)
+AttributeError: module 'torch.optim.lr_scheduler' has no attribute 'None'

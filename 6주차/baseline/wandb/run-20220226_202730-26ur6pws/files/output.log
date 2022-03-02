@@ -1,0 +1,42 @@
+
+  0%|                                                                                                                                                                                                                                        | 0/265 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(config)
+  File "train.py", line 87, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 53, in train
+    loss = self.criterion(outputs, labels)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/ml/baseline/models/loss.py", line 18, in forward
+    return nn.CrossEntropyLoss(pred, target)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 957, in __init__
+    super(CrossEntropyLoss, self).__init__(weight, size_average, reduce, reduction)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 25, in __init__
+    super(_WeightedLoss, self).__init__(size_average, reduce, reduction)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 18, in __init__
+    self.reduction = _Reduction.legacy_get_string(size_average, reduce)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/_reduction.py", line 37, in legacy_get_string
+    if size_average and reduce:
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    main(config)
+  File "train.py", line 87, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 53, in train
+    loss = self.criterion(outputs, labels)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/ml/baseline/models/loss.py", line 18, in forward
+    return nn.CrossEntropyLoss(pred, target)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 957, in __init__
+    super(CrossEntropyLoss, self).__init__(weight, size_average, reduce, reduction)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 25, in __init__
+    super(_WeightedLoss, self).__init__(size_average, reduce, reduction)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 18, in __init__
+    self.reduction = _Reduction.legacy_get_string(size_average, reduce)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/_reduction.py", line 37, in legacy_get_string
+    if size_average and reduce:
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous

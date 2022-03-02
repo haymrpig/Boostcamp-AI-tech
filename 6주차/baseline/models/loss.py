@@ -2,6 +2,20 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
     
+# cross entopy loss에서 softmax 뺀거
+class NLLLoss(nn.Module):
+    def __init__(self):
+        super().__init__()
+    
+    def forward(self, pred, target):
+        return nn.NLLLoss(pred, target)
+    
+class CrossEntropyLoss(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, pred, target):
+        return nn.CrossEntropyLoss(pred, target)
 
 # https://discuss.pytorch.org/t/is-this-a-correct-implementation-for-focal-loss-in-pytorch/43327/8
 class FocalLoss(nn.Module):
@@ -24,7 +38,7 @@ class FocalLoss(nn.Module):
 
 
 class LabelSmoothingLoss(nn.Module):
-    def __init__(self, classes=3, smoothing=0.0, dim=-1):
+    def __init__(self, classes=3, smoothing=0.1, dim=-1):
         super(LabelSmoothingLoss, self).__init__()
         self.confidence = 1.0 - smoothing
         self.smoothing = smoothing
@@ -42,7 +56,7 @@ class LabelSmoothingLoss(nn.Module):
 
 # https://gist.github.com/SuperShinyEyes/dcc68a08ff8b615442e3bc6a9b55a354
 class F1Loss(nn.Module):
-    def __init__(self, classes=3, epsilon=1e-7):
+    def __init__(self, classes=18, epsilon=1e-7):
         super().__init__()
         self.classes = classes
         self.epsilon = epsilon

@@ -1,0 +1,39 @@
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+
+
+
+
+  4%|███▊                                                                                  | 42/945 [00:13<04:42,  3.19it/s]
+Traceback (most recent call last):
+  File "train.py", line 140, in <module>
+    main(config)
+  File "train.py", line 128, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 58, in train
+    loss.backward()
+  File "/opt/conda/lib/python3.8/site-packages/torch/tensor.py", line 221, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/opt/conda/lib/python3.8/site-packages/torch/autograd/__init__.py", line 130, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train.py", line 140, in <module>
+    main(config)
+  File "train.py", line 128, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 58, in train
+    loss.backward()
+  File "/opt/conda/lib/python3.8/site-packages/torch/tensor.py", line 221, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/opt/conda/lib/python3.8/site-packages/torch/autograd/__init__.py", line 130, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt

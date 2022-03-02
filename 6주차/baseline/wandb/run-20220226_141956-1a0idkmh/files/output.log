@@ -1,0 +1,170 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍| 470/472 [04:54<00:01,  1.49it/s]
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 472/472 [04:55<00:00,  1.60it/s]
+>>>>>>>>> Validation #1  Accuracy: 91.11%  Average Loss: 0.0984 f1 score: 0.5651
+>>>>>>>>> Best performance at epoch: 1
+>>>>>>>>> Save model in /opt/ml/baseline/experiments/efficientnet_b3_pruned/batch32_focalloss_imgshape300_ReduceLROnPlateau
+Traceback (most recent call last):
+  File "train.py", line 127, in <module>
+    main(config)
+  File "train.py", line 115, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 81, in train
+    if self.scheduler:
+AttributeError: 'Trainer' object has no attribute 'scheduler'
+Traceback (most recent call last):
+  File "train.py", line 127, in <module>
+    main(config)
+  File "train.py", line 115, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 81, in train
+    if self.scheduler:
+AttributeError: 'Trainer' object has no attribute 'scheduler'

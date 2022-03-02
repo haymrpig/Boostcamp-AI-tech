@@ -1,0 +1,50 @@
+
+  0%|                                                                                                                                                                                    | 0/236 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 114, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 67, in train
+    f1 = f1_score(all_labels, all_preds, average='macro')
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1071, in f1_score
+    return fbeta_score(y_true, y_pred, beta=1, labels=labels,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1195, in fbeta_score
+    _, _, f, _ = precision_recall_fscore_support(y_true, y_pred,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1464, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1277, in _check_set_wise_labels
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 100, in _check_targets
+    raise ValueError("{0} is not supported".format(y_type))
+ValueError: multiclass-multioutput is not supported
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 114, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 67, in train
+    f1 = f1_score(all_labels, all_preds, average='macro')
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1071, in f1_score
+    return fbeta_score(y_true, y_pred, beta=1, labels=labels,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1195, in fbeta_score
+    _, _, f, _ = precision_recall_fscore_support(y_true, y_pred,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1464, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels,
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 1277, in _check_set_wise_labels
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/opt/conda/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 100, in _check_targets
+    raise ValueError("{0} is not supported".format(y_type))
+ValueError: multiclass-multioutput is not supported

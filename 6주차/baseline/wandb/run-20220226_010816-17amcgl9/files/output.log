@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 15%|█████████████████████████▎                                                                                                                                                 | 35/236 [00:53<05:06,  1.52s/it]
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 114, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 50, in train
+    for i, (imgs, labels) in enumerate(tqdm(self.dataloaders["train"])):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train.py", line 126, in <module>
+    main(config)
+  File "train.py", line 114, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 50, in train
+    for i, (imgs, labels) in enumerate(tqdm(self.dataloaders["train"])):
+KeyboardInterrupt

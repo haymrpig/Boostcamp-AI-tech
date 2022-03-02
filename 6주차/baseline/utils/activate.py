@@ -1,7 +1,9 @@
+#https://github.com/kazuto1011/grad-cam-pytorch/blob/master/grad_cam.py
 import glob
 import os
 from PIL import Image
 import torch
+from mainFunctions import *
 
 def readImages(img_path):
     return glob.glob(os.path.join(img_path, "*.*"))
@@ -27,9 +29,12 @@ def load_images(img_path, transform):
 
     return images, raw_images
 
-def gradCam(model, img_path, dest_path, transform=None, device="cuda", target_class=0, target_layers :list =[]):
+def gradCam(model, img_path, dest_path, transform=None, device="cuda", target_class=0):
     model.to(device)
     model.eval()
+    
+    target_layers = ["layer4"]
+
     
     images, raw_images = load_images(img_path, transform)
     images = images.to(device)
@@ -38,6 +43,7 @@ def gradCam(model, img_path, dest_path, transform=None, device="cuda", target_cl
     grad_cam = GradCAM(model)
     probs, ids = grad_cam.forward(images)
     target_ids = torch.LongTensor([[target_class]]*len(images)).to(device)
+    
     grad_cam.backward(target_ids)
 
     check = []
@@ -46,6 +52,4 @@ def gradCam(model, img_path, dest_path, transform=None, device="cuda", target_cl
 
         regions = grad_cam.generate(target_layer)
         check.append(regions)
-
-        
     return check, raw_images

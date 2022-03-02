@@ -1,32 +1,35 @@
-from torch.utils.data import Dataset, DataLoader
-from PIL import Image
 import torch
+import numpy as np
+import albumentations as A
+from PIL import Image
+from torch.utils.data import Dataset, DataLoader
+from albumentations.pytorch import ToTensorV2
 
 class myDataset(Dataset):
-    def __init__(self, df, class_="all", transform=None):
+    def __init__(self, df, class_="ans", transform=None):
         self.df = df
         self.class_ = class_
-        self.all_data = list(df["fname"])
-        self.data_label = list(df[class_])
+        self.all_data = df["fname"].values
+        self.label = df[class_].values
         self.classes = self.class_name
-        self.len = len(self.all_data)
         self.transform = transform
 
 
     def __getitem__(self, idx):
         image = self.all_data[idx]
-        label = self.data_label[idx]
+        label = self.label[idx]
 
-        image = Image.open(image) 
+        image = np.array(Image.open(image)) 
         
         if self.transform:
-            image = self.transform(image)
+            image = self.transform(image=image)["image"]
+        
         label = torch.tensor(label)
 
         return image, label
 
     def __len__(self):
-        return self.len
+        return len(self.label)
 
     def class_name(self, num):
         if self.class_ == "gender":
@@ -74,6 +77,29 @@ class myDataset(Dataset):
         temp = (num%6)%3
         name += self.decode_age(temp)
         return name
-        
-        
 
+
+def train_transform(config):
+    
+    return A.Compose([
+                    A.CenterCrop(height=int(512*0.9), width=int(384*0.9), p=1),
+                    A.ShiftScaleRotate(scale_limit=0, shift_limit=0.02, rotate_limit=0, p=0.5),
+                    A.HorizontalFlip(p=0.5),
+                    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+                    A.Normalize(
+                        mean=[0.56, 0.524, 0.501],
+                        std=[0.258, 0.265, 0.267],
+                        max_pixel_value=255.0),
+                    ToTensorV2()
+                    ])
+
+def val_transform(config):
+    return A.Compose([
+                    A.CenterCrop(height=int(512*0.9), width=int(384*0.9), p=1),
+                    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+                    A.Normalize(
+                        mean=[0.56, 0.524, 0.501],
+                        std=[0.258, 0.265, 0.267],
+                        max_pixel_value=255.0),
+                    ToTensorV2()
+                    ])

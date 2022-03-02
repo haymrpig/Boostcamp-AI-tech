@@ -1,0 +1,90 @@
+2022-02-26 14:18:27,046 INFO    MainThread:13202 [internal.py:wandb_internal():89] W&B internal server running at pid: 13202, started at: 2022-02-26 14:18:27.046183
+2022-02-26 14:18:27,049 DEBUG   SenderThread:13202 [sender.py:send():235] send: header
+2022-02-26 14:18:27,049 INFO    WriterThread:13202 [datastore.py:open_for_write():77] open: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/run-3vl1lxt9.wandb
+2022-02-26 14:18:27,049 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: check_version
+2022-02-26 14:18:27,050 DEBUG   SenderThread:13202 [sender.py:send_request():249] send_request: check_version
+2022-02-26 14:18:27,084 DEBUG   SenderThread:13202 [sender.py:send():235] send: run
+2022-02-26 14:18:27,365 INFO    SenderThread:13202 [dir_watcher.py:__init__():169] watching files in: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files
+2022-02-26 14:18:27,366 INFO    SenderThread:13202 [sender.py:_start_run_threads():809] run started: 3vl1lxt9 with start time 1645885106
+2022-02-26 14:18:27,366 DEBUG   SenderThread:13202 [sender.py:send():235] send: summary
+2022-02-26 14:18:27,366 INFO    SenderThread:13202 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 14:18:27,366 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: run_start
+2022-02-26 14:18:27,370 DEBUG   HandlerThread:13202 [meta.py:__init__():36] meta init
+2022-02-26 14:18:27,370 DEBUG   HandlerThread:13202 [meta.py:__init__():50] meta init done
+2022-02-26 14:18:27,370 DEBUG   HandlerThread:13202 [meta.py:probe():210] probe
+2022-02-26 14:18:27,376 DEBUG   HandlerThread:13202 [git.py:repo():33] git repository is invalid
+2022-02-26 14:18:27,376 DEBUG   HandlerThread:13202 [meta.py:_save_pip():54] save pip
+2022-02-26 14:18:27,376 DEBUG   HandlerThread:13202 [meta.py:_save_pip():68] save pip done
+2022-02-26 14:18:27,376 DEBUG   HandlerThread:13202 [meta.py:_save_conda():75] save conda
+2022-02-26 14:18:28,367 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/requirements.txt
+2022-02-26 14:18:28,368 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/conda-environment.yaml
+2022-02-26 14:18:28,368 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-summary.json
+2022-02-26 14:18:30,125 DEBUG   HandlerThread:13202 [meta.py:_save_conda():85] save conda done
+2022-02-26 14:18:30,125 DEBUG   HandlerThread:13202 [meta.py:probe():248] probe done
+2022-02-26 14:18:30,249 DEBUG   SenderThread:13202 [sender.py:send():235] send: files
+2022-02-26 14:18:30,249 INFO    SenderThread:13202 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-26 14:18:30,253 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 14:18:30,254 DEBUG   SenderThread:13202 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 14:18:30,367 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:30,367 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-metadata.json
+2022-02-26 14:18:30,447 DEBUG   SenderThread:13202 [sender.py:send():235] send: run
+2022-02-26 14:18:30,660 INFO    SenderThread:13202 [sender.py:send_run():707] updated run: 3vl1lxt9
+2022-02-26 14:18:30,807 INFO    Thread-11 :13202 [upload_job.py:push():137] Uploaded file /tmp/tmp60ia9sxswandb/3uu6nu0p-wandb-metadata.json
+2022-02-26 14:18:31,367 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/config.yaml
+2022-02-26 14:18:34,368 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:36,369 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:38,370 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:40,370 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:42,371 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:44,372 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:45,448 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 14:18:45,449 DEBUG   SenderThread:13202 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 14:18:46,373 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:48,373 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:50,374 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:52,375 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:54,375 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:55,501 DEBUG   SenderThread:13202 [sender.py:send():235] send: stats
+2022-02-26 14:18:56,376 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:18:58,377 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:00,378 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:00,636 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 14:19:00,636 DEBUG   SenderThread:13202 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 14:19:02,379 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:04,379 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:06,380 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:08,381 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:10,382 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:12,382 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:14,383 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:15,833 DEBUG   HandlerThread:13202 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 14:19:15,833 DEBUG   SenderThread:13202 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 14:19:16,384 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:18,384 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:20,385 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:22,386 INFO    Thread-8  :13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:23,020 WARNING MainThread:13202 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-02-26 14:19:23,180 DEBUG   SenderThread:13202 [sender.py:send():235] send: history
+2022-02-26 14:19:23,205 WARNING MainThread:13202 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-02-26 14:19:23,263 ERROR   MainThread:13202 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-02-26 14:19:23,281 INFO    WriterThread:13202 [datastore.py:close():281] close: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/run-3vl1lxt9.wandb
+2022-02-26 14:19:23,344 INFO    HandlerThread:13202 [handler.py:finish():739] shutting down handler
+2022-02-26 14:19:23,345 DEBUG   SenderThread:13202 [sender.py:send():235] send: summary
+2022-02-26 14:19:23,423 INFO    SenderThread:13202 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 14:19:23,423 INFO    SenderThread:13202 [sender.py:finish():1075] shutting down sender
+2022-02-26 14:19:23,424 INFO    SenderThread:13202 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-26 14:19:24,422 INFO    SenderThread:13202 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-summary.json
+2022-02-26 14:19:24,423 INFO    SenderThread:13202 [dir_watcher.py:finish():313] scan: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files
+2022-02-26 14:19:24,423 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/config.yaml config.yaml
+2022-02-26 14:19:24,423 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/requirements.txt requirements.txt
+2022-02-26 14:19:24,430 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-metadata.json wandb-metadata.json
+2022-02-26 14:19:24,431 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log output.log
+2022-02-26 14:19:24,431 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-summary.json wandb-summary.json
+2022-02-26 14:19:24,437 INFO    SenderThread:13202 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/conda-environment.yaml conda-environment.yaml
+2022-02-26 14:19:24,438 INFO    SenderThread:13202 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-26 14:19:24,440 INFO    SenderThread:13202 [file_pusher.py:join():182] waiting for file pusher
+2022-02-26 14:19:24,983 INFO    Thread-14 :13202 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/output.log
+2022-02-26 14:19:25,025 INFO    Thread-12 :13202 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/config.yaml
+2022-02-26 14:19:25,107 INFO    Thread-15 :13202 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/wandb-summary.json
+2022-02-26 14:19:25,110 INFO    Thread-13 :13202 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_141826-3vl1lxt9/files/requirements.txt
+2022-02-26 14:19:27,322 INFO    MainThread:13202 [internal.py:handle_exit():79] Internal process exited

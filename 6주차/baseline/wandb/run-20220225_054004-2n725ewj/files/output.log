@@ -1,0 +1,39 @@
+
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/efficientnet_b4_ra2_320-7eb33cd5.pth" to /opt/ml/.cache/torch/hub/checkpoints/efficientnet_b4_ra2_320-7eb33cd5.pth
+  0%|                                                   | 0/236 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 125, in <module>
+    main(config)
+  File "train.py", line 113, in main
+    trainer.train()
+  File "/opt/ml/baseline/trainer/trainer.py", line 49, in train
+    outputs = self.model(imgs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/ml/baseline/models/model.py", line 326, in forward
+    x = self.model(x)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/timm/models/efficientnet.py", line 520, in forward
+    x = self.forward_features(x)
+  File "/opt/conda/lib/python3.8/site-packages/timm/models/efficientnet.py", line 513, in forward_features
+    x = self.blocks(x)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/container.py", line 117, in forward
+    input = module(input)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/container.py", line 117, in forward
+    input = module(input)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/timm/models/efficientnet_blocks.py", line 190, in forward
+    x = self.conv_dw(x)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 423, in forward
+    return self._conv_forward(input, self.weight)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 419, in _conv_forward
+    return F.conv2d(input, weight, self.bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 252.00 MiB (GPU 0; 31.75 GiB total capacity; 30.58 GiB already allocated; 15.50 MiB free; 30.60 GiB reserved in total by PyTorch)

@@ -571,7 +571,7 @@ autocorrelations[1:]
 
 - **Solution**
 
-```
+```python
 df = pd.read_csv("test.csv", chunksize=10)
 # 10개 단위로 df을 구성한다. 
 # index는 계속해서 지속된다. 즉, 첫번째 df는 0~9까지, 두번째 df는 10~19까지 이런방식이다. 
@@ -580,4 +580,20 @@ df2 = pd.concat([chunk.iloc[0] for chunk in df])
 ```
 
 
+
+#### 35. How to create a dataframe with rows as strides from a given series?
+
+```
+L = pd.Series(range(15))
+```
+
+- **Solution**
+
+```python
+def gen_strides(a, stride_len=5, window_len=5):
+	n_strides = ((a.size-window_len)//stride_len)+1
+	return np.array([a[s:(s+window_len)] for s in np.arange(0, a.size, stride_len)[:n_strides]])
+	
+gen_strides(L, stride_len=2, window_len=4)
+```
 

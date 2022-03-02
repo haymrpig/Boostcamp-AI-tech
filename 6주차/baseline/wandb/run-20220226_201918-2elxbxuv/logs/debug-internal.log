@@ -1,0 +1,396 @@
+2022-02-26 20:19:18,966 INFO    MainThread:27189 [internal.py:wandb_internal():89] W&B internal server running at pid: 27189, started at: 2022-02-26 20:19:18.966099
+2022-02-26 20:19:18,970 DEBUG   SenderThread:27189 [sender.py:send():235] send: header
+2022-02-26 20:19:18,970 INFO    WriterThread:27189 [datastore.py:open_for_write():77] open: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/run-2elxbxuv.wandb
+2022-02-26 20:19:18,970 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: check_version
+2022-02-26 20:19:18,970 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: check_version
+2022-02-26 20:19:19,003 DEBUG   SenderThread:27189 [sender.py:send():235] send: run
+2022-02-26 20:19:19,258 INFO    SenderThread:27189 [dir_watcher.py:__init__():169] watching files in: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files
+2022-02-26 20:19:19,258 INFO    SenderThread:27189 [sender.py:_start_run_threads():809] run started: 2elxbxuv with start time 1645906758
+2022-02-26 20:19:19,258 DEBUG   SenderThread:27189 [sender.py:send():235] send: summary
+2022-02-26 20:19:19,259 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 20:19:19,259 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: run_start
+2022-02-26 20:19:19,262 DEBUG   HandlerThread:27189 [meta.py:__init__():36] meta init
+2022-02-26 20:19:19,262 DEBUG   HandlerThread:27189 [meta.py:__init__():50] meta init done
+2022-02-26 20:19:19,262 DEBUG   HandlerThread:27189 [meta.py:probe():210] probe
+2022-02-26 20:19:19,268 DEBUG   HandlerThread:27189 [git.py:repo():33] git repository is invalid
+2022-02-26 20:19:19,268 DEBUG   HandlerThread:27189 [meta.py:_save_pip():54] save pip
+2022-02-26 20:19:19,269 DEBUG   HandlerThread:27189 [meta.py:_save_pip():68] save pip done
+2022-02-26 20:19:19,269 DEBUG   HandlerThread:27189 [meta.py:_save_conda():75] save conda
+2022-02-26 20:19:20,260 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/requirements.txt
+2022-02-26 20:19:20,260 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json
+2022-02-26 20:19:20,261 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/conda-environment.yaml
+2022-02-26 20:19:21,984 DEBUG   HandlerThread:27189 [meta.py:_save_conda():85] save conda done
+2022-02-26 20:19:21,984 DEBUG   HandlerThread:27189 [meta.py:probe():248] probe done
+2022-02-26 20:19:22,108 DEBUG   SenderThread:27189 [sender.py:send():235] send: files
+2022-02-26 20:19:22,108 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-26 20:19:22,116 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:19:22,116 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:19:22,259 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-metadata.json
+2022-02-26 20:19:22,259 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_created():217] file/dir created: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:22,317 DEBUG   SenderThread:27189 [sender.py:send():235] send: run
+2022-02-26 20:19:22,528 INFO    SenderThread:27189 [sender.py:send_run():707] updated run: 2elxbxuv
+2022-02-26 20:19:22,696 INFO    Thread-11 :27189 [upload_job.py:push():137] Uploaded file /tmp/tmp4vwf9ipdwandb/k4no1bfp-wandb-metadata.json
+2022-02-26 20:19:23,259 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/config.yaml
+2022-02-26 20:19:26,261 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:28,261 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:30,262 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:32,263 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:34,263 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:36,264 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:37,318 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:19:37,319 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:19:38,265 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:40,266 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:42,267 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:44,267 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:46,268 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:47,397 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:19:48,269 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:50,269 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:52,270 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:52,506 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:19:52,507 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:19:54,270 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:56,271 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:19:58,272 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:00,272 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:02,273 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:04,274 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:06,274 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:07,699 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:20:07,699 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:20:08,275 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:10,275 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:12,276 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:14,277 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:16,277 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:17,520 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:20:18,278 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:20,278 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:22,279 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:22,895 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:20:22,895 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:20:24,279 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:26,280 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:28,281 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:30,281 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:32,282 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:34,282 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:36,283 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:38,084 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:20:38,084 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:20:38,284 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:40,284 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:43,285 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:45,286 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:47,286 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:47,650 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:20:49,287 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:51,287 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:53,267 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:20:53,267 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:20:53,288 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:55,289 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:57,289 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:20:59,290 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:01,291 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:03,291 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:05,292 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:07,293 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:08,451 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:21:08,451 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:21:09,293 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:11,294 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:13,295 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:15,295 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:17,296 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:17,770 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:21:19,297 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:21,297 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:23,298 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:23,641 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:21:23,642 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:21:25,299 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:27,299 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:29,300 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:31,301 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:33,302 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:35,302 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:37,303 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:38,834 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:21:38,834 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:21:39,304 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:41,304 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:43,305 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:45,306 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:47,306 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:47,894 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:21:49,307 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:51,308 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:53,308 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:54,030 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:21:54,030 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:21:55,309 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:57,310 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:21:59,311 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:01,311 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:03,312 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:05,313 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:07,313 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:09,224 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:22:09,224 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:22:09,314 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:11,315 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:13,315 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:15,316 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:17,317 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:18,013 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:22:19,317 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:21,318 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:23,319 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:24,409 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:22:24,409 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:22:25,319 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:27,320 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:29,321 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:31,321 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:33,322 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:35,323 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:37,324 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:39,324 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:39,597 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:22:39,597 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:22:41,325 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:43,326 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:45,326 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:47,327 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:48,133 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:22:49,328 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:51,329 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:53,329 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:54,797 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:22:54,797 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:22:55,330 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:57,331 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:22:59,331 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:01,332 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:03,333 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:05,333 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:07,334 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:09,335 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:09,999 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:23:10,000 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:23:11,336 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:13,336 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:15,337 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:17,338 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:18,255 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:23:19,338 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:21,339 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:23,340 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:25,254 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:23:25,254 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:23:25,340 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:27,341 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:29,342 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:31,343 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:33,343 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:35,344 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:37,345 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:39,346 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:40,444 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:23:40,445 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:23:41,346 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:43,347 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:45,348 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:47,349 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:48,378 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:23:49,349 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:51,350 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:53,351 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:55,352 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:55,642 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:23:55,643 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:23:57,352 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:23:59,353 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:01,354 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:03,355 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:05,355 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:07,356 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:09,357 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:10,854 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:24:10,855 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:24:11,358 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:13,358 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:15,359 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:17,360 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:18,500 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:24:19,361 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:21,361 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:23,362 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:25,363 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:26,038 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:24:26,039 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:24:27,364 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:29,364 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:31,365 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:33,366 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:35,367 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:37,367 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:39,368 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:41,225 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:24:41,226 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:24:41,369 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:43,369 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:45,370 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:47,371 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:48,625 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:24:49,372 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:51,372 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:53,373 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:55,374 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:56,414 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:24:56,415 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:24:57,375 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:24:59,375 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:01,376 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:03,377 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:11,612 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:25:11,612 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:25:14,923 DEBUG   SenderThread:27189 [sender.py:send():235] send: history
+2022-02-26 20:25:15,090 DEBUG   SenderThread:27189 [sender.py:send():235] send: summary
+2022-02-26 20:25:15,165 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 20:25:15,381 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json
+2022-02-26 20:25:17,381 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:18,807 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:25:19,382 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:21,383 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:23,383 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:25,384 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:26,815 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-26 20:25:26,815 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: stop_status
+2022-02-26 20:25:27,385 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:29,385 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:31,386 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:31,437 WARNING MainThread:27189 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-02-26 20:25:31,506 DEBUG   SenderThread:27189 [sender.py:send():235] send: history
+2022-02-26 20:25:31,599 DEBUG   SenderThread:27189 [sender.py:send():235] send: summary
+2022-02-26 20:25:31,680 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 20:25:32,386 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json
+2022-02-26 20:25:33,387 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:33,994 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:33,995 DEBUG   SenderThread:27189 [sender.py:send():235] send: telemetry
+2022-02-26 20:25:33,995 DEBUG   SenderThread:27189 [sender.py:send():235] send: exit
+2022-02-26 20:25:33,995 INFO    SenderThread:27189 [sender.py:send_exit():371] handling exit code: 255
+2022-02-26 20:25:33,996 INFO    SenderThread:27189 [sender.py:send_exit():373] handling runtime: 374
+2022-02-26 20:25:34,041 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 20:25:34,042 INFO    SenderThread:27189 [sender.py:send_exit():379] send defer
+2022-02-26 20:25:34,042 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:34,042 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,042 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 0
+2022-02-26 20:25:34,043 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,043 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-02-26 20:25:34,043 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 1
+2022-02-26 20:25:34,043 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,043 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 1
+2022-02-26 20:25:34,085 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,085 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-02-26 20:25:34,085 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 2
+2022-02-26 20:25:34,086 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,086 DEBUG   SenderThread:27189 [sender.py:send():235] send: stats
+2022-02-26 20:25:34,086 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 2
+2022-02-26 20:25:34,087 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,087 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-02-26 20:25:34,087 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 3
+2022-02-26 20:25:34,087 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,087 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 3
+2022-02-26 20:25:34,139 DEBUG   SenderThread:27189 [sender.py:send():235] send: summary
+2022-02-26 20:25:34,146 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:34,217 INFO    SenderThread:27189 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-26 20:25:34,218 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,218 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-02-26 20:25:34,218 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 4
+2022-02-26 20:25:34,218 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:34,218 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,218 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 4
+2022-02-26 20:25:34,219 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,219 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-02-26 20:25:34,319 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:34,387 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json
+2022-02-26 20:25:34,387 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:34,448 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 5
+2022-02-26 20:25:34,448 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:34,448 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:34,448 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 5
+2022-02-26 20:25:34,449 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:34,449 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-02-26 20:25:34,449 INFO    SenderThread:27189 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-26 20:25:34,549 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,387 INFO    Thread-8  :27189 [dir_watcher.py:_on_file_modified():230] file/dir modified: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/config.yaml
+2022-02-26 20:25:35,388 INFO    SenderThread:27189 [dir_watcher.py:finish():313] scan: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files
+2022-02-26 20:25:35,388 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/config.yaml config.yaml
+2022-02-26 20:25:35,388 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/requirements.txt requirements.txt
+2022-02-26 20:25:35,389 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-metadata.json wandb-metadata.json
+2022-02-26 20:25:35,391 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log output.log
+2022-02-26 20:25:35,392 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json wandb-summary.json
+2022-02-26 20:25:35,392 INFO    SenderThread:27189 [dir_watcher.py:finish():327] scan save: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/conda-environment.yaml conda-environment.yaml
+2022-02-26 20:25:35,392 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 6
+2022-02-26 20:25:35,392 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,393 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:35,393 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 6
+2022-02-26 20:25:35,393 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:35,393 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-02-26 20:25:35,393 INFO    SenderThread:27189 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-26 20:25:35,494 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,494 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,595 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,595 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,696 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,696 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,797 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,798 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,899 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:35,899 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:35,961 INFO    Thread-12 :27189 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/config.yaml
+2022-02-26 20:25:36,000 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:36,000 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:36,050 INFO    Thread-14 :27189 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/output.log
+2022-02-26 20:25:36,090 INFO    Thread-15 :27189 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/wandb-summary.json
+2022-02-26 20:25:36,101 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:36,101 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:36,179 INFO    Thread-13 :27189 [upload_job.py:push():137] Uploaded file /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/files/requirements.txt
+2022-02-26 20:25:36,202 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:36,202 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:36,303 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:36,303 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:36,380 INFO    Thread-7  :27189 [sender.py:transition_state():392] send defer: 7
+2022-02-26 20:25:36,380 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:36,380 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 7
+2022-02-26 20:25:36,380 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:36,380 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-02-26 20:25:36,404 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:39,211 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 8
+2022-02-26 20:25:39,211 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:39,212 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:39,212 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 8
+2022-02-26 20:25:39,213 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:39,213 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-02-26 20:25:39,213 INFO    SenderThread:27189 [sender.py:transition_state():392] send defer: 9
+2022-02-26 20:25:39,213 DEBUG   SenderThread:27189 [sender.py:send():235] send: final
+2022-02-26 20:25:39,213 DEBUG   SenderThread:27189 [sender.py:send():235] send: footer
+2022-02-26 20:25:39,213 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: defer
+2022-02-26 20:25:39,214 INFO    HandlerThread:27189 [handler.py:handle_request_defer():154] handle defer: 9
+2022-02-26 20:25:39,214 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: defer
+2022-02-26 20:25:39,214 INFO    SenderThread:27189 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-02-26 20:25:39,313 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-26 20:25:39,313 DEBUG   SenderThread:27189 [sender.py:send_request():249] send_request: poll_exit
+2022-02-26 20:25:39,314 INFO    SenderThread:27189 [file_pusher.py:join():182] waiting for file pusher
+2022-02-26 20:25:39,690 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: get_summary
+2022-02-26 20:25:39,780 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: sampled_history
+2022-02-26 20:25:39,781 DEBUG   HandlerThread:27189 [handler.py:handle_request():131] handle_request: shutdown
+2022-02-26 20:25:39,781 INFO    HandlerThread:27189 [handler.py:finish():739] shutting down handler
+2022-02-26 20:25:40,214 INFO    WriterThread:27189 [datastore.py:close():281] close: /opt/ml/baseline/wandb/run-20220226_201918-2elxbxuv/run-2elxbxuv.wandb
+2022-02-26 20:25:40,689 INFO    SenderThread:27189 [sender.py:finish():1075] shutting down sender
+2022-02-26 20:25:40,690 INFO    SenderThread:27189 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-26 20:25:40,690 INFO    SenderThread:27189 [file_pusher.py:join():182] waiting for file pusher
+2022-02-26 20:25:40,693 INFO    MainThread:27189 [internal.py:handle_exit():79] Internal process exited

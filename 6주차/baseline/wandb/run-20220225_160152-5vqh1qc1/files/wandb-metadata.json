@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.4.0-59-generic-x86_64-with-glibc2.10",
+    "python": "3.8.5",
+    "heartbeatAt": "2022-02-25T16:01:53.959631",
+    "startedAt": "2022-02-25T16:01:52.824645",
+    "docker": null,
+    "gpu": "Tesla V100-PCIE-32GB",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--config",
+        "config.cfg"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "train.py",
+    "host": "ce4ed859b749",
+    "username": "root",
+    "executable": "/opt/conda/bin/python3"
+}

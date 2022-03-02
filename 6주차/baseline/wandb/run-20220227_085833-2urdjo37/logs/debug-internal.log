@@ -1,0 +1,12 @@
+2022-02-27 08:58:34,115 INFO    MainThread:9679 [internal.py:wandb_internal():89] W&B internal server running at pid: 9679, started at: 2022-02-27 08:58:34.114786
+2022-02-27 08:58:34,118 DEBUG   SenderThread:9679 [sender.py:send():235] send: header
+2022-02-27 08:58:34,118 INFO    WriterThread:9679 [datastore.py:open_for_write():77] open: /opt/ml/baseline/wandb/run-20220227_085833-2urdjo37/run-2urdjo37.wandb
+2022-02-27 08:58:34,119 DEBUG   HandlerThread:9679 [handler.py:handle_request():131] handle_request: check_version
+2022-02-27 08:58:34,119 DEBUG   SenderThread:9679 [sender.py:send_request():249] send_request: check_version
+2022-02-27 08:58:34,155 DEBUG   SenderThread:9679 [sender.py:send():235] send: run
+2022-02-27 08:58:34,259 WARNING MainThread:9679 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-02-27 08:58:34,428 INFO    SenderThread:9679 [dir_watcher.py:__init__():169] watching files in: /opt/ml/baseline/wandb/run-20220227_085833-2urdjo37/files
+2022-02-27 08:58:34,428 INFO    SenderThread:9679 [sender.py:_start_run_threads():809] run started: 2urdjo37 with start time 1645952313
+2022-02-27 08:58:34,518 WARNING MainThread:9679 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-02-27 08:58:34,518 ERROR   MainThread:9679 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-02-27 08:58:34,875 INFO    MainThread:9679 [internal.py:handle_exit():79] Internal process exited

@@ -1,0 +1,1273 @@
+EfficientNet(
+  (conv_stem): Conv2dSame(3, 40, kernel_size=(3, 3), stride=(2, 2), bias=False)
+  (bn1): BatchNorm2d(40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  (act1): SiLU(inplace=True)
+  (blocks): Sequential(
+    (0): Sequential(
+      (0): DepthwiseSeparableConv(
+        (conv_dw): Conv2d(40, 40, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=40, bias=False)
+        (bn1): BatchNorm2d(40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(40, 10, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(10, 40, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pw): Conv2d(40, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn2): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): Identity()
+      )
+      (1): DepthwiseSeparableConv(
+        (conv_dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+        (bn1): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(24, 6, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(6, 24, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn2): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): Identity()
+      )
+    )
+    (1): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(24, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(27, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2dSame(27, 27, kernel_size=(3, 3), stride=(2, 2), groups=27, bias=False)
+        (bn2): BatchNorm2d(27, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(27, 6, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(6, 27, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(27, 12, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(12, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(12, 49, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(49, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(49, 49, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=49, bias=False)
+        (bn2): BatchNorm2d(49, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(49, 8, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(8, 49, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(49, 12, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(12, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): InvertedResidual(
+        (conv_pw): Conv2d(12, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(48, 48, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=48, bias=False)
+        (bn2): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(48, 8, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(8, 48, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(48, 12, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(12, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (2): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(12, 83, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(83, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2dSame(83, 83, kernel_size=(5, 5), stride=(2, 2), groups=83, bias=False)
+        (bn2): BatchNorm2d(83, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(83, 8, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(8, 83, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(83, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(40, 90, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(90, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(90, 90, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=90, bias=False)
+        (bn2): BatchNorm2d(90, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(90, 12, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(12, 90, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(90, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): InvertedResidual(
+        (conv_pw): Conv2d(40, 85, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(85, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(85, 85, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=85, bias=False)
+        (bn2): BatchNorm2d(85, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(85, 12, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(12, 85, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(85, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (3): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(40, 215, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(215, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2dSame(215, 215, kernel_size=(3, 3), stride=(2, 2), groups=215, bias=False)
+        (bn2): BatchNorm2d(215, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(215, 12, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(12, 215, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(215, 93, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(93, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(93, 261, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(261, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(261, 261, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=261, bias=False)
+        (bn2): BatchNorm2d(261, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(261, 24, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(24, 261, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(261, 93, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(93, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): InvertedResidual(
+        (conv_pw): Conv2d(93, 219, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(219, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(219, 219, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=219, bias=False)
+        (bn2): BatchNorm2d(219, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(219, 24, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(24, 219, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(219, 93, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(93, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (3): InvertedResidual(
+        (conv_pw): Conv2d(93, 254, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(254, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(254, 254, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=254, bias=False)
+        (bn2): BatchNorm2d(254, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(254, 24, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(24, 254, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(254, 93, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(93, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (4): InvertedResidual(
+        (conv_pw): Conv2d(93, 236, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(236, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(236, 236, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=236, bias=False)
+        (bn2): BatchNorm2d(236, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(236, 24, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(24, 236, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(236, 93, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(93, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (4): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(93, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(480, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn2): BatchNorm2d(480, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(480, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(120, 235, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(235, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(235, 235, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=235, bias=False)
+        (bn2): BatchNorm2d(235, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(235, 34, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(34, 235, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(235, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): InvertedResidual(
+        (conv_pw): Conv2d(120, 217, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(217, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(217, 217, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=217, bias=False)
+        (bn2): BatchNorm2d(217, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(217, 34, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(34, 217, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(217, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (3): InvertedResidual(
+        (conv_pw): Conv2d(120, 226, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(226, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(226, 226, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=226, bias=False)
+        (bn2): BatchNorm2d(226, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(226, 33, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(33, 226, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(226, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (4): InvertedResidual(
+        (conv_pw): Conv2d(120, 340, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(340, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(340, 340, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=340, bias=False)
+        (bn2): BatchNorm2d(340, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(340, 34, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(34, 340, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(340, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (5): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(120, 802, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(802, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2dSame(802, 802, kernel_size=(5, 5), stride=(2, 2), groups=802, bias=False)
+        (bn2): BatchNorm2d(802, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(802, 34, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(34, 802, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(802, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(232, 1030, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(1030, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(1030, 1030, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1030, bias=False)
+        (bn2): BatchNorm2d(1030, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(1030, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 1030, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(1030, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): InvertedResidual(
+        (conv_pw): Conv2d(232, 924, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(924, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(924, 924, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=924, bias=False)
+        (bn2): BatchNorm2d(924, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(924, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 924, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(924, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (3): InvertedResidual(
+        (conv_pw): Conv2d(232, 1016, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(1016, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(1016, 1016, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1016, bias=False)
+        (bn2): BatchNorm2d(1016, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(1016, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 1016, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(1016, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (4): InvertedResidual(
+        (conv_pw): Conv2d(232, 1130, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(1130, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(1130, 1130, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1130, bias=False)
+        (bn2): BatchNorm2d(1130, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(1130, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 1130, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(1130, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (5): InvertedResidual(
+        (conv_pw): Conv2d(232, 1266, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(1266, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(1266, 1266, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1266, bias=False)
+        (bn2): BatchNorm2d(1266, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(1266, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 1266, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(1266, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(232, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (6): Sequential(
+      (0): InvertedResidual(
+        (conv_pw): Conv2d(232, 1392, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(1392, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(1392, 1392, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1392, bias=False)
+        (bn2): BatchNorm2d(1392, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(1392, 58, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(58, 1392, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(1392, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): InvertedResidual(
+        (conv_pw): Conv2d(384, 2301, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(2301, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): SiLU(inplace=True)
+        (conv_dw): Conv2d(2301, 2301, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2301, bias=False)
+        (bn2): BatchNorm2d(2301, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (act2): SiLU(inplace=True)
+        (se): SqueezeExcite(
+          (conv_reduce): Conv2d(2301, 96, kernel_size=(1, 1), stride=(1, 1))
+          (act1): SiLU(inplace=True)
+          (conv_expand): Conv2d(96, 2301, kernel_size=(1, 1), stride=(1, 1))
+          (gate): Sigmoid()
+        )
+        (conv_pwl): Conv2d(2301, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (conv_head): Conv2d(384, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn2): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  (act2): SiLU(inplace=True)
+  (global_pool): SelectAdaptivePool2d (pool_type=avg, flatten=Flatten(start_dim=1, end_dim=-1))
+  (classifier): Linear(in_features=1536, out_features=18, bias=True)
+)
+
+  1%|█▎                                                                                                                                                                                                             | 3/472 [00:02<07:02,  1.11it/s]
+tensor([ 8,  6,  5, 14,  0,  4,  0, 15,  4,  3, 11,  7,  8, 12, 11, 11,  6,  2,
+         6,  1, 14, 12,  6,  4,  2,  1, 14, 16, 17, 12, 13, 13],
+       device='cuda:0') tensor([1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 2, 0, 0, 0, 0, 0, 1,
+        1, 1, 1, 0, 0, 1, 1, 1], device='cuda:0')
+tensor(0.0625, device='cuda:0')
+tensor([ 4,  1, 14,  1,  1,  2,  1,  0,  1,  2,  0,  1, 13,  2, 12,  0,  0, 17,
+         4,  1, 17,  2,  0,  1,  0,  8,  2,  5,  3, 11,  0,  6],
+       device='cuda:0') tensor([0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 1,
+        0, 1, 1, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.4062, device='cuda:0')
+tensor([ 9,  0,  2,  2,  0,  1,  0,  1,  1,  4,  1,  1,  1,  0,  0,  1,  4,  0,
+         0,  1,  0,  1,  1,  2,  8,  0, 10,  0,  0,  0,  0, 14],
+       device='cuda:0') tensor([2, 0, 2, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 2, 0, 2, 1, 2,
+        1, 0, 1, 0, 1, 0, 0, 1], device='cuda:0')
+
+  1%|██▋                                                                                                                                                                                                            | 6/472 [00:03<05:07,  1.52it/s]
+tensor([0, 2, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 2, 2, 0, 1, 1, 1, 0, 2, 1,
+        1, 1, 1, 2, 1, 0, 1, 0], device='cuda:0') tensor([0, 1, 2, 0, 2, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1,
+        0, 2, 1, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.4688, device='cuda:0')
+tensor([ 1,  1,  0,  0,  1,  2, 12,  1,  0,  0,  0,  1, 17,  0,  1,  1,  0,  0,
+         0,  0,  0,  2,  0,  1,  1,  1,  1,  0,  1,  2,  1,  0],
+       device='cuda:0') tensor([2, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0,
+        1, 2, 1, 1, 2, 1, 0, 0], device='cuda:0')
+tensor(0.5938, device='cuda:0')
+tensor([1, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1, 1, 2,
+        0, 0, 1, 0, 1, 1, 2, 1], device='cuda:0') tensor([1, 0, 1, 1, 2, 0, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1, 2, 1,
+        0, 1, 1, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 1, 1, 0, 2, 0, 1, 2, 2, 1, 1, 0, 2, 1, 2, 1, 1, 1, 0, 0, 0, 1, 0, 1,
+        1, 1, 0, 0, 1, 0, 0, 0], device='cuda:0') tensor([1, 2, 1, 0, 1, 0, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1,
+        1, 1, 0, 0, 1, 0, 1, 0], device='cuda:0')
+
+  2%|████▎                                                                                                                                                                                                         | 10/472 [00:06<04:44,  1.63it/s]
+tensor([1, 0, 1, 0, 0, 1, 2, 1, 1, 0, 1, 0, 2, 7, 0, 0, 0, 0, 1, 2, 1, 0, 1, 0,
+        2, 0, 2, 2, 2, 0, 1, 2], device='cuda:0') tensor([1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 2, 2, 0, 2, 0,
+        1, 0, 1, 1, 1, 0, 0, 1], device='cuda:0')
+tensor(0.6250, device='cuda:0')
+tensor([ 1,  2,  1,  1,  1,  7,  0,  0,  0,  1,  1,  1,  0,  0,  1,  1,  0,  1,
+         2,  0,  2,  1,  0,  0,  0,  0,  2, 16,  0,  0,  0,  0],
+       device='cuda:0') tensor([2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 2, 2, 0, 1, 1, 0, 0,
+        0, 0, 1, 1, 0, 1, 0, 1], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([1, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 2, 1, 2, 0, 2, 2, 1,
+        7, 1, 1, 1, 2, 0, 0, 1], device='cuda:0') tensor([2, 2, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 2, 0, 1, 2, 1,
+        1, 1, 1, 1, 1, 1, 0, 1], device='cuda:0')
+
+  3%|█████▋                                                                                                                                                                                                        | 13/472 [00:07<04:31,  1.69it/s]
+tensor([0, 1, 2, 1, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 2, 1, 0, 0, 4, 0, 2,
+        0, 1, 0, 2, 0, 1, 2, 0], device='cuda:0') tensor([0, 1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 2, 1, 1, 1, 0, 0, 1,
+        0, 1, 0, 1, 0, 1, 2, 0], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([ 0,  1,  0,  0,  1,  0,  2,  2,  1,  1,  0,  1,  0,  0,  2,  0,  1,  2,
+         1, 10,  1,  0,  0,  1,  1,  1,  2,  1,  7,  1,  0,  5],
+       device='cuda:0') tensor([0, 1, 0, 0, 1, 0, 2, 1, 1, 0, 1, 1, 0, 0, 2, 0, 1, 2, 1, 0, 1, 0, 0, 1,
+        1, 1, 1, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([0, 1, 7, 1, 0, 0, 0, 1, 1, 2, 6, 0, 2, 2, 0, 0, 7, 1, 1, 0, 0, 0, 1, 2,
+        1, 1, 0, 1, 0, 1, 0, 0], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 0, 1, 0, 2, 0, 0, 1, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 2,
+        1, 0, 0, 1, 0, 1, 0, 0], device='cuda:0')
+
+  3%|██████▉                                                                                                                                                                                                       | 16/472 [00:09<04:35,  1.65it/s]
+tensor([ 0,  1,  0,  0,  7,  1,  1,  0,  0,  2,  2,  0,  0,  1,  0,  1,  0,  6,
+         1,  1,  1,  2,  0,  0,  0,  0, 17,  1,  0,  1,  1,  0],
+       device='cuda:0') tensor([0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 2, 0, 0,
+        0, 0, 1, 1, 0, 1, 1, 0], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([1, 1, 7, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2,
+        1, 1, 1, 0, 1, 1, 2, 1], device='cuda:0') tensor([1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 2, 0, 1,
+        2, 1, 1, 1, 1, 1, 2, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 0, 0, 2, 0, 1, 1, 0, 1, 1, 0, 7, 0, 0, 0, 1, 1, 0, 0, 7, 7, 1, 1, 1,
+        7, 1, 2, 2, 0, 1, 0, 0], device='cuda:0') tensor([1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 2, 1, 1, 1,
+        1, 1, 1, 2, 0, 1, 0, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([7, 0, 0, 2, 0, 0, 0, 0, 1, 7, 0, 1, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0,
+        0, 1, 2, 1, 1, 0, 1, 2], device='cuda:0') tensor([0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 2, 1, 0, 0, 0, 1, 1,
+        0, 1, 2, 0, 1, 0, 1, 2], device='cuda:0')
+
+  4%|████████▎                                                                                                                                                                                                     | 19/472 [00:11<04:48,  1.57it/s]
+tensor([0, 1, 0, 0, 2, 0, 2, 1, 1, 1, 0, 1, 0, 0, 0, 2, 0, 7, 1, 0, 0, 2, 2, 2,
+        0, 2, 1, 1, 1, 0, 1, 1], device='cuda:0') tensor([1, 2, 0, 0, 2, 0, 2, 1, 1, 1, 0, 1, 0, 0, 1, 2, 1, 0, 1, 0, 0, 1, 1, 1,
+        0, 1, 1, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.6875, device='cuda:0')
+tensor([2, 0, 2, 2, 1, 1, 1, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 2, 0, 1, 0, 0, 1,
+        0, 1, 2, 0, 1, 7, 2, 1], device='cuda:0') tensor([1, 0, 2, 2, 1, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 1,
+        0, 1, 1, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 0, 0, 1, 1, 0, 0, 0, 7, 1, 1, 0, 2, 1, 1, 1, 2, 1, 1, 0, 0, 1, 0, 1,
+        0, 2, 1, 1, 2, 0, 0, 2], device='cuda:0') tensor([0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 2, 1, 2, 1, 2, 0, 1, 0, 0, 1, 0, 1,
+        0, 1, 1, 1, 1, 0, 1, 1], device='cuda:0')
+
+  5%|██████████                                                                                                                                                                                                    | 23/472 [00:14<04:30,  1.66it/s]
+tensor([0, 0, 1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0,
+        0, 0, 0, 1, 1, 2, 7, 1], device='cuda:0') tensor([0, 0, 2, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0,
+        0, 0, 1, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 1, 2, 1, 1, 1, 0, 1, 0, 2, 0,
+        0, 0, 1, 0, 0, 2, 1, 0], device='cuda:0') tensor([1, 2, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 2, 1, 1, 1, 0, 1, 0, 1, 1,
+        0, 0, 1, 0, 0, 1, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 2, 1, 0, 0, 1, 1, 2, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 1, 1, 1, 2,
+        0, 1, 1, 0, 1, 1, 7, 2], device='cuda:0') tensor([0, 2, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1,
+        1, 1, 1, 0, 1, 1, 1, 1], device='cuda:0')
+
+  6%|███████████▎                                                                                                                                                                                                  | 26/472 [00:15<04:36,  1.61it/s]
+tensor([2, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 2, 1, 0, 1, 0, 0, 5, 1, 1, 0, 1, 1, 1,
+        1, 1, 0, 0, 1, 1, 1, 1], device='cuda:0') tensor([1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1,
+        1, 1, 0, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 0, 2, 0, 2, 0, 1, 0, 1, 2, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
+        1, 1, 0, 0, 1, 0, 0, 0], device='cuda:0') tensor([0, 1, 1, 2, 1, 2, 0, 1, 0, 1, 2, 1, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+        1, 1, 0, 0, 1, 1, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 2, 1, 0, 1, 0, 2, 1, 0, 0, 1, 1, 0,
+        1, 0, 2, 1, 0, 2, 1, 0], device='cuda:0') tensor([1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0,
+        1, 0, 1, 1, 0, 2, 1, 0], device='cuda:0')
+
+  6%|████████████▋                                                                                                                                                                                                 | 29/472 [00:17<04:36,  1.60it/s]
+tensor([1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1,
+        1, 1, 1, 1, 1, 0, 1, 1], device='cuda:0') tensor([1, 0, 0, 0, 1, 2, 0, 2, 0, 0, 0, 0, 1, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1,
+        1, 1, 1, 1, 1, 0, 2, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 0, 0, 1, 1, 1, 0, 0, 2, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1,
+        2, 1, 0, 1, 1, 1, 0, 1], device='cuda:0') tensor([1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1,
+        1, 1, 0, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([2, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 2, 1, 1,
+        1, 0, 0, 1, 0, 1, 1, 0], device='cuda:0') tensor([2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 2, 1,
+        1, 0, 0, 1, 0, 1, 1, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 2, 1, 1, 0, 1,
+        1, 0, 1, 1, 1, 1, 1, 1], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 2, 0, 1, 2, 1, 0, 1, 1, 1, 2, 2, 1, 1, 1,
+        1, 0, 2, 2, 2, 1, 1, 1], device='cuda:0')
+
+  7%|██████████████▍                                                                                                                                                                                               | 33/472 [00:20<04:29,  1.63it/s]
+tensor([1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1,
+        0, 0, 2, 1, 0, 0, 1, 0], device='cuda:0') tensor([1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1,
+        0, 0, 1, 1, 0, 0, 1, 0], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 2, 0, 1, 1, 1, 2,
+        1, 0, 1, 1, 1, 1, 0, 1], device='cuda:0') tensor([1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1,
+        1, 0, 1, 1, 1, 1, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 0, 1, 0, 1, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 2, 2, 1, 0, 0,
+        1, 0, 0, 1, 2, 0, 0, 1], device='cuda:0') tensor([0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 2, 0, 2, 2, 1, 0, 0,
+        2, 0, 0, 1, 2, 0, 0, 1], device='cuda:0')
+
+  8%|███████████████▋                                                                                                                                                                                              | 36/472 [00:21<04:02,  1.80it/s]
+tensor([1, 0, 1, 0, 2, 0, 1, 0, 0, 2, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0,
+        1, 1, 1, 1, 2, 1, 0, 1], device='cuda:0') tensor([1, 0, 1, 0, 2, 0, 1, 0, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0,
+        2, 1, 0, 1, 1, 2, 0, 2], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0,
+        1, 1, 0, 1, 0, 0, 0, 2], device='cuda:0') tensor([1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 0, 0,
+        1, 1, 0, 0, 0, 0, 0, 2], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0,
+        0, 0, 0, 1, 1, 1, 0, 2], device='cuda:0') tensor([0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0,
+        0, 0, 0, 1, 1, 1, 0, 2], device='cuda:0')
+
+  8%|█████████████████▍                                                                                                                                                                                            | 40/472 [00:24<04:12,  1.71it/s]
+tensor([1, 1, 0, 1, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 2, 1, 0, 1, 0, 1,
+        1, 1, 0, 1, 1, 1, 1, 1], device='cuda:0') tensor([1, 1, 0, 1, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1,
+        1, 1, 0, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 0, 0, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1,
+        0, 0, 0, 0, 1, 0, 1, 2], device='cuda:0') tensor([1, 1, 0, 1, 1, 2, 1, 2, 1, 1, 1, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1,
+        0, 1, 1, 0, 1, 0, 1, 1], device='cuda:0')
+tensor(0.6250, device='cuda:0')
+tensor([1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1,
+        1, 0, 0, 0, 2, 0, 0, 0], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 0, 2, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1,
+        1, 1, 0, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 0, 2, 0, 2, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 0, 0, 0,
+        1, 0, 0, 1, 0, 0, 1, 1], device='cuda:0') tensor([0, 0, 2, 0, 2, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 0, 0, 0,
+        1, 1, 0, 1, 0, 0, 1, 1], device='cuda:0')
+
+  9%|██████████████████▊                                                                                                                                                                                           | 43/472 [00:25<03:59,  1.79it/s]
+tensor([0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 2, 0, 0, 0, 1, 2, 1, 1,
+        1, 0, 0, 1, 1, 0, 0, 0], device='cuda:0') tensor([0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 2, 1, 0, 0, 0, 1, 2, 1, 1,
+        1, 0, 0, 0, 1, 0, 0, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 0, 1, 0, 2, 1, 0, 2, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1,
+        0, 0, 0, 1, 1, 1, 1, 1], device='cuda:0') tensor([2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 2, 0, 2, 0, 0, 2, 1, 2, 0, 0, 0, 0, 1,
+        0, 1, 1, 0, 1, 2, 1, 1], device='cuda:0')
+tensor(0.6562, device='cuda:0')
+tensor([0, 1, 1, 0, 0, 1, 2, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0,
+        1, 0, 0, 1, 1, 1, 0, 2], device='cuda:0') tensor([0, 1, 1, 0, 0, 2, 2, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0,
+        1, 0, 0, 1, 2, 1, 0, 1], device='cuda:0')
+
+ 10%|████████████████████                                                                                                                                                                                          | 46/472 [00:27<04:15,  1.67it/s]
+tensor([1, 0, 2, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 2, 1,
+        0, 1, 0, 1, 1, 1, 1, 0], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 2, 1, 0, 1, 2, 0, 1, 2, 1, 2, 1,
+        0, 1, 0, 1, 1, 1, 1, 0], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 2, 1, 1, 0, 0, 1, 0, 0,
+        1, 1, 2, 0, 1, 0, 1, 0], device='cuda:0') tensor([1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 2, 1, 1, 0, 0, 1, 0, 0,
+        1, 1, 2, 0, 1, 0, 2, 0], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 0, 1, 0, 0, 1, 2, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+        1, 0, 0, 1, 2, 1, 1, 0], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
+        1, 1, 1, 1, 2, 1, 1, 0], device='cuda:0')
+
+ 10%|█████████████████████▍                                                                                                                                                                                        | 49/472 [00:29<04:33,  1.55it/s]
+tensor([0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+        1, 0, 1, 0, 0, 1, 1, 1], device='cuda:0') tensor([0, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+        1, 0, 1, 0, 0, 1, 1, 1], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 2, 1, 1, 1, 0, 1, 0, 1, 1, 1,
+        1, 0, 1, 0, 1, 0, 1, 0], device='cuda:0') tensor([1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1,
+        1, 0, 1, 0, 1, 0, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 1, 0, 1, 2, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+        0, 1, 0, 1, 1, 0, 0, 1], device='cuda:0') tensor([0, 1, 1, 0, 1, 2, 1, 2, 2, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+        0, 1, 0, 1, 1, 0, 1, 2], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0,
+        0, 0, 1, 1, 1, 1, 1, 0], device='cuda:0') tensor([0, 0, 1, 1, 0, 1, 2, 1, 0, 2, 1, 1, 0, 2, 0, 2, 0, 1, 1, 0, 1, 0, 2, 0,
+        0, 0, 1, 1, 1, 2, 1, 0], device='cuda:0')
+
+ 11%|██████████████████████▋                                                                                                                                                                                       | 52/472 [00:31<04:32,  1.54it/s]
+tensor([0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0,
+        0, 1, 1, 0, 1, 0, 1, 1], device='cuda:0') tensor([0, 1, 0, 1, 1, 0, 1, 2, 0, 1, 1, 1, 2, 1, 1, 1, 2, 0, 1, 1, 0, 1, 1, 0,
+        0, 1, 1, 0, 2, 1, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0,
+        0, 1, 0, 0, 1, 1, 1, 1], device='cuda:0') tensor([0, 1, 0, 1, 2, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 2, 0, 1, 0, 0, 0, 1, 2, 0,
+        0, 2, 0, 1, 1, 2, 1, 1], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([1, 1, 1, 0, 1, 2, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0,
+        0, 1, 0, 1, 0, 0, 0, 1], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0,
+        0, 1, 0, 1, 0, 0, 0, 2], device='cuda:0')
+
+ 12%|████████████████████████▍                                                                                                                                                                                     | 56/472 [00:34<04:24,  1.57it/s]
+tensor([1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0,
+        1, 1, 1, 1, 0, 0, 1, 1], device='cuda:0') tensor([1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 2, 0, 2, 0, 1, 0, 2, 1, 1, 0, 1, 0, 0,
+        1, 1, 1, 2, 0, 0, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 1, 1, 1, 0, 1, 0, 1, 1, 2, 1, 1,
+        0, 1, 1, 1, 0, 0, 1, 0], device='cuda:0') tensor([1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1, 2, 1, 1,
+        0, 1, 2, 0, 0, 0, 1, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 1, 0, 0, 0, 1, 1, 1, 2, 0, 0, 0, 1, 1,
+        0, 1, 1, 0, 1, 0, 1, 0], device='cuda:0') tensor([0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0,
+        0, 1, 1, 0, 2, 0, 1, 0], device='cuda:0')
+
+ 12%|█████████████████████████▊                                                                                                                                                                                    | 59/472 [00:36<04:32,  1.52it/s]
+tensor([1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 1, 0,
+        2, 0, 0, 0, 0, 0, 1, 1], device='cuda:0') tensor([1, 1, 1, 0, 1, 1, 2, 1, 1, 0, 1, 0, 2, 0, 1, 0, 1, 1, 1, 1, 0, 2, 1, 0,
+        2, 0, 1, 0, 0, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 2, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 2, 2, 0, 1, 1, 0, 1, 0, 0, 0, 1,
+        0, 1, 0, 1, 0, 0, 2, 1], device='cuda:0') tensor([0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1,
+        0, 1, 0, 0, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 2, 1, 0, 1, 0, 0, 2, 2, 0, 1, 1,
+        2, 2, 1, 1, 0, 0, 1, 1], device='cuda:0') tensor([0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 2, 0, 1, 1,
+        2, 1, 1, 1, 0, 0, 2, 1], device='cuda:0')
+
+ 13%|███████████████████████████                                                                                                                                                                                   | 62/472 [00:38<04:13,  1.62it/s]
+tensor([0, 0, 0, 1, 2, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 0, 0,
+        1, 2, 1, 0, 0, 0, 1, 0], device='cuda:0') tensor([0, 0, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 0, 0,
+        1, 2, 1, 0, 0, 0, 0, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 1, 2, 1, 2, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1,
+        0, 0, 0, 1, 2, 0, 1, 2], device='cuda:0') tensor([1, 0, 2, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,
+        0, 0, 0, 1, 1, 0, 1, 2], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 2, 1, 1, 2, 0, 1, 1, 1, 2, 0, 0, 1, 1,
+        0, 0, 1, 1, 1, 0, 1, 2], device='cuda:0') tensor([0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 2, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1,
+        0, 0, 1, 1, 1, 0, 1, 2], device='cuda:0')
+
+ 14%|████████████████████████████▎                                                                                                                                                                                 | 65/472 [00:40<04:18,  1.57it/s]
+tensor([0, 1, 0, 1, 1, 2, 0, 1, 1, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 0,
+        1, 1, 2, 1, 0, 1, 1, 0], device='cuda:0') tensor([0, 1, 0, 0, 2, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0,
+        1, 1, 2, 1, 0, 1, 2, 0], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([1, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 2, 1, 1, 0, 0, 1,
+        1, 0, 1, 0, 1, 2, 2, 1], device='cuda:0') tensor([1, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 0, 0, 1,
+        1, 0, 1, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 1, 2, 2, 2, 0, 1, 0, 0, 1, 0, 2, 0,
+        1, 1, 0, 2, 1, 1, 0, 0], device='cuda:0') tensor([0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 1, 1, 1, 2, 0, 1, 0, 0, 1, 0, 2, 0,
+        1, 1, 0, 2, 1, 2, 0, 0], device='cuda:0')
+
+ 14%|█████████████████████████████▋                                                                                                                                                                                | 68/472 [00:42<04:11,  1.60it/s]
+tensor([2, 1, 1, 1, 2, 2, 1, 1, 0, 2, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 2,
+        1, 1, 0, 1, 0, 1, 0, 0], device='cuda:0') tensor([1, 2, 1, 1, 1, 2, 1, 1, 0, 2, 0, 1, 1, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 2,
+        1, 1, 0, 0, 0, 1, 0, 0], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 0, 1, 1, 2, 0, 1, 0, 1, 2, 1, 1, 0, 1,
+        1, 2, 2, 1, 1, 1, 0, 0], device='cuda:0') tensor([1, 1, 2, 0, 1, 0, 1, 2, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 2, 1, 0, 0, 1,
+        1, 2, 1, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 1, 2, 1,
+        0, 0, 0, 0, 1, 0, 1, 2], device='cuda:0') tensor([1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 0, 1, 0, 2, 2, 1,
+        0, 0, 0, 0, 1, 0, 1, 1], device='cuda:0')
+
+ 15%|██████████████████████████████▉                                                                                                                                                                               | 71/472 [00:43<04:12,  1.59it/s]
+tensor([1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 2, 0, 0, 1, 0, 1, 1, 1, 2, 1, 1, 0, 0,
+        1, 0, 1, 1, 1, 2, 0, 1], device='cuda:0') tensor([1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0,
+        1, 0, 1, 1, 1, 1, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 1, 1, 0, 0, 2, 1, 1, 0, 2, 2, 1, 0, 0, 2, 1, 1, 2, 0, 2, 0, 2, 1,
+        1, 1, 1, 0, 0, 1, 1, 2], device='cuda:0') tensor([0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 2, 1, 0, 0, 2, 1, 1, 2, 1, 1, 0, 1, 1,
+        1, 0, 1, 0, 0, 2, 1, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([2, 0, 0, 0, 2, 1, 1, 1, 1, 0, 1, 2, 0, 1, 0, 0, 2, 1, 2, 1, 1, 1, 1, 2,
+        1, 1, 0, 1, 0, 0, 0, 1], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 2, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,
+        1, 1, 0, 1, 0, 0, 0, 1], device='cuda:0')
+
+ 16%|████████████████████████████████▎                                                                                                                                                                             | 74/472 [00:45<04:08,  1.60it/s]
+tensor([0, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 0, 1, 0, 0, 0, 1, 2, 0, 0, 1, 0, 1, 1,
+        0, 1, 1, 0, 0, 1, 0, 0], device='cuda:0') tensor([0, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 0, 1, 0, 0, 0, 1, 2, 0, 0, 1, 0, 1, 1,
+        1, 1, 1, 0, 0, 1, 0, 0], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 0, 1, 1, 0, 2,
+        1, 1, 0, 1, 2, 1, 0, 2], device='cuda:0') tensor([0, 0, 1, 0, 2, 1, 1, 2, 0, 2, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1,
+        1, 1, 0, 1, 2, 1, 0, 2], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 2, 1, 0, 2, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 1, 0, 1, 0,
+        1, 1, 1, 1, 0, 1, 0, 1], device='cuda:0') tensor([1, 1, 1, 0, 2, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0,
+        1, 1, 1, 1, 0, 1, 0, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([0, 1, 0, 1, 0, 1, 1, 1, 0, 2, 1, 0, 2, 0, 1, 0, 1, 1, 0, 2, 1, 1, 1, 1,
+        1, 0, 1, 1, 0, 1, 1, 0], device='cuda:0') tensor([0, 1, 0, 1, 0, 1, 2, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2, 1, 0, 1, 1, 1, 0, 1,
+        1, 0, 1, 1, 0, 1, 1, 0], device='cuda:0')
+
+ 16%|█████████████████████████████████▌                                                                                                                                                                            | 77/472 [00:47<04:20,  1.52it/s]
+tensor([1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 2, 1, 1, 0, 0, 1, 1, 2, 0, 0, 0, 1, 0,
+        1, 1, 2, 0, 0, 0, 1, 2], device='cuda:0') tensor([1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 2, 1, 1, 0, 0, 2, 1, 1, 0, 1, 0, 2, 0,
+        1, 1, 1, 0, 0, 0, 1, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 0, 1, 2, 1, 0, 1, 2, 1, 1, 0, 2, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0,
+        1, 0, 0, 1, 1, 0, 1, 0], device='cuda:0') tensor([1, 0, 1, 1, 1, 0, 1, 2, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0,
+        0, 0, 1, 0, 2, 1, 1, 0], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1,
+        1, 0, 0, 1, 1, 1, 1, 0], device='cuda:0') tensor([1, 0, 1, 2, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1,
+        1, 0, 0, 1, 1, 1, 1, 0], device='cuda:0')
+
+ 17%|███████████████████████████████████▎                                                                                                                                                                          | 81/472 [00:50<04:04,  1.60it/s]
+tensor([1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0, 0, 0,
+        1, 1, 0, 0, 1, 2, 1, 0], device='cuda:0') tensor([1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 2, 1, 1, 1, 1, 0, 2, 0, 0, 0, 1,
+        0, 2, 0, 0, 1, 2, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 1, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 2, 1,
+        0, 1, 0, 1, 1, 0, 0, 0], device='cuda:0') tensor([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 2, 0, 0, 1, 0, 1, 1, 1, 1, 2, 1,
+        0, 1, 0, 1, 1, 0, 0, 0], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 2, 0, 0, 1, 1, 1, 1, 1, 1, 2, 0, 1,
+        0, 1, 0, 0, 1, 1, 2, 0], device='cuda:0') tensor([1, 2, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 2, 1, 1, 1, 1, 1, 2, 0, 1,
+        1, 1, 0, 0, 1, 1, 2, 0], device='cuda:0')
+
+ 18%|████████████████████████████████████▋                                                                                                                                                                         | 84/472 [00:52<03:48,  1.70it/s]
+tensor([0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 2, 1, 0, 0,
+        1, 1, 1, 2, 0, 0, 0, 0], device='cuda:0') tensor([0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 0, 1, 1, 1, 0, 0, 2, 1, 0, 1,
+        2, 1, 2, 0, 0, 0, 0, 0], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 2,
+        1, 0, 1, 0, 0, 1, 0, 1], device='cuda:0') tensor([1, 2, 0, 1, 0, 1, 2, 1, 1, 0, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 0, 0, 1, 2,
+        1, 0, 1, 0, 0, 1, 0, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 0, 1, 2, 1, 1, 0, 0, 0, 1, 1, 1, 2, 1, 0, 0, 1, 0, 1, 1, 2, 1, 1, 0,
+        0, 1, 0, 1, 1, 0, 0, 1], device='cuda:0') tensor([1, 0, 2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 2, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0,
+        1, 1, 0, 1, 2, 1, 1, 1], device='cuda:0')
+
+ 18%|█████████████████████████████████████▉                                                                                                                                                                        | 87/472 [00:53<03:59,  1.61it/s]
+tensor([1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 2, 2, 1, 1, 0, 0, 1, 2,
+        1, 1, 1, 0, 0, 1, 0, 1], device='cuda:0') tensor([1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0,
+        1, 1, 2, 0, 1, 1, 0, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 0, 0, 2, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0,
+        0, 1, 0, 1, 1, 0, 0, 2], device='cuda:0') tensor([1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0,
+        0, 1, 0, 1, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 2, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,
+        2, 0, 0, 0, 2, 1, 0, 0], device='cuda:0') tensor([1, 2, 1, 0, 0, 1, 0, 0, 1, 2, 1, 1, 0, 1, 2, 1, 0, 0, 1, 0, 2, 0, 0, 0,
+        1, 1, 0, 0, 1, 1, 0, 0], device='cuda:0')
+
+ 19%|███████████████████████████████████████▎                                                                                                                                                                      | 90/472 [00:55<03:45,  1.69it/s]
+tensor([0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0,
+        2, 0, 1, 1, 0, 0, 1, 1], device='cuda:0') tensor([0, 0, 0, 0, 2, 0, 2, 1, 0, 2, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0,
+        1, 0, 1, 1, 0, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 2, 1, 0, 1, 1,
+        1, 0, 1, 1, 0, 1, 1, 0], device='cuda:0') tensor([0, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 2, 0, 0, 1, 1, 1, 1, 1,
+        1, 0, 2, 1, 0, 1, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 2, 0, 2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0,
+        0, 1, 1, 1, 0, 0, 1, 1], device='cuda:0') tensor([0, 2, 0, 1, 1, 1, 0, 0, 1, 1, 1, 2, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0,
+        0, 1, 2, 1, 0, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1,
+        1, 1, 0, 0, 2, 1, 1, 0], device='cuda:0') tensor([1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1,
+        1, 1, 0, 0, 2, 1, 2, 0], device='cuda:0')
+
+ 20%|█████████████████████████████████████████                                                                                                                                                                     | 94/472 [00:58<03:48,  1.65it/s]
+tensor([2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, 0, 1, 1, 0, 1, 1, 1, 2, 0, 1, 0, 1, 1,
+        2, 1, 1, 2, 1, 1, 0, 0], device='cuda:0') tensor([1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1,
+        1, 1, 1, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([1, 1, 1, 0, 1, 2, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 2, 1, 0,
+        1, 1, 1, 1, 0, 0, 0, 1], device='cuda:0') tensor([1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 2, 0, 0, 1, 1, 1, 0,
+        2, 1, 1, 1, 0, 0, 0, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 2, 0, 2, 1,
+        2, 1, 0, 0, 1, 1, 2, 1], device='cuda:0') tensor([0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 2, 0, 1, 1, 1, 0, 2, 1,
+        1, 1, 0, 0, 1, 1, 1, 1], device='cuda:0')
+
+ 21%|██████████████████████████████████████████▎                                                                                                                                                                   | 97/472 [01:00<04:01,  1.55it/s]
+tensor([0, 0, 1, 1, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 0, 0, 2, 1, 0, 1, 0, 0, 1, 1,
+        1, 2, 1, 0, 1, 1, 1, 1], device='cuda:0') tensor([0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0,
+        1, 1, 1, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.6875, device='cuda:0')
+tensor([0, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 0, 1, 1, 2, 0, 2, 2, 1, 1, 1, 0, 0, 0,
+        1, 1, 2, 2, 1, 0, 0, 1], device='cuda:0') tensor([0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0, 0, 1,
+        1, 1, 2, 2, 1, 0, 0, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 1, 1, 1, 2, 0, 1, 1, 0, 2, 0, 1, 0, 1, 0, 0, 2, 1, 0, 0, 1, 1, 0,
+        2, 1, 2, 2, 1, 1, 1, 0], device='cuda:0') tensor([1, 1, 1, 1, 1, 2, 0, 1, 1, 0, 2, 0, 1, 0, 1, 0, 0, 2, 1, 0, 0, 1, 1, 0,
+        1, 1, 1, 2, 1, 1, 1, 0], device='cuda:0')
+
+ 21%|███████████████████████████████████████████▍                                                                                                                                                                 | 100/472 [01:01<03:41,  1.68it/s]
+tensor([0, 2, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 1, 0, 0, 2, 1, 1,
+        1, 0, 2, 0, 2, 0, 2, 0], device='cuda:0') tensor([0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 1, 1,
+        1, 1, 1, 0, 2, 0, 2, 0], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([2, 1, 1, 1, 0, 0, 2, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 2, 1, 0,
+        1, 1, 1, 0, 1, 0, 0, 2], device='cuda:0') tensor([2, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0,
+        1, 1, 1, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([0, 1, 0, 1, 2, 1, 2, 1, 1, 0, 1, 0, 1, 0, 0, 0, 2, 1, 0, 1, 1, 0, 1, 0,
+        1, 2, 1, 1, 1, 0, 0, 0], device='cuda:0') tensor([0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0,
+        1, 1, 1, 1, 1, 0, 0, 0], device='cuda:0')
+
+ 22%|████████████████████████████████████████████▋                                                                                                                                                                | 103/472 [01:03<03:51,  1.60it/s]
+tensor([1, 2, 1, 1, 1, 1, 1, 0, 1, 0, 0, 2, 2, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1,
+        1, 2, 1, 1, 1, 2, 0, 1], device='cuda:0') tensor([1, 1, 2, 1, 1, 1, 1, 0, 1, 0, 0, 2, 2, 2, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1,
+        1, 1, 1, 0, 2, 2, 0, 0], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 0, 0, 0, 1, 2, 1, 1, 1, 1, 2, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 2, 0, 0,
+        1, 2, 0, 1, 2, 0, 0, 1], device='cuda:0') tensor([1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 2, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 2, 0, 2,
+        1, 2, 0, 1, 1, 0, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 0, 0, 1, 1, 1, 0, 0, 2, 1, 2, 0, 0, 2, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1,
+        2, 1, 0, 2, 0, 0, 0, 0], device='cuda:0') tensor([0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1,
+        2, 1, 0, 2, 1, 0, 0, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 2, 1, 1, 1, 1, 0, 1, 1, 1, 1,
+        0, 0, 1, 2, 2, 2, 0, 0], device='cuda:0') tensor([0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
+        0, 0, 1, 1, 1, 2, 0, 0], device='cuda:0')
+
+ 22%|██████████████████████████████████████████████                                                                                                                                                               | 106/472 [01:05<03:55,  1.55it/s]
+tensor([0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 2, 1, 1, 0, 0, 1, 0, 2, 0, 1, 1, 0, 1, 1,
+        1, 2, 1, 1, 1, 1, 1, 0], device='cuda:0') tensor([1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 2, 1, 1, 1, 0, 1, 1,
+        1, 2, 1, 1, 1, 1, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([2, 2, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+        0, 0, 1, 2, 0, 1, 1, 1], device='cuda:0') tensor([1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+        0, 0, 1, 1, 1, 1, 1, 1], device='cuda:0')
+
+ 23%|███████████████████████████████████████████████▎                                                                                                                                                             | 109/472 [01:07<03:58,  1.52it/s]
+tensor([1, 1, 0, 1, 2, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 2, 1, 0,
+        0, 1, 1, 0, 1, 0, 1, 1], device='cuda:0') tensor([2, 1, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 2, 1, 0,
+        0, 2, 1, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 2, 2, 2, 1, 1, 2, 1, 0, 1, 1, 0, 0, 2, 1, 1, 1, 0, 1, 0, 0, 0, 1,
+        1, 1, 1, 1, 0, 1, 0, 1], device='cuda:0') tensor([0, 1, 2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1,
+        1, 0, 1, 1, 0, 1, 0, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 0, 1, 0, 1, 2, 0, 1, 2, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 2,
+        1, 0, 0, 1, 0, 1, 2, 0], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 2,
+        1, 0, 1, 1, 0, 1, 1, 0], device='cuda:0')
+
+ 24%|████████████████████████████████████████████████▋                                                                                                                                                            | 112/472 [01:10<04:06,  1.46it/s]
+tensor([1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 2, 1, 0, 1, 0, 1,
+        2, 1, 0, 1, 1, 1, 1, 2], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1,
+        1, 1, 0, 1, 1, 1, 2, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 0, 2, 1, 0, 0, 1, 0, 2, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0,
+        0, 0, 0, 1, 1, 0, 2, 0], device='cuda:0') tensor([1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0,
+        1, 1, 1, 1, 1, 0, 1, 0], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 2, 0, 0, 1, 0, 1, 2, 1, 0, 0, 0, 1, 0, 1,
+        0, 0, 1, 2, 1, 0, 0, 1], device='cuda:0') tensor([1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 0, 1, 0, 1,
+        1, 0, 1, 2, 1, 0, 0, 1], device='cuda:0')
+
+ 24%|█████████████████████████████████████████████████▉                                                                                                                                                           | 115/472 [01:11<03:50,  1.55it/s]
+tensor([0, 0, 1, 1, 2, 0, 1, 2, 1, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0, 1, 1, 0, 0, 0,
+        0, 0, 0, 0, 0, 2, 1, 1], device='cuda:0') tensor([0, 0, 1, 1, 1, 0, 1, 2, 1, 0, 1, 0, 1, 1, 2, 0, 1, 1, 1, 1, 1, 0, 0, 0,
+        0, 0, 0, 0, 0, 1, 1, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0,
+        0, 0, 1, 1, 0, 0, 2, 1], device='cuda:0') tensor([1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,
+        0, 0, 1, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([2, 1, 2, 2, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1,
+        1, 1, 1, 0, 1, 0, 0, 0], device='cuda:0') tensor([2, 1, 1, 2, 1, 2, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1,
+        2, 2, 1, 0, 1, 0, 0, 0], device='cuda:0')
+
+ 25%|███████████████████████████████████████████████████▎                                                                                                                                                         | 118/472 [01:14<04:07,  1.43it/s]
+tensor([2, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 0, 2, 1,
+        0, 1, 1, 0, 1, 1, 0, 2], device='cuda:0') tensor([2, 1, 1, 0, 1, 0, 1, 0, 2, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 2, 1,
+        1, 1, 1, 1, 1, 1, 0, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 2, 1,
+        1, 1, 0, 0, 2, 0, 2, 0], device='cuda:0') tensor([2, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1,
+        1, 1, 0, 0, 1, 0, 2, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 0, 0, 1, 0, 0, 2, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0,
+        1, 1, 0, 2, 1, 0, 0, 0], device='cuda:0') tensor([0, 1, 0, 0, 1, 0, 0, 2, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0,
+        1, 1, 0, 1, 1, 0, 0, 0], device='cuda:0')
+
+ 26%|████████████████████████████████████████████████████▌                                                                                                                                                        | 121/472 [01:16<03:43,  1.57it/s]
+tensor([1, 0, 1, 1, 2, 1, 0, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 0, 2, 0, 0, 1, 0, 1,
+        0, 1, 0, 1, 1, 0, 0, 1], device='cuda:0') tensor([1, 0, 1, 2, 2, 1, 0, 1, 2, 0, 0, 2, 1, 1, 0, 1, 1, 0, 2, 0, 1, 1, 1, 1,
+        0, 1, 0, 1, 1, 0, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 2, 0, 0, 1, 0, 0, 1, 0, 1, 2, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0,
+        1, 0, 1, 1, 1, 1, 1, 0], device='cuda:0') tensor([1, 2, 0, 0, 1, 0, 0, 1, 0, 1, 2, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0,
+        1, 1, 1, 0, 1, 1, 1, 0], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, 0, 1, 1, 0, 1, 0, 1, 0, 1,
+        0, 0, 1, 2, 1, 1, 0, 1], device='cuda:0') tensor([1, 2, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0, 2, 0, 1, 0, 2,
+        1, 0, 1, 2, 1, 1, 0, 1], device='cuda:0')
+
+ 26%|█████████████████████████████████████████████████████▊                                                                                                                                                       | 124/472 [01:17<03:32,  1.64it/s]
+tensor([1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1,
+        0, 0, 0, 2, 0, 1, 1, 0], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1,
+        0, 0, 0, 2, 0, 1, 1, 0], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0,
+        1, 2, 1, 1, 0, 0, 1, 1], device='cuda:0') tensor([1, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 0, 0, 0, 0,
+        1, 2, 1, 1, 0, 0, 1, 1], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1,
+        1, 1, 1, 1, 2, 2, 0, 0], device='cuda:0') tensor([0, 2, 1, 0, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 0, 1, 0, 0, 0, 1, 1, 1,
+        1, 1, 1, 1, 2, 2, 1, 0], device='cuda:0')
+tensor(0.6875, device='cuda:0')
+tensor([0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 0, 2, 1,
+        0, 0, 0, 1, 0, 1, 0, 1], device='cuda:0') tensor([0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+        0, 0, 0, 1, 0, 1, 0, 1], device='cuda:0')
+
+ 27%|███████████████████████████████████████████████████████▌                                                                                                                                                     | 128/472 [01:20<03:17,  1.74it/s]
+tensor([1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0,
+        2, 1, 2, 1, 1, 1, 1, 1], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0,
+        2, 2, 2, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 2, 0, 1,
+        0, 0, 1, 0, 1, 0, 1, 1], device='cuda:0') tensor([0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1,
+        0, 0, 1, 0, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 2, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1,
+        0, 1, 1, 1, 1, 2, 1, 1], device='cuda:0') tensor([0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 2,
+        0, 1, 0, 1, 1, 2, 0, 1], device='cuda:0')
+
+ 28%|█████████████████████████████████████████████████████████▎                                                                                                                                                   | 132/472 [01:22<03:10,  1.79it/s]
+tensor([1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 0, 1,
+        0, 1, 0, 1, 1, 1, 0, 2], device='cuda:0') tensor([1, 1, 1, 2, 0, 0, 1, 0, 0, 0, 2, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1,
+        0, 1, 0, 1, 1, 1, 0, 2], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 2, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1,
+        0, 0, 1, 1, 0, 0, 1, 0], device='cuda:0') tensor([2, 2, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0,
+        0, 0, 2, 1, 0, 0, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 2,
+        1, 1, 1, 1, 1, 1, 1, 1], device='cuda:0') tensor([0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 2, 0, 1, 1, 1, 0, 1, 1,
+        1, 1, 1, 2, 2, 1, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 1, 0, 1, 2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1,
+        1, 1, 1, 0, 1, 0, 1, 0], device='cuda:0') tensor([0, 1, 0, 1, 2, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1,
+        1, 1, 1, 0, 1, 0, 1, 0], device='cuda:0')
+
+ 29%|██████████████████████████████████████████████████████████▋                                                                                                                                                  | 135/472 [01:24<03:17,  1.71it/s]
+tensor([1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1,
+        0, 0, 1, 1, 0, 1, 2, 1], device='cuda:0') tensor([1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 2, 1, 1, 0, 1, 0, 1, 0, 1,
+        0, 0, 1, 1, 0, 1, 2, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 1, 0, 2, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 2, 1, 0, 0, 1, 1,
+        1, 1, 0, 0, 1, 1, 2, 0], device='cuda:0') tensor([1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1,
+        1, 1, 0, 0, 1, 1, 2, 0], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 2, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
+        1, 1, 1, 0, 1, 1, 0, 0], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 0, 1, 0, 1, 0, 0, 0], device='cuda:0')
+
+ 29%|███████████████████████████████████████████████████████████▉                                                                                                                                                 | 138/472 [01:26<03:38,  1.53it/s]
+tensor([0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 2, 1, 0, 1, 1, 1, 1, 1, 0, 2,
+        0, 1, 0, 1, 2, 1, 0, 0], device='cuda:0') tensor([0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 2, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 2,
+        0, 0, 0, 1, 1, 1, 0, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 1, 0, 0, 1, 2, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 2, 1, 0, 1,
+        1, 1, 1, 0, 0, 1, 1, 1], device='cuda:0') tensor([1, 2, 0, 0, 1, 1, 1, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2, 1, 0, 1,
+        1, 1, 1, 0, 0, 1, 2, 1], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([2, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1,
+        0, 1, 0, 1, 1, 0, 1, 1], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 1, 1, 0, 1,
+        0, 1, 0, 0, 0, 0, 1, 1], device='cuda:0')
+
+ 30%|█████████████████████████████████████████████████████████████▏                                                                                                                                               | 141/472 [01:28<03:31,  1.57it/s]
+tensor([0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 2, 1, 1, 1, 0, 0, 2, 1, 1, 1,
+        0, 0, 1, 1, 1, 1, 1, 1], device='cuda:0') tensor([0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1,
+        0, 0, 1, 1, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 0, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1,
+        0, 2, 1, 1, 1, 1, 1, 1], device='cuda:0') tensor([1, 0, 0, 1, 2, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0,
+        0, 2, 1, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 1,
+        1, 1, 1, 0, 2, 1, 1, 0], device='cuda:0') tensor([1, 2, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 2, 0, 2, 1, 1, 2,
+        1, 1, 1, 0, 1, 1, 1, 1], device='cuda:0')
+
+ 31%|██████████████████████████████████████████████████████████████▌                                                                                                                                              | 144/472 [01:30<03:27,  1.58it/s]
+tensor([0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 2, 1, 0, 1, 0, 0, 1,
+        0, 1, 1, 0, 0, 0, 0, 1], device='cuda:0') tensor([0, 1, 2, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 2, 0, 1, 1, 1, 2, 0, 0, 0, 0, 1,
+        0, 1, 0, 0, 0, 0, 0, 2], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([1, 1, 1, 1, 2, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1,
+        1, 1, 0, 2, 1, 1, 0, 1], device='cuda:0') tensor([1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1,
+        1, 1, 0, 2, 1, 1, 0, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 1, 1, 1, 1, 0, 0, 1, 2, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
+        1, 1, 1, 0, 1, 1, 1, 0], device='cuda:0') tensor([1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 1, 0, 1, 1, 2, 1, 0, 0, 1, 0, 1, 1, 1,
+        1, 0, 2, 0, 0, 1, 1, 0], device='cuda:0')
+
+ 31%|███████████████████████████████████████████████████████████████▊                                                                                                                                             | 147/472 [01:31<03:21,  1.61it/s]
+tensor([1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 2, 0, 1, 0, 1, 1, 0, 0,
+        1, 1, 1, 0, 1, 1, 0, 1], device='cuda:0') tensor([1, 2, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 0, 1, 1, 0, 0,
+        1, 2, 2, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 2,
+        1, 0, 2, 0, 1, 0, 1, 1], device='cuda:0') tensor([1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2,
+        1, 0, 2, 0, 2, 0, 2, 2], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 1, 0, 1, 0, 1, 1, 1, 1,
+        1, 1, 0, 1, 2, 1, 1, 1], device='cuda:0') tensor([0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 2, 2, 0, 1, 0, 1, 0, 1, 1, 1, 1,
+        1, 1, 0, 1, 0, 1, 1, 1], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 2, 1, 0, 0, 0, 1, 0, 1,
+        0, 1, 1, 1, 1, 1, 0, 1], device='cuda:0') tensor([1, 0, 0, 1, 1, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 1, 0, 1,
+        0, 1, 1, 1, 0, 1, 0, 1], device='cuda:0')
+
+ 32%|█████████████████████████████████████████████████████████████████▏                                                                                                                                           | 150/472 [01:33<03:06,  1.72it/s]
+tensor([1, 1, 1, 1, 1, 0, 2, 0, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0,
+        1, 1, 0, 1, 1, 0, 0, 1], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 2, 0, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0,
+        1, 1, 0, 1, 1, 0, 0, 1], device='cuda:0')
+tensor(0.9688, device='cuda:0')
+tensor([1, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0,
+        0, 2, 0, 0, 1, 1, 1, 0], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 2, 0, 0,
+        0, 2, 0, 0, 1, 1, 1, 0], device='cuda:0')
+tensor(0.9375, device='cuda:0')
+tensor([1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 2,
+        0, 1, 1, 0, 1, 1, 1, 1], device='cuda:0') tensor([1, 0, 0, 0, 2, 0, 2, 1, 0, 0, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0, 1, 0, 2, 2,
+        0, 1, 1, 0, 2, 1, 1, 0], device='cuda:0')
+
+ 32%|██████████████████████████████████████████████████████████████████▍                                                                                                                                          | 153/472 [01:35<03:28,  1.53it/s]
+tensor([1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0,
+        1, 0, 0, 1, 1, 0, 1, 0], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0,
+        1, 0, 0, 2, 1, 0, 0, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
+        0, 0, 0, 1, 0, 1, 1, 0], device='cuda:0') tensor([1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 2, 1, 2, 1, 0, 0,
+        0, 0, 0, 2, 0, 1, 1, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 2, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1,
+        0, 0, 0, 1, 1, 0, 0, 2], device='cuda:0') tensor([1, 0, 0, 0, 1, 0, 0, 2, 1, 1, 1, 0, 1, 2, 0, 1, 1, 2, 2, 1, 1, 1, 1, 1,
+        0, 0, 0, 1, 1, 0, 0, 2], device='cuda:0')
+
+ 33%|████████████████████████████████████████████████████████████████████▏                                                                                                                                        | 157/472 [01:38<03:21,  1.56it/s]
+tensor([0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 2, 1, 0,
+        0, 0, 1, 0, 1, 0, 1, 0], device='cuda:0') tensor([0, 1, 2, 2, 1, 1, 2, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 2, 1, 0,
+        0, 0, 1, 0, 1, 0, 1, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([2, 1, 0, 2, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0,
+        0, 1, 1, 1, 0, 1, 1, 0], device='cuda:0') tensor([1, 2, 0, 2, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1,
+        0, 1, 1, 1, 0, 0, 1, 0], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 2, 1, 1, 1, 1, 0, 0,
+        1, 0, 1, 1, 1, 1, 0, 1], device='cuda:0') tensor([1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 2, 1, 1, 1, 2, 0, 0,
+        1, 0, 1, 1, 2, 1, 0, 2], device='cuda:0')
+
+ 34%|█████████████████████████████████████████████████████████████████████▍                                                                                                                                       | 160/472 [01:40<03:13,  1.62it/s]
+tensor([0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 2, 0, 2, 1, 1, 0, 1, 1, 1, 0, 1,
+        1, 2, 0, 0, 1, 1, 0, 0], device='cuda:0') tensor([0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 0, 1, 1, 1, 0, 1,
+        1, 2, 0, 0, 1, 1, 0, 0], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 2, 0, 1, 0, 1, 0, 0, 0, 2, 1, 1, 0,
+        1, 0, 0, 0, 0, 1, 1, 2], device='cuda:0') tensor([1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 2, 1, 1, 0,
+        1, 0, 0, 0, 0, 1, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([2, 1, 0, 1, 2, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 2,
+        0, 0, 0, 2, 1, 1, 1, 1], device='cuda:0') tensor([1, 2, 0, 1, 1, 1, 1, 2, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 2, 0, 1,
+        0, 1, 0, 1, 1, 1, 1, 1], device='cuda:0')
+
+ 35%|██████████████████████████████████████████████████████████████████████▊                                                                                                                                      | 163/472 [01:41<02:59,  1.73it/s]
+tensor([0, 1, 2, 1, 0, 1, 0, 0, 2, 0, 0, 1, 2, 1, 0, 1, 1, 0, 2, 1, 1, 1, 1, 1,
+        1, 0, 0, 0, 1, 1, 2, 1], device='cuda:0') tensor([0, 1, 1, 1, 0, 1, 0, 0, 2, 1, 0, 1, 1, 1, 0, 1, 1, 0, 2, 1, 2, 1, 1, 1,
+        1, 1, 0, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([1, 0, 1, 2, 0, 1, 2, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1,
+        1, 2, 1, 0, 1, 0, 2, 0], device='cuda:0') tensor([1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0,
+        1, 1, 1, 0, 1, 0, 1, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 0, 0, 1, 1, 1, 0, 1, 1, 2, 0, 1, 0, 1, 0, 0, 1, 0, 1, 2, 1, 0, 1, 0,
+        1, 1, 1, 0, 1, 2, 1, 2], device='cuda:0') tensor([1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 2, 1, 0, 1, 0,
+        1, 1, 1, 0, 1, 2, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 0, 2, 0, 1, 2, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 2, 1, 0,
+        0, 2, 0, 2, 1, 0, 0, 1], device='cuda:0') tensor([1, 0, 1, 0, 1, 2, 1, 1, 0, 0, 1, 1, 1, 0, 0, 2, 0, 1, 1, 0, 1, 1, 0, 1,
+        0, 1, 0, 1, 0, 0, 0, 0], device='cuda:0')
+
+ 35%|████████████████████████████████████████████████████████████████████████▌                                                                                                                                    | 167/472 [01:44<03:09,  1.61it/s]
+tensor([2, 0, 1, 2, 0, 2, 2, 0, 0, 1, 2, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1,
+        1, 1, 1, 0, 0, 0, 1, 1], device='cuda:0') tensor([2, 0, 1, 2, 0, 2, 2, 0, 0, 0, 2, 1, 1, 0, 0, 1, 1, 0, 1, 2, 1, 1, 0, 1,
+        1, 1, 1, 0, 0, 0, 1, 1], device='cuda:0')
+tensor(0.9375, device='cuda:0')
+tensor([2, 2, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 2, 1, 2, 0, 1, 1, 1, 0, 1, 0,
+        0, 1, 1, 0, 2, 0, 2, 1], device='cuda:0') tensor([1, 2, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 2, 0, 2, 0, 1, 1, 0, 0, 1, 0,
+        0, 1, 1, 0, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([2, 0, 0, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1,
+        1, 1, 2, 0, 0, 1, 1, 1], device='cuda:0') tensor([2, 0, 0, 1, 1, 1, 1, 0, 1, 2, 1, 2, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1,
+        1, 1, 2, 0, 0, 1, 1, 1], device='cuda:0')
+
+ 36%|█████████████████████████████████████████████████████████████████████████▊                                                                                                                                   | 170/472 [01:46<03:17,  1.53it/s]
+tensor([1, 1, 2, 1, 0, 2, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 2, 0, 1, 1,
+        0, 0, 1, 1, 1, 1, 1, 2], device='cuda:0') tensor([1, 1, 2, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 2, 0, 1, 2,
+        0, 0, 1, 1, 1, 1, 1, 2], device='cuda:0')
+tensor(0.9375, device='cuda:0')
+tensor([1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 0, 1, 1, 2, 0, 1, 1, 0, 1, 2, 2, 0,
+        2, 0, 0, 2, 0, 0, 1, 1], device='cuda:0') tensor([1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 2, 0, 1, 1, 2, 0,
+        2, 1, 0, 1, 1, 0, 1, 1], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([0, 1, 1, 0, 1, 1, 1, 2, 0, 1, 0, 2, 2, 1, 1, 0, 2, 1, 0, 2, 1, 0, 1, 1,
+        0, 0, 2, 1, 1, 1, 1, 1], device='cuda:0') tensor([0, 1, 1, 0, 1, 1, 1, 2, 0, 1, 0, 2, 1, 2, 1, 0, 2, 1, 0, 2, 1, 0, 2, 1,
+        0, 0, 2, 1, 1, 1, 1, 1], device='cuda:0')
+
+ 37%|███████████████████████████████████████████████████████████████████████████▏                                                                                                                                 | 173/472 [01:48<03:10,  1.57it/s]
+tensor([0, 1, 1, 0, 2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 1, 0, 1, 2, 1, 1, 0, 0, 0,
+        1, 2, 1, 1, 1, 2, 1, 2], device='cuda:0') tensor([0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0,
+        1, 2, 1, 0, 1, 1, 1, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 2, 0,
+        1, 0, 1, 1, 0, 1, 2, 0], device='cuda:0') tensor([0, 1, 1, 1, 1, 2, 2, 1, 1, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0,
+        1, 0, 2, 1, 0, 1, 2, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([0, 1, 1, 1, 0, 2, 1, 2, 0, 1, 1, 0, 1, 0, 1, 2, 1, 2, 1, 1, 0, 0, 1, 0,
+        0, 0, 0, 0, 1, 1, 1, 0], device='cuda:0') tensor([0, 1, 1, 1, 0, 1, 1, 2, 0, 1, 1, 0, 1, 0, 1, 1, 1, 2, 1, 1, 0, 0, 1, 0,
+        1, 0, 0, 0, 0, 1, 2, 0], device='cuda:0')
+
+ 37%|████████████████████████████████████████████████████████████████████████████▍                                                                                                                                | 176/472 [01:50<03:05,  1.59it/s]
+tensor([2, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 2, 2, 0, 0, 1, 0, 0, 2, 1, 0, 1,
+        0, 0, 0, 0, 1, 1, 0, 1], device='cuda:0') tensor([1, 1, 2, 0, 0, 0, 0, 1, 0, 1, 2, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
+        0, 0, 0, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.7188, device='cuda:0')
+tensor([2, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 2, 1, 2,
+        1, 1, 2, 1, 1, 0, 1, 1], device='cuda:0') tensor([1, 1, 2, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 1,
+        2, 1, 1, 0, 1, 0, 0, 1], device='cuda:0')
+tensor(0.7500, device='cuda:0')
+tensor([1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+        0, 0, 1, 1, 1, 2, 1, 2], device='cuda:0') tensor([1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0,
+        0, 0, 1, 1, 1, 1, 1, 1], device='cuda:0')
+
+ 38%|█████████████████████████████████████████████████████████████████████████████▋                                                                                                                               | 179/472 [01:52<02:55,  1.67it/s]
+tensor([0, 1, 1, 0, 2, 1, 1, 1, 1, 0, 2, 2, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 2, 0,
+        2, 1, 2, 0, 1, 1, 0, 1], device='cuda:0') tensor([1, 1, 1, 0, 2, 1, 1, 1, 1, 0, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 2, 1,
+        2, 1, 2, 1, 1, 1, 0, 1], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 2, 0, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 1, 2, 0, 0, 1, 1, 2,
+        1, 0, 1, 1, 0, 1, 1, 1], device='cuda:0') tensor([0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 2,
+        1, 0, 1, 1, 0, 1, 1, 0], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([2, 1, 1, 0, 0, 1, 0, 1, 2, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1,
+        2, 2, 0, 1, 1, 1, 1, 1], device='cuda:0') tensor([2, 1, 1, 0, 0, 2, 1, 1, 2, 1, 1, 0, 1, 0, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1,
+        1, 2, 0, 1, 1, 1, 1, 1], device='cuda:0')
+
+ 39%|███████████████████████████████████████████████████████████████████████████████▍                                                                                                                             | 183/472 [01:54<02:47,  1.72it/s]
+tensor([2, 0, 1, 0, 2, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 2, 0, 1, 0, 1, 0, 1, 1, 1,
+        1, 0, 0, 1, 0, 1, 1, 1], device='cuda:0') tensor([1, 0, 1, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1,
+        1, 0, 0, 1, 0, 1, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([1, 1, 2, 0, 0, 1, 0, 1, 1, 0, 0, 2, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+        2, 1, 0, 1, 0, 1, 1, 0], device='cuda:0') tensor([1, 1, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 2,
+        1, 1, 0, 1, 1, 1, 1, 1], device='cuda:0')
+tensor(0.7812, device='cuda:0')
+tensor([0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 2,
+        1, 1, 0, 0, 2, 1, 0, 1], device='cuda:0') tensor([1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
+        1, 1, 0, 0, 2, 1, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([2, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0,
+        0, 2, 0, 0, 1, 0, 1, 0], device='cuda:0') tensor([1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0, 1, 0, 0,
+        0, 1, 0, 1, 1, 0, 1, 0], device='cuda:0')
+
+ 39%|████████████████████████████████████████████████████████████████████████████████▊                                                                                                                            | 186/472 [01:56<02:49,  1.69it/s]
+tensor([0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 2, 2, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0,
+        0, 0, 1, 0, 0, 1, 0, 0], device='cuda:0') tensor([1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0, 1, 0, 1, 0, 0, 2, 1, 1, 1, 0,
+        0, 0, 2, 0, 0, 1, 0, 1], device='cuda:0')
+tensor(0.8438, device='cuda:0')
+tensor([1, 1, 0, 2, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 2, 1, 0, 0, 1, 1, 1,
+        1, 0, 1, 0, 1, 1, 0, 1], device='cuda:0') tensor([1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 0, 1, 1, 0, 0, 1, 1, 2,
+        1, 0, 1, 0, 1, 1, 0, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([2, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 0, 1, 0, 0, 2, 1, 0, 1, 0, 1, 1, 1, 1,
+        0, 1, 1, 1, 0, 1, 1, 1], device='cuda:0') tensor([1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 1,
+        0, 1, 1, 1, 0, 1, 2, 1], device='cuda:0')
+
+ 40%|██████████████████████████████████████████████████████████████████████████████████                                                                                                                           | 189/472 [01:58<03:01,  1.56it/s]
+tensor([1, 1, 1, 0, 2, 1, 1, 2, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 2, 0, 0, 1, 1,
+        1, 0, 0, 1, 2, 0, 0, 0], device='cuda:0') tensor([1, 1, 1, 0, 1, 1, 1, 2, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 2, 0, 0, 1, 1,
+        1, 0, 0, 1, 2, 1, 0, 0], device='cuda:0')
+tensor(0.9375, device='cuda:0')
+tensor([0, 1, 2, 1, 1, 0, 1, 1, 0, 0, 2, 0, 0, 1, 1, 0, 1, 1, 2, 2, 0, 0, 1, 0,
+        1, 0, 1, 0, 1, 0, 1, 1], device='cuda:0') tensor([0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 2, 1, 0, 0, 1, 0,
+        1, 0, 1, 0, 1, 0, 1, 1], device='cuda:0')
+tensor(0.8750, device='cuda:0')
+tensor([0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 1, 0, 1, 0, 0, 2, 2, 1, 2, 1, 1,
+        1, 0, 2, 1, 0, 0, 1, 1], device='cuda:0') tensor([1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 2, 2, 1, 1, 1, 1,
+        1, 0, 1, 1, 0, 0, 1, 1], device='cuda:0')
+
+ 41%|███████████████████████████████████████████████████████████████████████████████████▍                                                                                                                         | 192/472 [02:00<02:57,  1.58it/s]
+tensor([0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 2, 1, 0, 2, 1, 1, 1, 0, 1, 1,
+        1, 1, 0, 2, 0, 0, 1, 0], device='cuda:0') tensor([0, 0, 1, 1, 2, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1,
+        1, 1, 0, 2, 0, 0, 1, 0], device='cuda:0')
+tensor(0.9062, device='cuda:0')
+tensor([1, 0, 1, 0, 1, 2, 1, 1, 0, 1, 2, 1, 1, 0, 0, 2, 1, 0, 0, 2, 1, 0, 0, 0,
+        1, 0, 1, 1, 0, 2, 1, 0], device='cuda:0') tensor([2, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 2, 1, 1, 1, 2, 1, 0, 0, 0,
+        1, 0, 1, 2, 0, 2, 1, 0], device='cuda:0')
+tensor(0.8125, device='cuda:0')
+tensor([0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 2, 0, 1, 0, 2, 0,
+        0, 1, 1, 1, 0, 0, 1, 0], device='cuda:0') tensor([0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,
+        0, 1, 1, 1, 0, 0, 1, 0], device='cuda:0')
