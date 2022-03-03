@@ -592,7 +592,7 @@ df
 
 
 
-#### 35.  How to create a dataframe with rows as strides from a given series?
+#### 35. How to create a dataframe with rows as strides from a given series?
 
 ```
 L = pd.Series(range(15))
