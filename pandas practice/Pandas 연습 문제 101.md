@@ -581,7 +581,18 @@ df2 = pd.concat([chunk.iloc[0] for chunk in df])
 
 
 
-#### 35. How to create a dataframe with rows as strides from a given series?
+#### 34. How to change column values when importing csv to a dataframe?
+
+- **Solution**
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv', converters={'medv' : lambda x : 'High' if float(x) > 25 else "Low"})
+df
+```
+
+
+
+#### 35.  How to create a dataframe with rows as strides from a given series?
 
 ```
 L = pd.Series(range(15))
