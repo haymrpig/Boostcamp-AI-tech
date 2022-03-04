@@ -608,3 +608,95 @@ def gen_strides(a, stride_len=5, window_len=5):
 gen_strides(L, stride_len=2, window_len=4)
 ```
 
+
+
+#### 36. How to import only specified columns from a csv file?
+
+- **Solution**
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv', usecols=["crim","medv"] )
+df
+```
+
+
+
+#### 37. How to get the n*rows, n*columns, datatype, summary stats of each column of a dataframe? Also get the array and list equivalent.
+
+- **Solution**
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+df.info()
+```
+
+
+
+#### 38. How to extract the row and column number of a particular cell with given criterion?
+
+- **Solution**
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+df.loc[df.Price == np.max(df.Price), ["Manufacturer", 'Model', 'Type']]
+row, col = np.where(df.values == np.max(df.Price))
+df.iloc[row[0], col[0]]
+```
+
+
+
+#### 39. How to rename a specific columns in a dataframe?
+
+```
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+print(df.columns)
+```
+
+- **Solution1**
+
+```
+df.columns = [column_name.replace('.', '_') for column_name in df.columns]
+```
+
+- **Solution2**
+
+```
+df.columns = df.columns.map(labmda x: x.replace('.', '_'))
+```
+
+
+
+#### 40. How to check if a dataframe has any missing values?
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+```
+
+- **Solution**
+
+```
+df.isnull().values.any()
+```
+
+
+
+#### 41. How to count the number of missing values in each column?
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+```
+
+- **Solution1**
+
+```
+missing = df.apply(lambda x: x.isnull().sum())
+# 출력은 dataframe
+```
+
+- **Solution2**
+
+```
+missing = np.sum(df.isna().values, axis=0)
+```
+
