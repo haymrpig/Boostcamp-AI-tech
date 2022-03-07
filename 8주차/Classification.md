@@ -5,7 +5,7 @@
 - [**데이터와 샘플링된 데이터 간극 줄이기**](#2-데이터와-샘플링된-데이터-간극-줄이기)
   - CNN
   - data augmentation
-- [**전이학습**](#3-전이학습)
+- [**전이학습**](#3-전이-학습)
   - transfer learning
   - fine tuning
   - knowledge distillation
@@ -17,7 +17,7 @@
 
 `rendering` : 정보를 통해 2D 이미지를 만들어내는 것
 
-![image-20220308000248626](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220308000248626.png)
+![image](https://user-images.githubusercontent.com/71866756/157070140-fc273105-4806-4194-81fc-7bc07c6d2d7f.png)
 
 
 
@@ -77,13 +77,13 @@
 
     teacher model과 비슷하도록 학습
 
-    ![image-20220308003016690](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220308003016690.png)
+    ![image](https://user-images.githubusercontent.com/71866756/157070181-ad68f361-c776-44aa-ad57-2b5cdf85d6b8.png)
 
   - **Label이 존재하는 경우 (supervised learning)**
 
     teacher model과의 loss와 ground truth와의 loss 모두를 이용하여 학습
 
-    ![image-20220308003040742](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220308003040742.png) 
+    ![image](https://user-images.githubusercontent.com/71866756/157070216-dd1ee657-edc9-4fdc-b291-3144c8a5a0ca.png) 
 
     - **Distillation loss**
 
@@ -93,18 +93,14 @@
 
       CrossEntropy (hard label, soft prediction에서 사용)
 
-    - **normal softmax (T=1)**
-      $$
-      \frac {exp(z_i)}{\sum_j exp(z_j)}
-      $$
+    - **normal softmax (T=1)**  
+      ![image](https://user-images.githubusercontent.com/71866756/157070349-b72018d1-9248-4b24-9f5a-32fd3016c0bf.png)  
       기존 softmax의 경우에는 확률의 차이를 극대화한다. 
 
       ex) softmax(5, 10) = (0.0067, 0.9933)
 
-    - **softmax with temperature (T=t)**
-      $$
-      \frac {exp(z_i/t)}{\sum_j exp(z_j/t)}
-      $$
+    - **softmax with temperature (T=t)**  
+      ![image](https://user-images.githubusercontent.com/71866756/157070440-39e1bb25-8969-4f9d-aadb-b91567a92bc4.png)  
       차이를 좀 더 부드럽게 만들어준다. 
 
       ex) softmax(5, 10) = (0.4875, 0.5125)
@@ -125,6 +121,6 @@
 
     (student 모델은 계속 커져야 한다.)
 
-    ![image-20220308003913399](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220308003913399.png)
+    ![image](https://user-images.githubusercontent.com/71866756/157070256-1ee605bc-a929-4821-8d72-935999248cbd.png)
 
 ​	
