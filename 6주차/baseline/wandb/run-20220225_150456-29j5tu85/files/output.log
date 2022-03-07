@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "test.py", line 70, in <module>
-    main(config)
-  File "test.py", line 56, in main
-    avg_loss, answer = trainer.test()
-  File "/opt/ml/baseline/trainer/trainer.py", line 126, in test
-    imgs, labels = imgs.to(self.device), labels.to(self.device)
