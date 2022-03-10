@@ -106,7 +106,7 @@
 
     즉, 마지막 score가 나오기 위해서 마지막 GAP을 거친 feature들에 weight가 곱해진다. 
 
-    ![image-20220310150245537](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220310150245537.png)
+    ![image](https://user-images.githubusercontent.com/71866756/157659593-5f626e56-f00e-476f-9336-6f14a7cc4275.png)
 
     위 수식과 같이 sum_(x,y)가 GAP를 의미하므로, GAP를 거쳐 공간 정보를 잃기 전의 값들에 weight를 곱한 것이 heatmap 형태로 표현하면 CAM이 된다. 
 
