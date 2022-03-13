@@ -40,14 +40,16 @@ Semantic Segmentation의 주요 모델들을 알아보자.
 
     - **Interpolation + convolution**
 
-      먼저 학습 파라미터가 아닌 Nearest-neighbor 또는 Bilinear를 통해 interpolation을 진행하고, 학습 파라미터 convolution을 취하는 방법
+      `NN-resize convolution`, `Bilinear-resize convolution`
 
+      먼저 학습 파라미터가 아닌 Nearest-neighbor 또는 Bilinear를 통해 interpolation을 진행하고, 학습 파라미터 convolution을 취하는 방법
+      
       (overlap되는 문제를 해결할 수 있다. )
 
   - **Skip connection**
 
     낮은 해상도의 feature map을 upsampling한다고 해서 정보를 복원하는 것은 매우 어렵다. 
-
+  
     또한 segmentation은 low level feature와 high level feature 둘 모두를 필요로 하기 때문에 skip connection을 추가한다. 
 
 #### 1-2. U-Net

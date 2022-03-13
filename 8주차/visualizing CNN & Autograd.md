@@ -1,9 +1,9 @@
 # 목차
 
-- **Visualizing CNN**
-- **Analysis of model behaviors**
-- **Model decision explanations**
-- **Autograd**
+- Visualizing CNN
+- Analysis of model behaviors
+- Model decision explanations
+- Autograd
 
 # 1. Visualizing CNN
 
@@ -14,8 +14,6 @@
 
 
 # 2. Analysis of model behaviors
-
-![image-20220311143710040](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220311143710040.png)
 
 - **High level feature에서 쓸만한 방법들**
 
@@ -131,9 +129,6 @@
     >
     > 이 둘을 합치면 경계가 뚜렷하며, 해당 클래스를 정확하게 집어내는 결과를  볼 수 있다. 
 
-  - **Scouter**
-  
-  - **GAN dssection**
 
 
 
