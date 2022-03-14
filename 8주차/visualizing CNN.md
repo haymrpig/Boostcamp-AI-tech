@@ -131,13 +131,9 @@
     >
     > 이 둘을 합치면 경계가 뚜렷하며, 해당 클래스를 정확하게 집어내는 결과를  볼 수 있다. 
 
-  - **Scouter**
-  
-  - **GAN dissection**
 
 
-
-# 4. Autograd
+# 1. Autograd
 
 - `computational graph`를 통해 forward 연산들을 기록하고 있다가, back propagation 때, 이 graph를 통해서 미분 연산 진행 (chain rule을 통해) 
 

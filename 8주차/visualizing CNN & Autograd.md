@@ -13,7 +13,9 @@
 
 
 
-# 2. Analysis of model behaviors
+# 2. Analysis of model behaviors  
+![image](https://user-images.githubusercontent.com/71866756/158170533-597e2eac-91e4-49e3-8081-4d2f9ee4a6f8.png)  
+
 
 - **High level feature에서 쓸만한 방법들**
 
