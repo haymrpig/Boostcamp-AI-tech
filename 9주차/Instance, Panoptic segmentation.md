@@ -18,7 +18,7 @@
 
 #### 1-1. Mask R-CNN
 
-![image-20220314200500058](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220314200500058.png)
+![image](https://user-images.githubusercontent.com/71866756/158171092-0e28c55f-2ff7-4595-877a-ca8cd5133a6d.png)
 
 - **Mask R-CNN은 대표적인 Instance Segmentation network 중 하나**
 - **R-CNN 계열은 모두 2 stage detector**
@@ -49,7 +49,7 @@
 
 #### 1-3. YolactEdge
 
-![image-20220314200950966](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220314200950966.png)
+![image](https://user-images.githubusercontent.com/71866756/158171133-30a40570-1be6-4f4c-a993-8646c247b8c7.png)
 
 - **YOLOACT보다 소형화된 버전 (영상 이미지에서 활용 가능)**
 - **이전 frame의 정보를 현재 frame에 적용하여 계산량 감소 (빨간 박스 부분)**
@@ -80,7 +80,7 @@
 
 #### 2-2. VPSNet (영상 이미지를 위한 network)
 
-![image-20220314205428875](../../../../AppData/Roaming/Typora/typora-user-images/image-20220314205428875.png)
+![image](https://user-images.githubusercontent.com/71866756/158171200-34e9c05e-bdb2-498a-a4b1-e78c890832e8.png)
 
 - `Motion map` : 이전 frame과 현재 frame에서의 같은 지점의 pixel의 움직임을 나타내는 map
 
@@ -104,7 +104,7 @@
 
 - **Coordinate regression v.s Heatmap classification**
 
-  ![image-20220314210043517](../../../../AppData/Roaming/Typora/typora-user-images/image-20220314210043517.png)
+  ![image](https://user-images.githubusercontent.com/71866756/158171220-ca249bc2-9025-49e1-b9a1-b10e69f402b6.png)
 
   | 종류                        | 계산량           | 정확도           | 편향성 |
   | --------------------------- | ---------------- | ---------------- | ------ |
@@ -115,7 +115,7 @@
 
 여러개의 UNet과 비슷한 구조들을 여러개 쌓은 것과 같은 구조가 특징이다. 
 
-![image-20220314210406604](../../../../AppData/Roaming/Typora/typora-user-images/image-20220314210406604.png)
+![image](https://user-images.githubusercontent.com/71866756/158171254-65553248-89d8-48d4-b3e0-ab6b2d902645.png)
 
 - **bottleneck 구조로 receptive field를 넓힐 수 있다.** 
 - **skip connection을 통해 low level feature까지 사용이 가능하여 정확도를 높일 수 있다.** 
@@ -127,7 +127,7 @@
 
 UV map 표현법으로 3D를 표현한다. 
 
-![image-20220314210725129](../../../../AppData/Roaming/Typora/typora-user-images/image-20220314210725129.png)
+![image](https://user-images.githubusercontent.com/71866756/158171276-5562007d-679d-4181-ad7d-9f29cd9df1b2.png)
 
 - **DensePose R-CNN = Faster R-CNN + 3D surface regression branch**
 
@@ -139,7 +139,7 @@ UV map 표현법으로 3D를 표현한다.
 
 하나의 task가 아닌 multi task를 수행
 
-![image-20220314211202521](../../../../AppData/Roaming/Typora/typora-user-images/image-20220314211202521.png)
+![image](https://user-images.githubusercontent.com/71866756/158171284-a00d1ae4-f747-4cf9-a610-79b038cded21.png)
 
 - **RetinaFace = FPN + Multi-task branches**
   - classification
