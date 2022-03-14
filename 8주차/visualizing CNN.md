@@ -133,11 +133,11 @@
 
   - **Scouter**
   
-  - **GAN dssection**
+  - **GAN dissection**
 
 
 
-# 1. Autograd
+# 4. Autograd
 
 - `computational graph`를 통해 forward 연산들을 기록하고 있다가, back propagation 때, 이 graph를 통해서 미분 연산 진행 (chain rule을 통해) 
 
