@@ -15,7 +15,7 @@
 
 # 2. Analysis of model behaviors
 
-![image-20220311143710040](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220311143710040.png)
+![image](https://user-images.githubusercontent.com/71866756/158170193-48b3db11-53be-43c1-8503-97a7b34d2cce.png)
 
 - **High level feature에서 쓸만한 방법들**
 
