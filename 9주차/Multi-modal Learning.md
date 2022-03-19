@@ -2,7 +2,7 @@
 
 - [**Multi-modal learning이란**](#1-multi-modal-learning이란)
 - [**Multi-modal learning tasks(Image&text)**](#2-multi-modal-learning-tasks-image-text)
-- [**Multi-modal learning tasks(Audio&Image)**](#3-multi-modal-learning-tasks)
+- [**Multi-modal learning tasks(Audio&Image)**](#3-multi-modal-learning-tasks-)
 
 # 1. Multi-modal learning이란
 
@@ -142,7 +142,7 @@ Generative model을 이용하여, text가 주어지면 image를 생성하는 것
 
 
 
-# 3. Multi-modal learning tasks
+# 3. Multi-modal learning tasks(
 
 먼저 audio 데이터가 embedding되는 방식을 알아보자. 
 
