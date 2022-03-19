@@ -31,7 +31,7 @@
 
 `super resolution` : 저해상도 이미지 -> 고해상도 이미지를 생성해내는 것
 
-![image-20220315110435952](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220315110435952.png)
+![image](https://user-images.githubusercontent.com/71866756/159019103-cd837349-1302-4104-b211-2bce7e03d51c.png)
 
 #### 2-1. Naive Regression Model
 
@@ -39,7 +39,7 @@ MAE, MSE loss를 이용한 모델의 경우, output이 만족스러울 만큼 sh
 
 그 이유는 아래 그림으로 설명 가능하다. 
 
-![image-20220315120835954](../../../../AppData/Roaming/Typora/typora-user-images/image-20220315120835954.png)
+![image](https://user-images.githubusercontent.com/71866756/159019116-7e1ff5e3-a927-4230-a792-522564374f02.png)
 
 빨간 box들로 이루어진 plane을 대상 이미지의 manifold라고 생각해보자. 
 
@@ -67,11 +67,11 @@ naive regression model과 달리, discriminator는 실제 이미지와 가짜를
 
 `pix2pix` : input 이미지를 다른 domain상의 이미지로 변환하는 모델을 의미한다. 
 
-![image-20220315121343262](../../../../AppData/Roaming/Typora/typora-user-images/image-20220315121343262.png)
+![image](https://user-images.githubusercontent.com/71866756/159019139-d91e856a-47ae-40c2-8877-1cdad2edda6b.png)
 
 - **Loss Function**
 
-  ![image-20220315121806681](../../../../AppData/Roaming/Typora/typora-user-images/image-20220315121806681.png)
+  ![image](https://user-images.githubusercontent.com/71866756/159019166-7abf39d1-5ddf-41b9-adc8-298d251e0adc.png)
 
   - **GAN loss**
 
@@ -87,7 +87,7 @@ naive regression model과 달리, discriminator는 실제 이미지와 가짜를
 
 - **Loss Fucntion**
 
-  ![image-20220315135045353](../../../../AppData/Roaming/Typora/typora-user-images/image-20220315135045353.png)
+  ![image](https://user-images.githubusercontent.com/71866756/159019199-2ffac15c-02b4-492a-ba4b-5ab443590a74.png)
 
   - **GAN Loss** : 이미지를 A->B, B->A domain으로 바꾸도록 만드는 loss
 
@@ -112,7 +112,7 @@ GAN없이 고해상도 이미지를 얻을 수 있는 방법은 `perceptual loss
 
 - **구조**
 
-  ![image-20220315145140087](../../../../AppData/Roaming/Typora/typora-user-images/image-20220315145140087.png)
+  ![image](https://user-images.githubusercontent.com/71866756/159019221-b24b9461-261b-4b07-b899-d348b76e4ff4.png)
 
   - Image Transform Net은 training동안 고정된다. 
 
