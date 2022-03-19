@@ -142,7 +142,7 @@ Generative model을 이용하여, text가 주어지면 image를 생성하는 것
 
 
 
-# 3. Multi-modal learning tasks about audio and images
+# 3. Multi-modal learning tasks&
 
 먼저 audio 데이터가 embedding되는 방식을 알아보자. 
 
