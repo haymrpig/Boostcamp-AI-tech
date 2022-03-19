@@ -58,7 +58,7 @@ Visual data와 text data를 **Matching 방식을 통해 학습**하는 것을 `J
 
 단어가 주어졌을 때, dense vector로 embedding한다.
 
-![image-20220320001334369](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320001334369.png)
+![image](https://user-images.githubusercontent.com/71866756/159129296-8b7c895a-551b-44de-b163-b17796cb6897.png)
 
 위 그림에서 볼 수 있듯이, embedding 결과를 2차원으로 시각화 했을 때, 뛰어난 일반화 능력을 가진 것을 볼 수 있다. 
 
@@ -68,11 +68,11 @@ Visual data와 text data를 **Matching 방식을 통해 학습**하는 것을 `J
 
 **Skip-gram model**은 중심 단어를 통해 주변단어를 예측하는 모델이다. 
 
-![image-20220320001845693](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320001845693.png)
+![image](https://user-images.githubusercontent.com/71866756/159129300-f44adbe3-45d0-4c00-ae3d-27e871119e67.png)
 
 하나의 단어와 주변 단어들의 관계 파악을 목적으로 하며 아래 그림처럼 나타낼 수 있다. 
 
-![image-20220320002025830](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320002025830.png)
+![image](https://user-images.githubusercontent.com/71866756/159129304-c8ad4bac-ef0e-4eeb-8ab1-ed4cd8677bac.png)
 
 
 
@@ -86,7 +86,7 @@ Visual data와 text data를 **Matching 방식을 통해 학습**하는 것을 `J
 >
 > 또는 tag가 주어지면 해당 tag와 가장 잘 어울리는 이미지를 추천하는 것!
 
-![image-20220320002543921](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320002543921.png)
+![image](https://user-images.githubusercontent.com/71866756/159129308-cce8cefa-f261-44a8-b253-c88076348edd.png)
 
 위 그림에서처럼 text와 image를 고정된 feature vector로 만드는 것을 시작으로, 두 데이터를 같은 space를 공유하도록 한다. 
 
@@ -118,7 +118,7 @@ Step2. 그 결과가 RNN을 통과하여 text출력 (decoder)
 
 관련 정보는 **Show, attend and tell** 논문에서 확인할 수 있다. 
 
-![img](https://miro.medium.com/max/720/0*bbvw5z9V83UmGnsS.jpg)
+![image](https://user-images.githubusercontent.com/71866756/159129316-fc797214-d1fc-4523-8925-79a49e6c676f.png)
 
 이 그림이 **Show, attend and tell**을 설명해주는 대략적인 그림이다. 
 
@@ -138,7 +138,7 @@ Generative model을 이용하여, text가 주어지면 image를 생성하는 것
 
 아래 그림처럼, Image Stream과 Question Stream이 존재한다. 
 
-![image-20220320003850821](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320003850821.png)
+![image](https://user-images.githubusercontent.com/71866756/159129330-e8445d41-3f9e-46e2-9fda-17a1d31e920a.png)
 
 
 
