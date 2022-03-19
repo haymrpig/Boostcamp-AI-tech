@@ -8,7 +8,7 @@
 
 3D data를 표현하는 방법에는 여러가지가 있다. 
 
-![image-20220320005559005](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320005559005.png)
+![image](https://user-images.githubusercontent.com/71866756/159128961-626f157a-0829-413e-8145-1aa606c32375.png)
 
 - **Multi-view images**
 
@@ -76,6 +76,6 @@
 
     2D를 3D로 바꾸는데, 다양하게 표현 가능 (Voxels, Meshes 등등)
 
-    ![image-20220320010433533](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220320010433533.png)
+    ![image](https://user-images.githubusercontent.com/71866756/159128967-28de53af-262e-4aaf-bf7e-0e173c1fb053.png)
 
     
