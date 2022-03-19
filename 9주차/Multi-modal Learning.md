@@ -1,7 +1,7 @@
 # 목차
 
 - [**Multi-modal learning이란**](#1-multi-modal-learning이란)
-- [**Multi-modal learning tasks(Image&text)**](#2-multimodal-learning-tasksimagetext)
+- [**Multi-modal learning tasks(Image&text)**](#2-multi-modal-learning-tasks-image-text-)
 - [**Multi-modal learning tasks (Audio&Image)**](#3-multi-modal-learning-tasks-(audio&image))
 
 # 1. Multi-modal learning이란
