@@ -48,7 +48,7 @@
 
   동일한 modality를 입력과 출력으로 할 때, 다른 modality를 참고하는 것
 
-# 2. Multi-modal learning tasks(Image&text)
+# 2. Multi-modal learning tasks/Image-text
 
 #### 2-1. Matching방식 소개
 
