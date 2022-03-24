@@ -1,8 +1,8 @@
 # 목차
 
 - [**Multi-modal learning이란**](#1-multi-modal-learning이란)
-- [**Multi-modal learning tasks(Image&text)**](#2-multi-modal-learning-tasks-image-text-)
-- [**Multi-modal learning tasks (Audio&Image)**](#3-multi-modal-learning-tasks-audio-image-)
+- [**Multi-modal learning tasks(Image&text)**](#2-multi-modal-learning-tasks-image-text)
+- [**Multi-modal learning tasks(Audio&Image)**](#3-multi-modal-learning-tasks-audio-image)
 
 # 1. Multi-modal learning이란
 
@@ -48,7 +48,7 @@
 
   동일한 modality를 입력과 출력으로 할 때, 다른 modality를 참고하는 것
 
-# 2. Multi-modal learning tasks(Image&text)
+# 2. Multi-modal learning tasks Image-text
 
 #### 2-1. Matching방식 소개
 
@@ -142,7 +142,7 @@ Generative model을 이용하여, text가 주어지면 image를 생성하는 것
 
 
 
-# 3. Multi-modal learning tasks(Audio&Image)
+# 3. Multi-modal learning tasks Audio-Image
 
 먼저 audio 데이터가 embedding되는 방식을 알아보자. 
 
