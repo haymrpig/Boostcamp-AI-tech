@@ -6,6 +6,10 @@
 
 #### 1. 다음 표를 생성하라
 
+
+
+
+
 ![image](https://user-images.githubusercontent.com/71866756/151500261-726fbb79-906a-45f4-8a2a-77b86befd24f.png)
 
 ```python
@@ -86,8 +90,9 @@ ser2 = pd.Series(np.arange(26))
 
 - **Solution1**
 
-```
+```python
 df = pd.concat([ser1, ser2], axis=1)
+# concat은 series끼리도 가능하다.
 df
 ```
 
@@ -698,5 +703,493 @@ missing = df.apply(lambda x: x.isnull().sum())
 
 ```
 missing = np.sum(df.isna().values, axis=0)
+```
+
+
+
+#### 42. How to replace missing values of multiple numeric columns with the mean?
+
+```
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+```
+
+- **Solution**
+
+```python
+df_out = df.apply(lambda x:x.fillna(x.mean()) if x.dtypes=='float64' else x)
+# lambda에서 x로 받아오는 것은 칼럼 그 자체인 것 같다. 전체 칼럼에 대해서 병렬적으로 수행하는 느낌?
+# df_out[np.array(df.columns)[list(df_out.dtypes=='float64')]].isna().sum()
+# 제대로 됐는지 확인하는 코드
+```
+
+#### 43. How to use apply function on existing columns with global variables as additional arguments?
+
+```
+```
+
+- **Solution**
+
+```python
+d = {'Min.Price': np.nanmean, 'Max.Price': np.nanmedian}
+# np.nanmean은 NaN 값을 제외하고 나머지 값들의 평균을 계산
+# np.nanmedian은 NaN 값을 제외하고 나머지 값들의 중앙값을 계산
+
+df[['Min.Price', 'Max.Price']] = df[['Min.Price', 'Max.Price']].apply(lambda x, d: x.fillna(d[x.name](x)), args=(d, ))
+# 여기서 전역변수인 d를 추가적인 argument로 넣어주기 위해서 args=(d,)를 추가한다.
+# x.name은 칼럼의 이름을 가르킨다. 
+```
+
+
+
+#### 44. How to select a specific column from a dataframe as a dataframe instead of a series?
+
+```python
+df = pd.DataFrame(np.arange(20).reshape(-1, 5), columns=list('abcde'))
+```
+
+- **Solution**
+
+```python
+df[['a']]
+# 안에 중괄호를 넣어주면 df로 반환하지만, 중괄호를 빼면 series로 반환한다.
+```
+
+#### 45. How to change the order of columns of a dataframe?
+
+```python
+df = pd.DataFrame(np.arange(20).reshape(-1, 5), columns=list('abcde'))
+```
+
+- **Solution**
+
+```python
+df[sorted(df.columns)[::-1]]
+# 이렇게 하면 edcba순으로 칼럼이 뒤바뀐다.
+# 단순히 칼럼명이 바뀌는 것이 아닌 값들도 순서가 바뀐다. 
+```
+
+#### 46. How to set the number of rows and columns displayed in the output?
+
+```python
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+```
+
+- Solution
+
+```python
+pd.set_option('display.max_columns', 10)
+pd.set_option('display.max_rows', 10)
+# pd의 set_option 메소드를 통해 원하는 개수만큼의 columns와 rows를 출력할 수 있다. 
+```
+
+#### 47. How to format or suppress scientific notations in a pandas dataframe?
+
+```python
+df = pd.DataFrame(np.random.random(4)**10, columns=['random'])
+```
+
+- **Solution1**
+
+```python
+df['random']=df['random'].apply(lambda x: f'{x:.4f}')
+```
+
+- **Solution2**
+
+```python
+df.round(4)
+# df.round({'random':2}) 
+# random이라는 컬럼을 소수점 2개를 남기고 round하겠다. 
+```
+
+#### 48. How to format all the values in a dataframe as percentages?
+
+```python
+df = pd.DataFrame(np.random.random(4), columns=['random'])
+```
+
+- **Solution**
+
+```python
+df['random'].apply(lambda x:f'{x*100:.2f}%')
+```
+
+#### 49. How to filter every nth row in a dataframe?
+
+```python
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+```
+
+- **Solution**
+
+```python
+df.iloc[[x for x in range(0, len(df), 20)]][['Manufacturer', 'Model', 'Type']]
+```
+
+#### 50. How to create a primary key index by combining relevant columns?
+
+```python
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv', usecols=[0,1,2,3,5])
+```
+
+- **Solution**
+
+```python
+df[['Manufacturer', 'Model', 'Type']] = df[['Manufacturer', 'Model', 'Type']].apply(lambda x:x.fillna('missing'))
+df.index = df['Manufacturer']+'_'+df['Model']+'_'+df['Type']
+print(df.index.is_unique)
+```
+
+#### 51. How to get the row number of the nth largest value in a column?
+
+```python
+df = pd.DataFrame(np.random.randint(1, 30, 30).reshape(10,-1), columns=list('abc'))
+```
+
+- **Solution**
+
+```python
+n=5
+df['a'].argsort()[::-1][n]
+```
+
+#### 52. How to find the position of the nth largest value greater than a given value?
+
+```python
+ser = pd.Series(np.random.randint(1, 100, 15))
+```
+
+- **Solution**
+
+```python
+n = 2
+ser[ser>ser.mean()].sort_values()[::-1][n]
+```
+
+#### 53. How to get the last n rows of a dataframe with row sum > 100?
+
+```python
+df = pd.DataFrame(np.random.randint(10, 40, 60).reshape(-1, 4))
+```
+
+- **Solution**
+
+```python
+df[df.sum(axis=1)>100][-n:]
+```
+
+#### 54. How to find and cap outliers from a series or dataframe column?
+
+```python
+ser = pd.Series(np.logspace(-2, 2, 30))
+```
+
+- **Solution**
+
+```python
+Q1 = np.percentile(ser.values, 5)
+Q3 = np.percentile(ser.values, 95)
+ser[(ser<Q1)]= Q1
+ser[ser>Q3] = Q3
+```
+
+#### 56. How to swap two rows of a dataframe?
+
+```python
+df = pd.DataFrame(np.arange(25).reshape(5, -1))
+```
+
+- **Solution**
+
+```python
+temp = df.iloc[0].copy()
+df.iloc[0] = df.iloc[1]
+df.iloc[1] = temp
+```
+
+#### 57. How to reverse the rows of a dataframe?
+
+```python
+df = pd.DataFrame(np.arange(25).reshape(5, -1))
+```
+
+- **Solution**
+
+```python
+df.iloc[::-1, :]
+```
+
+#### 58. How to create one-hot encodings of a categorical variable (dummy variables)?
+
+```python
+df = pd.DataFrame(np.arange(25).reshape(5,-1), columns=list('abcde'))
+```
+
+- **Solution**
+
+```python
+df_onehot = pd.concat([pd.get_dummies(df['a']), df[list('bcde')]], axis=1)
+# 이렇게 하면 column명이 a의 값이 된다. 
+
+pd.get_dummies(df, columns=['a'], prefix='a')
+# 이렇게 하면 column명이 a_1, a_2이런식으로 된다. 
+```
+
+#### 59. Which column contains the highest number of row-wise maximum values?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 40).reshape(10, -1))
+```
+
+- **Solution**
+
+```python
+df.apply(np.argmax, axis=1).value_counts().index[0]
+# apply에 np.argmax, axis=1을 넣어서 각 row의 가장 큰 값의 column을 따오고, 
+# value_counts를 통해 각 column의 개수를 센다.
+# 이 때, 내림차순 정렬되므로, index의 0번째가 큰 값이 가장 많은 column이다. 
+```
+
+#### 61. How to know the maximum possible correlation value of each column against other columns?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 80).reshape(8, -1), columns=list('pqrstuvwxy'), index=list('abcdefgh'))
+```
+
+- **Solution**
+
+```python
+np.round(np.abs(df.corr()).apply(lambda x: sorted(x)[-2]).tolist(), 2)
+# corr은 column끼리의 상관계수를 구함
+# np.abs를 통해 절대값을 구함
+# column별로 sort하고, 최대는 자기자신인 1이므로 1바로 앞의 숫자를 가져와서 list만듬
+# 소수점 셋째자리에서 반올림
+```
+
+#### 62. How to create a column containing the minimum by maximum of each row?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 80).reshape(8, -1))
+```
+
+- **Solution**
+
+```python
+df.apply(lambda x:np.min(x)/np.max(x), axis=1)
+# apply에 axis를 추가하면 행 단위 연산도 가능하다. 
+```
+
+#### 63. How to create a column that contains the penultimate value in each row?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 80).reshape(8, -1))
+```
+
+- **Solution**
+
+```python
+out = df.apply(lambda x: x.sort_values().unique()[-2], axis=1)
+# 여기서 unique()나 to_list()를 써야 각 row마다 정렬된 값이 나온다. 
+df['penultimate'] = out
+df
+```
+
+#### 64. How to normalize all columns in a dataframe?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 80).reshape(8, -1))
+```
+
+- **Solution**
+
+```python
+out = df.apply(lambda x : (x-np.mean(x))/np.std(x))
+out = df.apply(lambda x : ((x.max()-x)/(x.max()-x.min())))
+out
+```
+
+#### 65. How to compute the correlation of each row with the suceeding row?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 80).reshape(8, -1))
+```
+
+- **Solution**
+
+```python
+[df.iloc[i].corr(df.iloc[i+1]).round(2) for i in range(df.shape[0])[:-1]]
+```
+
+#### 66. How to replace both the diagonals of dataframe with 0?
+
+```python
+df = pd.DataFrame(np.random.randint(1,100, 100).reshape(10, -1))
+```
+
+- **Solution**
+
+```python
+for i in range(df.shape[0]):
+    df.iloc[i, i] = 0
+df
+```
+
+#### 67. How to get the particular group of a groupby dataframe by key?
+
+```python
+df = pd.DataFrame({'col1': ['apple', 'banana', 'orange'] * 3,
+                   'col2': np.random.rand(9),
+                   'col3': np.random.randint(0, 15, 9)})
+
+df_grouped = df.groupby(['col1'])
+```
+
+- **Solution1**
+
+```python
+for i, diff in df_grouped:
+    if i=='apple':
+        print(diff)
+```
+
+- **Solution2**
+
+```pytho
+df_grouped.get_group('apple')
+```
+
+#### 68. How to get the n’th largest value of a column when grouped by another column?
+
+```python
+df = pd.DataFrame({'fruit': ['apple', 'banana', 'orange'] * 3,
+                   'rating': np.random.rand(9),
+                   'price': np.random.randint(0, 15, 9)})
+```
+
+- Solution
+
+```python
+df.groupby(['fruit'])['taste'].get_group('banana').sort_values().iloc[-2]
+# get group해서 banana그룹을 가져온다. 
+# 이때 value는 taste이고 series형태로 가져온다.
+# series역시 dataframe과 마찬가지로 iloc으로 접근가능
+```
+
+#### 69. How to compute grouped mean on pandas dataframe and keep the grouped column as another column (not index)?
+
+```python
+df = pd.DataFrame({'fruit': ['apple', 'banana', 'orange'] * 3,
+                   'rating': np.random.rand(9),
+                   'price': np.random.randint(0, 15, 9)})
+```
+
+- **Solution**
+
+```python
+df.groupby(['fruit'])['price'].mean().reset_index()
+# reset_index를 통해 원래는 index였던 fruit이 칼럼으로 들어가게 된다. 
+```
+
+#### 70. How to join two dataframes by 2 columns so they have only the common rows?
+
+```python
+df1 = pd.DataFrame({'fruit': ['apple', 'banana', 'orange'] * 3,
+                    'weight': ['high', 'medium', 'low'] * 3,
+                    'price': np.random.randint(0, 15, 9)})
+
+df2 = pd.DataFrame({'pazham': ['apple', 'orange', 'pine'] * 2,
+                    'kilo': ['high', 'low'] * 3,
+                    'price': np.random.randint(0, 15, 6)})
+```
+
+- **Solution**
+
+```python
+pd.concat([df1, df2], axis=1, join='inner')
+```
+
+#### 71. How to remove rows from a dataframe that are present in another dataframe?
+
+```python
+df1 = pd.DataFrame({'fruit': ['apple', 'banana', 'orange'] * 3,
+                    'weight': ['high', 'medium', 'low'] * 3,
+                    'price': np.random.randint(0, 15, 9)})
+
+df2 = pd.DataFrame({'pazham': ['apple', 'orange', 'pine'] * 2,
+                    'kilo': ['high', 'low'] * 3,
+                    'price': np.random.randint(0, 15, 6)})
+```
+
+- **Solution**
+
+```python
+df1[~df1.isin(df2).all(1)]
+# all에서 1은 axis를 가르키고, df1의 한 로우가 모두 df2에 있다면 선택하지 않는다. 
+```
+
+#### 72. How to get the positions where values of two columns match?
+
+```python
+df = pd.DataFrame({'fruit1': np.random.choice(['apple', 'orange', 'banana'], 10),
+                    'fruit2': np.random.choice(['apple', 'orange', 'banana'], 10)})
+```
+
+- **Solution**
+
+```python
+np.where(df['fruit1']==df['fruit2'])
+```
+
+#### 73. How to create lags and leads of a column in a dataframe?
+
+```python
+df = pd.DataFrame(np.random.randint(1, 100, 20).reshape(-1, 4), columns = list('abcd'))
+```
+
+- **Solution**
+
+```python
+df['a_lag1'] = [np.nan] + [lag for lag in df['a'][:-1]]
+df['b_lead1'] = [lead for lead in df['b'][1:]] + [np.nan]
+# 휴리스틱한 방법
+
+df['a_lag1'] = df['a'].shift(1)
+df['b_lead1'] = df['b'].shift(-1)
+```
+
+#### 74. How to get the frequency of unique values in the entire dataframe?
+
+```python
+df = pd.DataFrame(np.random.randint(1, 10, 20).reshape(-1, 4), columns = list('abcd'))
+```
+
+- **Solution**
+
+```python
+pd.value_counts(df.values.reshape(-1))
+# 안에 value는 numpy이고, value_counts는 pandas메소드이기 때문에
+# 뒤에 .value_counts는 안된다. 
+```
+
+#### 75. How to split a text column into two separate columns?
+
+```python
+df = pd.DataFrame(["STD, City    State",
+"33, Kolkata    West Bengal",
+"44, Chennai    Tamil Nadu",
+"40, Hyderabad    Telengana",
+"80, Bangalore    Karnataka"], columns=['row'])
+```
+
+- **Solution**
+
+```python
+df_out = df.row.str.split(',|    ', expand=True)
+# 처음에 row 칼럼을 split하기 위해서는 .str을 붙여줘야 한다.
+# 그리고 expand=True로 놓는다. 
+new_header = df_out.iloc[0]
+df_out = df_out[1:]
+df_out.columns = new_header
+df_out
 ```
 
